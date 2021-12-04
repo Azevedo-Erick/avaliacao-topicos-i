@@ -18,20 +18,20 @@
 					<div class="input-login-container">
 					<!-- <i class="fal fa-envelope-open"></i> -->
 						<i class="fa fa-envelope icon"></i>
-						<h:inputText a:placeholder="Email" value="#{controller.usuario.email}"></h:inputText>
+						<h:inputText a:placeholder="Email" value="#{loginController.usuario.email}"></h:inputText>
 					</div>
 					<div class="input-login-container">
 					<!-- <i class="fal fa-envelope-open"></i> -->
 						<i class="fa fa-envelope icon"></i>
-						<h:inputText a:placeholder="CPF" value="#{controller.usuario.cpf}"></h:inputText>
+						<h:inputText a:placeholder="CPF" value="#{loginController.usuario.cpf}"></h:inputText>
 					</div>
 					<div class="input-login-container">
 					<!-- <i class="fal fa-lock-open"></i>  -->
 						<i class="fa fa-lock icon" ></i>
 						<h:inputSecret a:placeholder="Senha" value="#{controller.usuario.senha}"></h:inputSecret>
 					</div>
-					<div class="buttons-container"><h:commandButton value="Login" actionListener="#{controller.login()}"></h:commandButton>
-					<h:commandButton value="Cadastro" actionListener="#{controller.insertUser()}"></h:commandButton></div>
+					<div class="buttons-container"><h:commandButton value="Login" actionListener="#{loginController.login()}"></h:commandButton>
+					<h:commandButton value="Cadastro" actionListener="#{loginController.insertUser()}"></h:commandButton></div>
 				</h:form>
 			</div>
 		</ui:define>
