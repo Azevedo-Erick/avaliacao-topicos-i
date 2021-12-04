@@ -1,0 +1,55 @@
+.login-container{
+	display: flex;
+	flex-direction: column;
+	padding: 10px 30px;
+	border-radius: 15px;
+	background-color:  #2C3D55;
+	width: 60vw;
+	height: 80vh;
+	align-items: center;
+	font-family: Montserrat;
+	box-shadow:2px 2px 3px #000;
+	font-size:22px;
+	color:#fff;
+	border: 1px solid #1d2631;
+}
+
+.form-container{
+	display: flex;
+	flex-direction: column;
+	height: 50vh;
+	justify-content: space-evenly;
+}
+.form-container>h2{
+	text-align: center;
+}
+.input-login-container{
+	border: 0px;
+	outline: 0px;
+	border-radius: 30px;
+	background-color:#fff;
+	width:400px;
+}
+.input-login-container>input{
+	padding: 10px;
+	border: 0px;
+	outline: 0px;
+}
+.buttons-container{
+	width: 80%;
+	display: flex;
+	align-self:center;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.buttons-container>input{
+	width: 45%;
+	padding:3px 5px;
+}
+/* O padding tá hardcoded no tamanho da div */
+.icon{
+	margin:0 10px 0 0;
+	border-radius:15px 0 0 15px;
+	background-color: blue;
+	padding:10px 30px;
+}

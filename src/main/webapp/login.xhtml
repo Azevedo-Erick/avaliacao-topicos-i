@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1993/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Hello, World!</title>
+
+	<meta charset="utf-8"></meta>
+</h:head>
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="conteudo">
+			<div class="login-container">
+				<h:form class="form-container">
+				<h2>Entrar</h2>
+					<div class="input-login-container">
+					<!-- <i class="fal fa-envelope-open"></i> -->
+						<i class="fa fa-envelope icon"></i>
+						<h:inputText a:placeholder="Email" value="#{controller.usuario.email}"></h:inputText>
+					</div>
+					<div class="input-login-container">
+					<!-- <i class="fal fa-envelope-open"></i> -->
+						<i class="fa fa-envelope icon"></i>
+						<h:inputText a:placeholder="CPF" value="#{controller.usuario.cpf}"></h:inputText>
+					</div>
+					<div class="input-login-container">
+					<!-- <i class="fal fa-lock-open"></i>  -->
+						<i class="fa fa-lock icon" ></i>
+						<h:inputSecret a:placeholder="Senha" value="#{controller.usuario.senha}"></h:inputSecret>
+					</div>
+					<div class="buttons-container"><h:commandButton value="Login" actionListener="#{controller.login()}"></h:commandButton>
+					<h:commandButton value="Cadastro" actionListener="#{controller.insertUser()}"></h:commandButton></div>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>
