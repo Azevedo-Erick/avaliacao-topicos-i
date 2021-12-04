@@ -28,7 +28,7 @@
 					<div class="input-login-container">
 					<!-- <i class="fal fa-lock-open"></i>  -->
 						<i class="fa fa-lock icon" ></i>
-						<h:inputSecret a:placeholder="Senha" value="#{controller.usuario.senha}"></h:inputSecret>
+						<h:inputSecret a:placeholder="Senha" value="#{loginController.usuario.senha}"></h:inputSecret>
 					</div>
 					<div class="buttons-container"><h:commandButton value="Login" actionListener="#{loginController.login()}"></h:commandButton>
 					<h:commandButton value="Cadastro" actionListener="#{loginController.insertUser()}"></h:commandButton></div>
