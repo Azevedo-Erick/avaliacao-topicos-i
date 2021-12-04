@@ -11,9 +11,17 @@ public class Jogo {
 	private LocalDate dataLancamento;
 	private ClassificacaoIndicativa classificacaoIndicativa;
 	private String descricaoJogo;
+	private Double preco;
 	
 	
-	
+	public Double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+
 	public Jogo(Integer id, String nome, Empresa empresa, String plataforma, String categoriaGenero,
 			LocalDate dataLancamento, ClassificacaoIndicativa classificacaoIndicativa, String descricaoJogo) {
 		super();
@@ -27,9 +35,10 @@ public class Jogo {
 		this.descricaoJogo = descricaoJogo;
 	}
 	
-	public Jogo( String nome,  String plataforma, int classificacaoIndicativa, String descricaoJogo) {
+	public Jogo( String nome,  String plataforma, int classificacaoIndicativa, String descricaoJogo, String categoriaGenero) {
 
-		this.id = id;
+		this.nome = nome;
+		this.categoriaGenero = categoriaGenero;
 		this.plataforma = plataforma;
 		this.classificacaoIndicativa = ClassificacaoIndicativa.valueOf(classificacaoIndicativa);
 		this.descricaoJogo = descricaoJogo;

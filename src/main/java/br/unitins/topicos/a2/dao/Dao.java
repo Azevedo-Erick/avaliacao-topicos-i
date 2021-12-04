@@ -12,7 +12,7 @@ public interface Dao <T>{
 	 * NOT NULL);
 	 * 
 	 * create table public.jogo( idjogo serial unique not null, nome varchar
-	 * NOT NULL, empresa int NOT NULL, plataforma varchar NOT NULL, genero varchar not
+	 * NOT NULL,preco decimal NOT NULL, empresa int NOT NULL, plataforma varchar NOT NULL, genero varchar not
 	 * null, datalancamento date not null, classificaoindicativa int not null, foreign key
 	 * (empresa) references empresa(idempresa) );
 	 * 

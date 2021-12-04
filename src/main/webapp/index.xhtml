@@ -10,10 +10,25 @@
 		media="all" />
 	<meta charset="utf-8"></meta>
 </h:head>
-<h:body onload="#{jogoController.load()}">
+<h:body>
 	<ui:composition template="template.xhtml">
 		<ui:define name="conteudo">
 			<div class="container">
+			<ui:repeat var="obj" value="#{jogoController.jogos}">
+				<div class="card-game">
+				<div class="main-info">
+					<p>#{obj.nome}</p>
+				</div >
+				<div class="description-container">
+					<p>#{obj.descricaoJogo}</p>
+				</div>
+					<div class="game-info-opc">
+					<p>#{obj.classificacaoIndicativa.label}</p>
+					<p>#{obj.plataforma}</p>
+					<p>#{obj.categoriaGenero}</p>
+					</div>
+				</div>
+			</ui:repeat>
 			</div>
 		</ui:define>
 	</ui:composition>
