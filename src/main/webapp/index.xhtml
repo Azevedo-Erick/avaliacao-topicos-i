@@ -2,16 +2,21 @@
 <html lang="pt-br" xmlns="http://www.w3.org/1993/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title>Hello, World!</title>
 	<link rel="stylesheet" type="text/css" href="./resources/css/index.css"
 		media="all" />
 	<meta charset="utf-8"></meta>
 </h:head>
-<h:body>
-	
-	<script src="./resources/js/index.js" type="text/javascript"></script>
+<h:body onload="#{jogoController.load()}">
+	<ui:composition template="template.xhtml">
+		<ui:define name="conteudo">
+			<div class="container">
+			</div>
+		</ui:define>
+	</ui:composition>
 </h:body>
 
 </html>
