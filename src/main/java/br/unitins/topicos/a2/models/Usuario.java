@@ -1,12 +1,16 @@
 package br.unitins.topicos.a2.models;
 
 import java.time.LocalDate;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 public class Usuario {
 	private Integer id;
 	private String nome;
 	private String cpf;
 	private LocalDate dataNascimento;
+	@Email(message = "Email com formato inválido.")
+	@NotBlank(message = "O email deve ser informado.")
 	private String email;
 	private String senha;
 	private Perfil perfil;

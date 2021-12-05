@@ -14,15 +14,22 @@
 		<ui:define name="conteudo">
 			<div class="login-container">
 				<h:form class="form-container">
+				<h:messages 
+			id="messages" 
+			errorStyle="color:red;margin:8px;"
+			warnStyle="color:yellow;margin:8px;"
+			infoStyle="color:green;margin:8px;"
+			/>
 				<h2>Entrar</h2>
 					<div class="input-login-container">
 					<!-- <i class="fal fa-envelope-open"></i> -->
 						<i class="fa fa-envelope icon"></i>
-						<h:inputText a:placeholder="Email" value="#{loginController.usuario.email}"></h:inputText>
+						<h:inputText a:placeholder="Email" onblur="emailValidator" value="#{loginController.usuario.email}">
+						<f:ajax id="emailValidator" render="messages"/> </h:inputText>
 					</div>
 					<div class="input-login-container">
 					<!-- <i class="fal fa-envelope-open"></i> -->
-						<i class="fa fa-envelope icon"></i>
+						<i class="fa fa-address-card icon"></i>
 						<h:inputText a:placeholder="CPF" value="#{loginController.usuario.cpf}"></h:inputText>
 					</div>
 					<div class="input-login-container">
