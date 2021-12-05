@@ -65,12 +65,27 @@ public class CadastrarUsuarioController implements Serializable{
 	}
 
 
+	public void selectUser(Usuario user) {
+		this.setUsuarioForm(user);
+	}
 
 	public void setUsuarioForm(Usuario usuarioForm) {
 		this.usuarioForm = usuarioForm;
 	}
 
-
+	public void remover(Usuario user) {
+		UsuarioDao dao = new UsuarioDao();
+		dao.excluir(user);
+		this.setListaUsuarios(null);
+		this.setUsuarioForm(null);
+	}
+	
+	public void atualizar() {
+		UsuarioDao dao = new UsuarioDao();
+		dao.alterar(usuarioForm);
+		this.setUsuarioForm(null);
+		this.setListaUsuarios(null);
+	}
 
 	private static final long serialVersionUID = 1L;
 

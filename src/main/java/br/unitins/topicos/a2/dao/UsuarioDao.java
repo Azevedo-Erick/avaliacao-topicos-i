@@ -104,7 +104,7 @@ public class UsuarioDao implements Dao<Usuario>{
 	//Método de cadastro de usuário do administrador
 	public boolean cadastar(Usuario obj) {
 		boolean result = true;
-		String SQL = "insert into public.usuario(nome, cpf, email,senha,datanascimento,perfil) values (?,?,?,?,?,?);";
+		String SQL = "insert into public.usuario(nome, cpf, email,senha,data_nascimento,perfil) values (?,?,?,?,?,?);";
 		PreparedStatement stat = null;
 		Connection conn=null;
 		try {
@@ -190,14 +190,75 @@ public class UsuarioDao implements Dao<Usuario>{
 	
 	@Override
 	public boolean alterar(Usuario obj) {
-		// TODO Auto-generated method stub
-		return false;
+		Connection conn = Dao.getConnection();
+		boolean result = false;
+		if(conn==null) {
+			return result;
+		}
+		String SQL = "UPDATE usuario SET nome=?,cpf=?,data_nascimento=?,email=?, senha=?,perfil=? WHERE id_usuario = ?;";
+		PreparedStatement stat=null;
+		try {
+			stat = conn.prepareStatement(SQL);
+			stat.setString(1, obj.getNome());
+			stat.setString(2, obj.getCpf());
+			stat.setDate(3, Date.valueOf(obj.getDataNascimento()));
+			stat.setString(4, obj.getEmail());
+			stat.setString(5, Utils.hash(obj));
+			stat.setInt(6, obj.getPerfil().getId());
+			stat.setInt(7, obj.getId());
+			
+			stat.execute();
+			result = true;
+		}catch(SQLException e){
+			System.out.println("Erro ao atualizar os dados");
+			e.printStackTrace();
+			return result;
+		}finally {
+			try {
+				conn.close();
+			}catch (SQLException e) {
+				
+			}
+			try {
+				stat.close();
+			}catch (SQLException e) {
+				
+			}
+		}
+		return result;
 	}
 
 	@Override
 	public boolean excluir(Usuario obj) {
-		// TODO Auto-generated method stub
-		return false;
+		Connection conn = Dao.getConnection();
+		boolean resultado = false;
+		if(conn==null) {
+			return resultado;
+		}
+		PreparedStatement del = null;
+		
+		String SQL = "DELETE FROM usuario WHERE usuario.id_usuario = ?";
+		try {
+			del = conn.prepareStatement(SQL);
+			del.setInt(1, obj.getId());
+			del.execute();
+		}catch(SQLException e) {
+			e.printStackTrace();
+			return resultado;
+		}finally {
+			try {
+				conn.close();
+			}catch(SQLException e){
+				
+			}
+			try {
+				del.close();
+			}catch(SQLException e) {
+				
+			}
+		}
+		return !resultado;
+	
 	}
 
 	@Override

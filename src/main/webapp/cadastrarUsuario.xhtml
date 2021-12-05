@@ -48,9 +48,9 @@
 			
 			<div>
 				<h:outputText value="Senha"></h:outputText>
-				<h:inputText value="#{cadastrarUsuarioController.usuarioForm.senha}"
+				<h:inputSecret value="#{cadastrarUsuarioController.usuarioForm.senha}"
 				required="true" requiredMessage="A senha deve ser informada"
-				></h:inputText>
+				></h:inputSecret>
 			</div>
 				<h:selectOneMenu value="#{cadastrarUsuarioController.usuarioForm.perfil}" 	required="true" requiredMessage="A unidade de medida deve ser infomada">
 					<f:selectItem itemLabel="Selecione um Perfil ...." />
@@ -61,18 +61,28 @@
 				
 				 <h:commandButton value="Cadastrar"
 					actionListener="#{cadastrarUsuarioController.cadastrar()}"></h:commandButton>
-				
+				<h:commandButton value="Atualizar"
+						actionListener="#{cadastrarUsuarioController.atualizar()}"
+						></h:commandButton>
 				<!-- <h:commandButton value="Aplicar"
 					actionListener="#{produtoController.aplicar()}"
 					></h:commandButton> -->
 			</h:form>
 			</div>
-			<h:dataTable var="obj" value="#{cadastrarUsuarioController.listaUsuarios}">
-				<h:column>
-						<f:facet name="header">Id</f:facet>
-						<h:outputLabel value="#{obj.id}" />
-					</h:column>
-			</h:dataTable>
+			<h:form>
+				<h:dataTable var="obj" value="#{cadastrarUsuarioController.listaUsuarios}">
+					<h:column>
+							<f:facet name="header">Id</f:facet>
+							<h:outputLabel value="#{obj.id}" />
+							<h:commandButton value="Editar"
+						actionListener="#{cadastrarUsuarioController.selectUser(obj)}"
+						></h:commandButton>
+						<h:commandButton value="Excluir"
+						actionListener="#{cadastrarUsuarioController.remover(obj)}"
+						></h:commandButton>
+						</h:column>
+				</h:dataTable>
+				</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>
