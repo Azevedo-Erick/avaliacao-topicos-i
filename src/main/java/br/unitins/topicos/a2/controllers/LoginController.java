@@ -15,18 +15,22 @@ import br.unitins.topicos.a2.util.Utils;
 public class LoginController implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Usuario usuario;
+	
 	public Usuario getUsuario() {
 		if(usuario==null) {
 			usuario = new Usuario();
 		}
 		return usuario;
 	}
+	
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
 	public void cadastroUser() {
 		Utils.redirect("cadastrarUsuario.xhtml");
 	}
+	
 	public String login() {
 		UsuarioDao dao = new UsuarioDao();
 		Usuario usu = dao.verificarUsuario(usuario.getEmail(), Utils.hash(usuario));

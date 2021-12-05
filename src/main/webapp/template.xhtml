@@ -46,7 +46,13 @@
 				 	</div>
 					<div>
 					<i class="fa fa-user-circle"></i>
-					<h:commandLink value="Login"/>	
+					<h:form rendered="#{templateController.usuarioLogado != null}" > 
+					<h:outputLabel value="#{templateController.usuarioLogado.nome}"/>
+					<h:commandLink value=" (Sair)"   
+						action="#{templateController.encerrarSessao}"
+						style="color:white"/>
+				</h:form>
+					<h:commandLink rendered="#{templateController.usuarioLogado == null}" value="Login"/>	
 					</div>
 				</h:form>
 			</ui:insert>
