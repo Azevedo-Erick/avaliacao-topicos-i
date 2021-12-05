@@ -167,6 +167,7 @@ public class EmpresaDao implements Dao<Empresa>{
 						rs.getString(4),
 						rs.getDate(5)!=null?rs.getDate(5).toLocalDate():null));
 			}
+			
 		}catch(SQLException e) {
 			System.out.println("Erro ao solicitar a lista de empresas");
 			e.printStackTrace();

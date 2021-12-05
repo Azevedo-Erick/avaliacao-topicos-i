@@ -22,7 +22,7 @@ public class JogoDao implements Dao<Jogo>{
 		if(conn==null) {
 			return result;
 		}
-		String SQL = "insert into jogo(nome,preco,empresa,plataforma,genero,data_lancamento,classificao_indicativa) values (?,?,?,?,?,?,?)";
+		String SQL = "insert into jogo(nome,preco,empresa,plataforma,genero,data_lancamento,classificacao_indicativa,descricao_jogo) values (?,?,?,?,?,?,?,?)";
 		PreparedStatement stat=null;
 		
 		try {
@@ -34,6 +34,7 @@ public class JogoDao implements Dao<Jogo>{
 			stat.setString(5, obj.getCategoriaGenero());
 			stat.setDate(6, Date.valueOf(obj.getDataLancamento()));
 			stat.setInt(7, obj.getClassificacaoIndicativa().getId());
+			stat.setString(8, obj.getDescricaoJogo());
 			stat.execute();
 			result = true;
 		}catch (SQLException e) {
@@ -62,7 +63,7 @@ public class JogoDao implements Dao<Jogo>{
 		if(conn==null) {
 			return result;
 		}
-		String SQL = "UPDATE jogo set nome=?,preco=?,empresa=?,plataforma=?,genero=?,data_lancamento=?,classificao_indicativa=? where id_jogo = ?";
+		String SQL = "UPDATE jogo set nome=?,preco=?,empresa=?,plataforma=?,genero=?,data_lancamento=?,classificacao_indicativa=?,descricao_jogo = ? where id_jogo = ?";
 		PreparedStatement stat=null;
 		try {
 			stat = conn.prepareStatement(SQL);
@@ -73,7 +74,8 @@ public class JogoDao implements Dao<Jogo>{
 			stat.setString(5, obj.getCategoriaGenero());
 			stat.setDate(6, Date.valueOf(obj.getDataLancamento()));
 			stat.setInt(7, obj.getClassificacaoIndicativa().getId());
-			stat.setInt(8, obj.getId());
+			stat.setString(8, obj.getDescricaoJogo());
+			stat.setInt(9, obj.getId());
 			stat.execute();
 			result = true;
 		}catch(SQLException e){
@@ -143,19 +145,20 @@ public class JogoDao implements Dao<Jogo>{
 			EmpresaDao empresaDao = new EmpresaDao();
 			while(rs.next()) {
 				listaJogos.add(new Jogo(
-						rs.getInt(1),
-						rs.getString(2),
-						empresaDao.buscaPorId(rs.getInt(3)),
-						rs.getString(4),
-						rs.getString(5),
-						rs.getDate(5).toLocalDate(),
-						rs.getInt(6),
-						rs.getString(7),
-						rs.getDouble(8)
+						rs.getInt("id_jogo"),
+						rs.getString("nome"),
+						empresaDao.buscaPorId(rs.getInt("empresa")),
+						rs.getString("plataforma"),
+						rs.getString("genero"),
+						rs.getDate("data_lancamento")!=null?rs.getDate("data_lancamento").toLocalDate():null,
+						rs.getInt("classificacao_indicativa"),
+						rs.getString("descricao_jogo"),
+						rs.getDouble("preco")
 						));
 			}
 		}catch (SQLException e) {
-			
+			System.out.println("Erro ao obter os jogos");
+			e.printStackTrace();
 		}finally {
 			try {
 				conn.close();
