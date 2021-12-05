@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import br.unitins.topicos.a2.models.Perfil;
 import br.unitins.topicos.a2.models.Usuario;
 import br.unitins.topicos.a2.util.Utils;
 
@@ -46,7 +45,7 @@ public class UsuarioDao implements Dao<Usuario>{
 		}
 		return result;
 	}
-//TODO: Método de login
+//Método de login
 	public boolean login(Usuario obj) {
 		String sql = "select * from usuario where usuario.email = ? and usuario.senha=?";
 		
@@ -99,64 +98,40 @@ public class UsuarioDao implements Dao<Usuario>{
 		return result;
 	}
 	
-	public Usuario verificarUsuario(String email, String senha) {
-		Connection conn = Dao.getConnection();
-		String sql = "SELECT id_usuario, nome, cpf, email, data_nascimento, senha, perfil FROM usuario WHERE email = ? AND senha = ? ORDER BY nome";
-		if (conn == null) 
-			return null;
-			
+	//Método de cadastro de usuário do administrador
+	public boolean cadastar(Usuario obj) {
+		boolean result = true;
+		String SQL = "insert into public.usuario(nome, cpf, email,senha,datanascimento,perfil) values (?,?,?,?,?,?);";
 		PreparedStatement stat = null;
-		ResultSet rs = null;
-		Usuario usuario = null;
-		
+		Connection conn=null;
 		try {
-	
-			stat = conn.prepareStatement(sql);
-			stat.setString(1, email);
-			stat.setString(2, senha);
-			
-			rs = stat.executeQuery();
-			
-			if(rs.next()) {
-				usuario = new Usuario();
-				usuario.setId(rs.getInt("id"));
-				usuario.setNome(rs.getString("nome"));
-				usuario.setCpf(rs.getString("cpf"));
-				usuario.setEmail(rs.getString("email"));
-				
-				Date data = rs.getDate("data_nascimento");
-				if (data == null) {
-					usuario.setDataNascimento(null);
-				} else {
-					usuario.setDataNascimento(data.toLocalDate());
-				}
-				usuario.setSenha(rs.getString("senha"));
-				usuario.setPerfil(Perfil.valueOf(rs.getInt("perfil")));
-				
+			conn = Dao.getConnection();
+			if(conn==null) {
+				result= false;
 			}
+			stat= conn.prepareStatement(SQL);
+			stat.setString(1, obj.getNome());
+			stat.setString(2, obj.getCpf());
+			stat.setString(3, obj.getEmail());
+			stat.setString(4, Utils.hash(obj));
+			stat.setDate(5, Date.valueOf(obj.getDataNascimento()));
+			stat.setInt(6, obj.getPerfil().getId());
 			
-		} catch (SQLException e) {
-			usuario = null;
+			stat.execute();
+		}catch(SQLException e) {
+			System.out.println("Erro ao inserir cliente");
 			e.printStackTrace();
-		} finally {
-			try {
-				stat.close();
-			} catch (SQLException e) {
-			}
-			try {
-				rs.close();
-			} catch (SQLException e) {
-			}
+			result =false;
+		}finally{
 			try {
 				conn.close();
-			} catch (SQLException e) {
-			}
+			}catch(SQLException e){}
+			try {
+				stat.close();
+			}catch(SQLException e){}
 		}
-		
-		return usuario;
-			
+		return result;
 	}
-	
 	@Override
 	public boolean alterar(Usuario obj) {
 		// TODO Auto-generated method stub
