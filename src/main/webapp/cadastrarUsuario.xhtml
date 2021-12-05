@@ -12,27 +12,60 @@
 <h:body>
 	<ui:composition template="template.xhtml">
 		<ui:define name="conteudo">
-			<div class="container">
-			<div class="games-container">
-				<ui:repeat var="obj" value="#{jogoController.jogos}">
-					<div class="card-game">
-					<div class="main-info">
-						<p>#{obj.nome}</p>
-					</div >
-							<p>#{obj.classificacaoIndicativa.label}</p>
-							<p>#{obj.plataforma}</p>
-							<p>#{obj.categoriaGenero}</p>
-							<p>#{obj.dataLancamento}</p>
-							<p>#{obj.empresa.nome}</p>
-						<div class="buy-container">
-							<div class="price-container">						
-								<p>R$ #{obj.preco}</p>
-							</div>
-							<h:commandButton class="cart-container" value="a"></h:commandButton>
-						</div>
-					</div>
-				</ui:repeat>
-				</div>
+			<div>
+				<h1>Cadastrar bebida</h1>
+			<h:form id="fa">
+				<h:messages class="message" />
+		
+			<div>
+				<h:outputText value="Nome"></h:outputText>
+				<h:inputText value="#{cadastrarUsuarioController.usuarioForm.nome}"
+				required="true" requiredMessage="O nome deve ser informado"
+				></h:inputText>
+			</div>
+			
+			<div>
+				<h:outputText value="CPF"></h:outputText>
+				<h:inputText value="#{cadastrarUsuarioController.usuarioForm.cpf}"
+				required="true" requiredMessage="O CPF deve ser informado"
+				></h:inputText>
+			</div>
+			
+			<div>
+				<h:outputText value="Data de Nascimento"></h:outputText>
+				<h:inputText a:type="date" value="#{cadastrarUsuarioController.usuarioForm.dataNascimento}"
+				required="true" requiredMessage="A data de nascimento deve ser informada"
+				><f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/></h:inputText>
+			</div>
+			
+			<div>
+				<h:outputText value="Email"></h:outputText>
+				<h:inputText value="#{cadastrarUsuarioController.usuarioForm.email}"
+				required="true" requiredMessage="O email deve ser informado"
+				></h:inputText>
+			</div>
+			
+			
+			<div>
+				<h:outputText value="Senha"></h:outputText>
+				<h:inputText value="#{cadastrarUsuarioController.usuarioForm.senha}"
+				required="true" requiredMessage="A senha deve ser informada"
+				></h:inputText>
+			</div>
+				<h:selectOneMenu value="#{cadastrarUsuarioController.usuarioForm.perfil}" 	required="true" requiredMessage="A unidade de medida deve ser infomada">
+					<f:selectItem itemLabel="Selecione um Perfil ...." />
+					<f:selectItems var="obj"
+						value="#{cadastrarUsuarioController.perfis}"
+						itemLabel="#{obj.label}"  />
+				</h:selectOneMenu>
+				
+				 <h:commandButton value="Cadastrar"
+					actionListener="#{cadastrarUsuarioController.cadastrar()}"></h:commandButton>
+				
+				<!-- <h:commandButton value="Aplicar"
+					actionListener="#{produtoController.aplicar()}"
+					></h:commandButton> -->
+			</h:form>
 			</div>
 		</ui:define>
 	</ui:composition>
