@@ -1,6 +1,7 @@
 package br.unitins.topicos.a2.models;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Empresa {
 	private Integer id;
@@ -49,6 +50,23 @@ public class Empresa {
 	public void setDataFundacao(LocalDate dataFundacao) {
 		this.dataFundacao = dataFundacao;
 	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Empresa other = (Empresa) obj;
+		return Objects.equals(id, other.id);
+	}
+	
+	
 	
 	
 	

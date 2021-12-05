@@ -46,7 +46,12 @@
 				><f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/></h:inputText>
 			</div>
 		
-
+ <h:selectOneMenu 	required="true" requiredMessage="A unidade de medida deve ser infomada">
+					<f:selectItem itemLabel="Selecione um Perfil ...." />
+					<f:selectItems var="obj"
+						value="#{cadastrarEmpresaController.empresas}"
+						itemLabel="#{obj.nome}"  />
+				</h:selectOneMenu> 
 				
 				 <h:commandButton value="Cadastrar"
 					actionListener="#{cadastrarEmpresaController.incluir()}"></h:commandButton>

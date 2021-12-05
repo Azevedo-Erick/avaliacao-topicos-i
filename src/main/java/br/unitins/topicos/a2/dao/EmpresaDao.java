@@ -122,7 +122,7 @@ public class EmpresaDao implements Dao<Empresa>{
 		PreparedStatement stat = null;
 		ResultSet rs = null;
 		Empresa empresa=null;
-		String SQL = "SELECT empresa.id_empresa, empresa.nome FROM empresa WHERE empresa.id_empresa ";
+		String SQL = "SELECT empresa.id_empresa, empresa.nome FROM empresa WHERE empresa.id_empresa=? ";
 		try {
 			stat = conn.prepareStatement(SQL);
 			stat.setInt(1, id);
