@@ -136,7 +136,7 @@ public class JogoDao implements Dao<Jogo>{
 			return null;
 		}
 		List<Jogo> listaJogos = new ArrayList<Jogo>();
-		String SQL = "SELECT * from jogo";
+		String SQL = "SELECT * from jogo ORDER BY id_jogo";
 		ResultSet rs=null;
 		PreparedStatement stat=null;
 		try {

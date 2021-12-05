@@ -155,7 +155,7 @@ public class EmpresaDao implements Dao<Empresa>{
 			return null;
 		}
 		List<Empresa> empresas=new ArrayList<Empresa>();
-		String sql = "SELECT * FROM empresa;";
+		String sql = "SELECT * FROM empresa ORDER BY id_empresa;";
 		ResultSet rs = null;
 		try {
 			rs = conn.createStatement().executeQuery(sql);

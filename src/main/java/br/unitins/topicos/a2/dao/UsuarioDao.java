@@ -268,7 +268,7 @@ public class UsuarioDao implements Dao<Usuario>{
 			return null;
 		}
 		List<Usuario> usuarios=new ArrayList<Usuario>();
-		String sql = "SELECT * FROM usuario;";
+		String sql = "SELECT * FROM usuario ORDER BY id_usuario;";
 		ResultSet rs = null;
 		try {
 			rs = conn.createStatement().executeQuery(sql);

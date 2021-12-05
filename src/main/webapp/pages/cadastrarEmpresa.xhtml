@@ -58,20 +58,6 @@
 					></h:commandButton> -->
 			</h:form>
 			</div>
-			<h:form>
-				<h:dataTable var="obj" value="#{cadastrarEmpresaController.empresas}">
-					<h:column>
-							<f:facet name="header">Id</f:facet>
-							<h:outputLabel value="#{obj.id}" />
-							<h:commandButton value="Editar"
-						actionListener="#{cadastrarEmpresaController.selectEmpresa(obj)}"
-						></h:commandButton>
-						<h:commandButton value="Excluir"
-						actionListener="#{cadastrarEmpresaController.excluir(obj)}"
-						></h:commandButton>
-						</h:column>
-				</h:dataTable>
-				</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>
