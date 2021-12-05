@@ -11,6 +11,14 @@ public class Empresa {
 	
 	
 	
+	public Empresa(Integer id, String nome, String sedeEmpresa, String ceo, LocalDate dataFundacao) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.sedeEmpresa = sedeEmpresa;
+		this.ceo = ceo;
+		this.dataFundacao = dataFundacao;
+	}
 	public Integer getId() {
 		return id;
 	}

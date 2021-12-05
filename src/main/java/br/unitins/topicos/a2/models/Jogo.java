@@ -44,6 +44,8 @@ public class Jogo {
 		this.classificacaoIndicativa = ClassificacaoIndicativa.valueOf(classificacaoIndicativa);
 		this.descricaoJogo = descricaoJogo;
 		this.preco = preco;
+		this.dataLancamento = LocalDate.now();
+		this.empresa = new Empresa(1, "EA", "Oslo", "MK", LocalDate.now());
 	}
 	public String getDescricaoJogo() {
 		return descricaoJogo;
