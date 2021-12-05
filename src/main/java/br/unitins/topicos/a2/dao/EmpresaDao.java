@@ -112,7 +112,42 @@ public class EmpresaDao implements Dao<Empresa>{
 		}
 		return !resultado;
 	}
-
+	
+	public Empresa buscaPorId(int id) {
+		Connection conn = Dao.getConnection();
+		
+		if(conn==null) {
+			return null;
+		}
+		PreparedStatement stat = null;
+		ResultSet rs = null;
+		Empresa empresa=null;
+		String SQL = "SELECT empresa.id_empresa, empresa.nome FROM empresa WHERE empresa.id_empresa ";
+		try {
+			stat = conn.prepareStatement(SQL);
+			stat.setInt(1, id);
+			
+			rs = stat.executeQuery();
+			
+			if(rs.next()) {
+				empresa = new Empresa();
+				empresa.setId(rs.getInt(1));
+				empresa.setNome(rs.getString(2));
+			}
+		}catch(SQLException e) {
+			System.out.println("Erro ao buscar empresa");
+			e.printStackTrace();
+		}finally {
+			try {
+			rs.close();}catch(SQLException e) {}
+			
+			try {
+				stat.close();}catch(SQLException e) {}
+			
+		}
+		return empresa;
+	}
+	
 	@Override
 	public List<Empresa> obterTodos() {
 		Connection conn = Dao.getConnection();
