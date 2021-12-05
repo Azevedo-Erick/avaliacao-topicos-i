@@ -28,4 +28,9 @@ public class TemplateController implements Serializable {
 		Session.getInstance().invalidateSession();
 		Utils.redirect("index.xhtml");
 	}
+	
+	public void redirecionar(String pagina) {
+		Utils.redirect(pagina);
+	}
+	
 }

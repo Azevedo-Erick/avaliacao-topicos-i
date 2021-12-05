@@ -14,7 +14,7 @@
 	<ui:composition template="template.xhtml">
 		<ui:define name="conteudo">
 			<div>
-				<h1>Cadastrar bebida</h1>
+				<h1>Cadastrar Jogo</h1>
 			<h:form id="fa">
 				<h:messages class="message" />
 		
@@ -78,23 +78,13 @@
 				<h:commandButton value="Atualizar"
 						actionListener="#{cadastrarJogoController.atualizar()}"
 						></h:commandButton>
+						
+						<h:commandButton value="Excluir"
+						actionListener="#{cadastrarJogoController.remover()}"
+						></h:commandButton>
 			</h:form>
 			</div>
-			<h:form>
-				<h:dataTable var="obj" value="#{cadastrarJogoController.jogos}">
-					<h:column>
-							<f:facet name="header">Id</f:facet>
-							<h:outputLabel value="#{obj.nome}" />
-							<h:commandButton value="Editar"
-						actionListener="#{cadastrarJogoController.selectJogo(obj)}"
-						></h:commandButton>
-						<h:commandButton value="Excluir"
-						actionListener="#{cadastrarJogoController.remover(obj)}"
-						></h:commandButton>
-						</h:column>
-				</h:dataTable>
-				</h:form>
-		</ui:define>
+					</ui:define>
 	</ui:composition>
 </h:body>
 

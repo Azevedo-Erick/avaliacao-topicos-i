@@ -36,7 +36,7 @@ public class ConsultaUsuarioController implements Serializable{
 	public void selectUser(Usuario user) {
 		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
 		flash.put("usuarioFlash", user);
-		Utils.redirect("cadastrarUsuario.xhtml");
+		Utils.redirect("cadastrarJogo.xhtml");
 	}
 	
 	private static final long serialVersionUID = 6402525871778912190L;
