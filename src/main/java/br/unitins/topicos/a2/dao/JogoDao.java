@@ -153,7 +153,9 @@ public class JogoDao implements Dao<Jogo>{
 						rs.getDate("data_lancamento")!=null?rs.getDate("data_lancamento").toLocalDate():null,
 						rs.getInt("classificacao_indicativa"),
 						rs.getString("descricao_jogo"),
+						rs.getString("imagem"),
 						rs.getDouble("preco")
+						
 						));
 			}
 		}catch (SQLException e) {

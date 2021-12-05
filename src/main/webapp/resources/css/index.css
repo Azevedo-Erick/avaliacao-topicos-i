@@ -92,6 +92,11 @@
 	text-shadow: 1px 1px 1px #000;
 	text-overflow:elipsis;
 }
+.images{
+	 width: 60%;
+  	height: 50%;
+  	border-radius: 50%;
+}
 .genero{
 	color: #ff65f9;
 	text-shadow: 1px 1px 1px #000;

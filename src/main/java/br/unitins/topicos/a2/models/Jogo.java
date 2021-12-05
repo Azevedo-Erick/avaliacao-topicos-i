@@ -12,8 +12,17 @@ public class Jogo {
 	private ClassificacaoIndicativa classificacaoIndicativa;
 	private String descricaoJogo;
 	private Double preco;
+	private String imagem;
 	
 	
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+
 	public Double getPreco() {
 		return preco;
 	}
@@ -23,7 +32,7 @@ public class Jogo {
 	}
 
 	public Jogo(Integer id, String nome, Empresa empresa, String plataforma, String categoriaGenero,
-			LocalDate dataLancamento, int classificacaoIndicativa, String descricaoJogo, Double preco) {
+			LocalDate dataLancamento, int classificacaoIndicativa, String descricaoJogo, String imagem, Double preco) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -34,6 +43,7 @@ public class Jogo {
 		this.classificacaoIndicativa = ClassificacaoIndicativa.valueOf(classificacaoIndicativa);
 		this.descricaoJogo = descricaoJogo;
 		this.preco = preco;
+		this.imagem = imagem;
 	}
 	
 	public Jogo() {
