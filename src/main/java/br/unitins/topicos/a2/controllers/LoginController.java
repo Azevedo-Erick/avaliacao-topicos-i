@@ -7,6 +7,7 @@ import javax.inject.Named;
 
 import br.unitins.topicos.a2.dao.UsuarioDao;
 import br.unitins.topicos.a2.models.Usuario;
+import br.unitins.topicos.a2.util.Session;
 import br.unitins.topicos.a2.util.Utils;
 
 @Named
@@ -26,8 +27,20 @@ public class LoginController implements Serializable{
 	public void cadastroUser() {
 		Utils.redirect("cadastrarUsuario.xhtml");
 	}
-	public void login() {
+	public String login() {
 		UsuarioDao dao = new UsuarioDao();
-		dao.login(usuario);
+		Usuario usu = dao.verificarUsuario(
+				usuario.getEmail(), 
+				Utils.hash(usuario));
+		
+		if (usuario != null) {
+			// adicionando na sessao
+			Session.getInstance().set("usuarioLogado", usu);
+			
+			Utils.redirect("index.xhtml");
+			
+		}
+		Utils.addErrorMessage("Usuario, cpf ou senha inválido.");
+		return null;
 	}
 }
