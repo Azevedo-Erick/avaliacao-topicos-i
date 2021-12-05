@@ -217,7 +217,7 @@ public class UsuarioDao implements Dao<Usuario>{
 						rs.getString(2),
 						rs.getString(3),
 						rs.getString(4),
-						rs.getDate(5).toLocalDate(),
+						rs.getDate(5)!=null?rs.getDate(5).toLocalDate():null,
 						rs.getString(6),
 						rs.getInt(7)));
 			}

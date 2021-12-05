@@ -67,7 +67,12 @@
 					></h:commandButton> -->
 			</h:form>
 			</div>
-			<h:dataTable var="" value=""></h:dataTable>
+			<h:dataTable var="obj" value="#{cadastrarUsuarioController.listaUsuarios}">
+				<h:column>
+						<f:facet name="header">Id</f:facet>
+						<h:outputLabel value="#{obj.id}" />
+					</h:column>
+			</h:dataTable>
 		</ui:define>
 	</ui:composition>
 </h:body>

@@ -16,7 +16,7 @@ import br.unitins.topicos.a2.models.Usuario;
 public class CadastrarUsuarioController implements Serializable{
 	private Usuario usuarioForm;
 	private List<Perfil> perfis;
-	
+	private List<Usuario> listaUsuarios;
 	
 	
 	public List<Perfil> getPerfis() {
@@ -41,6 +41,20 @@ public class CadastrarUsuarioController implements Serializable{
 		this.perfis = perfis;
 	}
 
+	
+
+	public List<Usuario> getListaUsuarios() {
+		if(this.listaUsuarios==null) {
+			UsuarioDao dao = new UsuarioDao();
+			this.setListaUsuarios(dao.obterTodos());
+		}
+		return listaUsuarios;
+	}
+
+
+	public void setListaUsuarios(List<Usuario> listaUsuarios) {
+		this.listaUsuarios = listaUsuarios;
+	}
 
 
 	public Usuario getUsuarioForm() {
