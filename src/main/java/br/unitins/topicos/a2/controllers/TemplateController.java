@@ -21,9 +21,11 @@ public class TemplateController implements Serializable {
 	public void setUsuarioLogado(Usuario usuarioLogado) {
 		this.usuarioLogado = usuarioLogado;
 	}
-
+	public void logar() {
+		Utils.redirect("login.xhtml");
+	}
 	public void encerrarSessao() {
 		Session.getInstance().invalidateSession();
-		Utils.redirect("index.xhtml");
+		Utils.redirect("login.xhtml");
 	}
 }

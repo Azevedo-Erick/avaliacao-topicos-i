@@ -20,7 +20,6 @@ public class Utils {
 	private static String hash(String valor) {
 		return DigestUtils.sha256Hex(valor);
 	}
-	
 	public static String hash(Usuario usuario) {
 		return hash(usuario.getCpf()+usuario.getSenha());
 	}
