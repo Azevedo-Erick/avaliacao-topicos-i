@@ -18,17 +18,17 @@
 					<div class="card-game">
 					<div class="main-info">
 						<p>#{obj.nome}</p>
+						<h:commandLink value="🔎" class="game-link"></h:commandLink>
 					</div >
-							<p>#{obj.classificacaoIndicativa.label}</p>
-							<p>#{obj.plataforma}</p>
-							<p>#{obj.categoriaGenero}</p>
-							<p>#{obj.dataLancamento}</p>
-							<p>#{obj.empresa.nome}</p>
+							<p class="card-text">#{obj.classificacaoIndicativa.label}</p>
+							<p class="card-text">#{obj.plataforma}</p>
+							<p class="genero">\##{obj.categoriaGenero}</p>
+							<p class="card-text">#{obj.empresa.nome}</p>
 						<div class="buy-container">
 							<div class="price-container">						
-								<p>R$ #{obj.preco}</p>
+								<p>R$ #{jogoController.formatPrice(obj.preco)}</p>
 							</div>
-							<h:commandButton class="cart-container" value="a"></h:commandButton>
+							<h:commandButton class="cart-container" value="🛒"></h:commandButton>
 						</div>
 					</div>
 				</ui:repeat>

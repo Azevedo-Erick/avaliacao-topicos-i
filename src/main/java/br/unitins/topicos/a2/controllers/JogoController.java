@@ -1,6 +1,7 @@
 package br.unitins.topicos.a2.controllers;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,10 +26,17 @@ public class JogoController implements Serializable{
 		if(this.jogos==null) {
 			JogoDao dao = new JogoDao();
 			this.setJogos(dao.obterTodos());
+			
 		}
 		return jogos;
 	}
 
+	
+	public String formatPrice(Double price) {
+		 DecimalFormat formatter = new DecimalFormat("###,###,##0.00");
+		 return formatter.format(price);
+	}
+	
 	public void setJogos(List<Jogo> jogos) {
 		this.jogos = jogos;
 	}
