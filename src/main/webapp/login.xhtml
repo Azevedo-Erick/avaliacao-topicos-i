@@ -29,8 +29,9 @@
 					</div>
 					<div class="input-login-container">
 					<!-- <i class="fal fa-envelope-open"></i> -->
-						<i class="fa fa-address-card icon"></i>
-						<h:inputText a:placeholder="CPF" value="#{loginController.usuario.cpf}"></h:inputText>
+						<i class="fa fa-address-card fa-sm icon"></i>
+						<h:inputText a:placeholder="CPF" onblur="cpfValidator" value="#{loginController.usuario.cpf}">
+						<f:ajax id="cpfValidator" render="messages"/></h:inputText>
 					</div>
 					<div class="input-login-container">
 					<!-- <i class="fal fa-lock-open"></i>  -->

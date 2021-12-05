@@ -3,10 +3,12 @@ package br.unitins.topicos.a2.models;
 import java.time.LocalDate;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.br.CPF;
 
 public class Usuario {
 	private Integer id;
 	private String nome;
+	@CPF(message = "CPF inválido")
 	private String cpf;
 	private LocalDate dataNascimento;
 	@Email(message = "Email com formato inválido.")
