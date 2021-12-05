@@ -10,7 +10,7 @@ public class Empresa {
 	private LocalDate dataFundacao;
 	
 	
-	
+	public Empresa() {};
 	public Empresa(Integer id, String nome, String sedeEmpresa, String ceo, LocalDate dataFundacao) {
 		super();
 		this.id = id;
