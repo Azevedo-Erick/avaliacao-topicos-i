@@ -1,10 +1,8 @@
 package br.unitins.topicos.a2.controllers;
 
 import java.io.Serializable;
-
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-
 import br.unitins.topicos.a2.dao.UsuarioDao;
 import br.unitins.topicos.a2.models.Usuario;
 import br.unitins.topicos.a2.util.Session;
@@ -23,6 +21,7 @@ public class LoginController implements Serializable{
 		return usuario;
 	}
 	
+	
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
@@ -40,7 +39,6 @@ public class LoginController implements Serializable{
 			Session.getInstance().set("usuarioLogado", usu);
 			Utils.redirect("index.xhtml");
 		}
-		
 		Utils.addErrorMessage("Usuario, cpf ou senha inválido.");
 		return null;
 	}

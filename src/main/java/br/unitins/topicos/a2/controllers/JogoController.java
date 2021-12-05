@@ -12,9 +12,8 @@ import br.unitins.topicos.a2.models.Jogo;
 @Named
 @ViewScoped
 public class JogoController implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private List<Jogo> jogos;
-	
-	
 	
 	public List<Jogo> getJogos() {
 		if(this.jogos==null) {
@@ -26,15 +25,8 @@ public class JogoController implements Serializable{
 		return jogos;
 	}
 
-
 	public void setJogos(List<Jogo> jogos) {
 		this.jogos = jogos;
 	}
-
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 }

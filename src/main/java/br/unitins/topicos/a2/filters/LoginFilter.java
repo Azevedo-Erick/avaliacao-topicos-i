@@ -2,6 +2,7 @@ package br.unitins.topicos.a2.filters;
 
 import java.io.IOException;
 
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -15,9 +16,8 @@ import javax.servlet.http.HttpSession;
 
 import br.unitins.topicos.a2.models.Usuario;
 
-@WebFilter(filterName = "LoginFilter", urlPatterns = {"/login.xhtml"} )
+@WebFilter(filterName = "LoginFilter", urlPatterns = {"/pages/login.xhtml"} )
 public class LoginFilter implements Filter{
-
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
@@ -30,7 +30,7 @@ public class LoginFilter implements Filter{
 				
 				// se estiver logado, redirecionar para o index
 				if (usuarioLogado != null) {
-					((HttpServletResponse)response).sendRedirect("/index.xhtml");
+					((HttpServletResponse)response).sendRedirect("/pages/index.xhtml");
 				} else {
 						// permitindo a execucao comleta do protocolo
 						chain.doFilter(request, response);

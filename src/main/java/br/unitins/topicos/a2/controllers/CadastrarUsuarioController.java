@@ -14,10 +14,10 @@ import br.unitins.topicos.a2.models.Usuario;
 @Named
 @ViewScoped
 public class CadastrarUsuarioController implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private Usuario usuarioForm;
 	private List<Perfil> perfis;
 	private List<Usuario> listaUsuarios;
-	
 	
 	public List<Perfil> getPerfis() {
 		if(this.perfis==null) {
@@ -28,7 +28,6 @@ public class CadastrarUsuarioController implements Serializable{
 		}
 		return perfis;
 	}
-
 	
 	public void cadastrar() {
 		UsuarioDao dao = new UsuarioDao();
@@ -36,12 +35,9 @@ public class CadastrarUsuarioController implements Serializable{
 		this.setUsuarioForm(null);
 	}
 
-
 	public void setPerfis(List<Perfil> perfis) {
 		this.perfis = perfis;
 	}
-
-	
 
 	public List<Usuario> getListaUsuarios() {
 		if(this.listaUsuarios==null) {
@@ -51,11 +47,9 @@ public class CadastrarUsuarioController implements Serializable{
 		return listaUsuarios;
 	}
 
-
 	public void setListaUsuarios(List<Usuario> listaUsuarios) {
 		this.listaUsuarios = listaUsuarios;
 	}
-
 
 	public Usuario getUsuarioForm() {
 		if(this.usuarioForm==null) {
@@ -63,7 +57,6 @@ public class CadastrarUsuarioController implements Serializable{
 		}
 		return usuarioForm;
 	}
-
 
 	public void selectUser(Usuario user) {
 		this.setUsuarioForm(user);
@@ -86,7 +79,5 @@ public class CadastrarUsuarioController implements Serializable{
 		this.setUsuarioForm(null);
 		this.setListaUsuarios(null);
 	}
-
-	private static final long serialVersionUID = 1L;
 
 }
