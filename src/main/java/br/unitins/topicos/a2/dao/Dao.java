@@ -7,17 +7,17 @@ import java.util.List;
 
 public interface Dao <T>{
 	/*
-	 * CREATE TABLE public.empresa ( idempresa serial unique NOT null, nome varchar
-	 * NOT NULL, sedeempresa varchar NOT NULL, ceo varchar NOT NULL, datafundacao date
+	 * CREATE TABLE public.empresa ( id_empresa serial unique NOT null, nome varchar
+	 * NOT NULL, sede_empresa varchar NOT NULL, ceo varchar NOT NULL, data_fundacao date
 	 * NOT NULL);
 	 * 
-	 * create table public.jogo( idjogo serial unique not null, nome varchar
+	 * create table public.jogo( id_jogo serial unique not null, nome varchar
 	 * NOT NULL,preco decimal NOT NULL, empresa int NOT NULL, plataforma varchar NOT NULL, genero varchar not
-	 * null, datalancamento date not null, classificaoindicativa int not null, foreign key
-	 * (empresa) references empresa(idempresa) );
+	 * null, data_lancamento date not null, classificao_indicativa int not null, foreign key
+	 * (empresa) references empresa(id_empresa) );
 	 * 
-	 * create table public.usuario( idusuario serial unique , nome varchar
-	 * , cpf varchar , email varchar NOT NULL, datanascimento date, senha varchar NOT NULL,
+	 * create table public.usuario( id_usuario serial unique , nome varchar
+	 * , cpf varchar , email varchar NOT NULL, data_nascimento date, senha varchar NOT NULL,
 	 * perfil integer not null);
 	 */
 	public boolean incluir(T obj);
