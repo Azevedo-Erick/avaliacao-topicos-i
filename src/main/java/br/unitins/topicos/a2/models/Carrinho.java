@@ -8,7 +8,7 @@ public class Carrinho {
 	private LocalDateTime data;
 	private Double totalVenda;
 	private Usuario usuario;
-	private List<JogosVenda> listaJogosVenda;
+	private List<JogosVenda> listaJogoVenda;
 
 	public Integer getId() {
 		return id;
@@ -42,11 +42,11 @@ public class Carrinho {
 		this.usuario = usuario;
 	}
 
-	public List<JogosVenda> getListaItemVenda() {
-		return listaJogosVenda;
+	public List<JogosVenda> getListaJogoVenda() {
+		return listaJogoVenda;
 	}
 
-	public void setListaItemVenda(List<JogosVenda> listaItemVenda) {
-		this.listaJogosVenda = listaItemVenda;
+	public void setListaJogoVenda(List<JogosVenda> listaJogoVenda) {
+		this.listaJogoVenda = listaJogoVenda;
 	}
 }
