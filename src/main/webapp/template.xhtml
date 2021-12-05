@@ -51,7 +51,7 @@
 					<i class="fa fa-user-circle"></i>
 					<h:form rendered="#{templateController.usuarioLogado != null}" > 
 					<h:outputLabel value="#{templateController.usuarioLogado.nome}"/>
-					<h:commandLink value=" (Sair)" actionListener="#{templateController.encerrarSessao}" style="color:white"/>
+					<h:commandLink value=" (Sair)" actionListener="#{templateController.encerrarSessao}" style="color:white"> <f:ajax render="@this"/>  </h:commandLink>
 				</h:form>
 					<h:commandLink rendered="#{templateController.usuarioLogado == null}" action="#{templateController.logar}" value="Login" />	
 					</div>

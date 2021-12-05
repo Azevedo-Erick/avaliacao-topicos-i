@@ -38,10 +38,9 @@ public class LoginController implements Serializable{
 		if (usu != null) {
 			// adicionando na sessao
 			Session.getInstance().set("usuarioLogado", usu);
-			
 			Utils.redirect("index.xhtml");
-			
 		}
+		
 		Utils.addErrorMessage("Usuario, cpf ou senha inválido.");
 		return null;
 	}
