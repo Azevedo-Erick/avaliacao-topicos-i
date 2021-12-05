@@ -19,9 +19,9 @@ public class JogoController implements Serializable{
 	public List<Jogo> getJogos() {
 		if(this.jogos==null) {
 			this.setJogos(new ArrayList<Jogo>());
-			this.getJogos().add(new Jogo("Hollow Knight", "Desktop",3,"Um ótimo jogo de plataforma", "Metroidvania"));
-			this.getJogos().add(new Jogo("GTA 5", "PS4",4,"Um ótimo jogo de mundo aberto", "Ação"));
-			this.getJogos().add(new Jogo("Terraria", "Mobile",1,"Um ótimo jogo de mundo aberto e plataforma", "Sandbox"));
+			this.getJogos().add(new Jogo("Hollow Knight", "Desktop",3,"Um ótimo jogo de plataforma", "Metroidvania",150.0));
+			this.getJogos().add(new Jogo("GTA 5", "PS4",4,"Um ótimo jogo de mundo aberto", "Ação",90.0));
+			this.getJogos().add(new Jogo("Terraria", "Mobile",1,"Um ótimo jogo de mundo aberto e plataforma", "Sandbox", 20.0));
 		}
 		return jogos;
 	}
