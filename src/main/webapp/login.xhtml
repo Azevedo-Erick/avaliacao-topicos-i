@@ -38,7 +38,7 @@
 						<h:inputSecret a:placeholder="Senha" value="#{loginController.usuario.senha}"></h:inputSecret>
 					</div>
 					<div class="buttons-container"><h:commandButton value="Login" actionListener="#{loginController.login()}"></h:commandButton>
-					<h:commandButton value="Cadastro" actionListener="#{loginController.insertUser()}"></h:commandButton></div>
+					<h:commandButton value="Cadastro" actionListener="#{loginController.cadastroUser()}"><f:ajax render="@this"/></h:commandButton></div>
 				</h:form>
 			</div>
 		</ui:define>
