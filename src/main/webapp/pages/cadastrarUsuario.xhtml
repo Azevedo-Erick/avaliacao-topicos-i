@@ -12,6 +12,9 @@
 <h:body>
 	<ui:composition template="template.xhtml">
 		<ui:define name="conteudo">
+			<h:form>
+				<h:commandButton value="⬅" actionListener='#{cadastrarUsuarioController.irParaConsulta()}'></h:commandButton>
+			</h:form>
 			<div>
 				<h1>Cadastrar bebida</h1>
 			<h:form id="fa">
@@ -64,25 +67,14 @@
 				<h:commandButton value="Atualizar"
 						actionListener="#{cadastrarUsuarioController.atualizar()}"
 						></h:commandButton>
-				<!-- <h:commandButton value="Aplicar"
-					actionListener="#{produtoController.aplicar()}"
-					></h:commandButton> -->
+						
+			</h:form>
+			<h:form>
+				<h:commandButton value="Excluir"
+						actionListener="#{cadastrarUsuarioController.remover()}"
+						></h:commandButton>
 			</h:form>
 			</div>
-			<h:form>
-				<h:dataTable var="obj" value="#{cadastrarUsuarioController.listaUsuarios}">
-					<h:column>
-							<f:facet name="header">Id</f:facet>
-							<h:outputLabel value="#{obj.id}" />
-							<h:commandButton value="Editar"
-						actionListener="#{cadastrarUsuarioController.selectUser(obj)}"
-						></h:commandButton>
-						<h:commandButton value="Excluir"
-						actionListener="#{cadastrarUsuarioController.remover(obj)}"
-						></h:commandButton>
-						</h:column>
-				</h:dataTable>
-				</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>
