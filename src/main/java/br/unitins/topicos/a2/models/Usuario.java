@@ -19,15 +19,15 @@ public class Usuario {
 	
 	
 	
-	public Usuario(Integer id, String nome, String cpf, LocalDate dataNascimento, String email, String senha,
-			Perfil perfil) {
+	public Usuario(Integer id, String nome, String cpf,  String email, LocalDate dataNascimento, String senha,
+			int perfil) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 		this.email = email;
 		this.senha = senha;
-		this.perfil = perfil;
+		this.perfil = Perfil.valueOf(perfil);
 	}
 	public Usuario( String email, String senha) {
 		this.email = email;
