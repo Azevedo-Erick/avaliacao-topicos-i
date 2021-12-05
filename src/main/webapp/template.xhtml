@@ -24,8 +24,8 @@
 			<ui:insert name="menu">
 				<h:form>
 					
-					<div class="cadastrar" id="cadastro-container">
-						<div  id="cadastrar">
+					<div class="cadastrar" id="cadastro-container" style="visibility: #{templateController.usuarioLogado.perfil.id == 1 ? 'visible': 'hidden'}">
+						<div id="cadastrar">
 							
 								<p><i class="fa fa-database"></i>Cadastrar<i id="angle" class="fa fa-angle-up"></i></p>
 							</div>
