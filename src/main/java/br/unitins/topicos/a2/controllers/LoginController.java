@@ -29,11 +29,9 @@ public class LoginController implements Serializable{
 	}
 	public String login() {
 		UsuarioDao dao = new UsuarioDao();
-		Usuario usu = dao.verificarUsuario(
-				usuario.getEmail(), 
-				Utils.hash(usuario));
+		Usuario usu = dao.verificarUsuario(usuario.getEmail(), Utils.hash(usuario));
 		
-		if (usuario != null) {
+		if (usu != null) {
 			// adicionando na sessao
 			Session.getInstance().set("usuarioLogado", usu);
 			
