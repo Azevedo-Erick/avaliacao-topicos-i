@@ -5,8 +5,12 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import br.unitins.topicos.a2.models.ClassificacaoIndicativa;
+import br.unitins.topicos.a2.models.Empresa;
 import br.unitins.topicos.a2.models.Jogo;
 
 public class JogoDao implements Dao<Jogo>{
@@ -18,7 +22,7 @@ public class JogoDao implements Dao<Jogo>{
 		if(conn==null) {
 			return result;
 		}
-		String SQL = "INSERT INTO jogo(nome,preco,empresa,plataforma,genero,data_lancamento,classificacao_indicativa,descricao_jogo) VALUES (?,?,?,?,?,?,?,?)";
+		String SQL = "insert into jogo(nome,preco,empresa,plataforma,genero,data_lancamento,classificacao_indicativa,descricao_jogo, imagem) values (?,?,?,?,?,?,?,?,?)";
 		PreparedStatement stat=null;
 		
 		try {
@@ -31,6 +35,7 @@ public class JogoDao implements Dao<Jogo>{
 			stat.setDate(6, Date.valueOf(obj.getDataLancamento()));
 			stat.setInt(7, obj.getClassificacaoIndicativa().getId());
 			stat.setString(8, obj.getDescricaoJogo());
+			stat.setString(9, obj.getImagem());
 			stat.execute();
 			result = true;
 		}catch (SQLException e) {
@@ -59,7 +64,7 @@ public class JogoDao implements Dao<Jogo>{
 		if(conn==null) {
 			return result;
 		}
-		String SQL = "UPDATE jogo SET nome=?,preco=?,empresa=?,plataforma=?,genero=?,data_lancamento=?,classificacao_indicativa=?,descricao_jogo = ? WHERE id_jogo = ?";
+		String SQL = "UPDATE jogo set nome=?,preco=?,empresa=?,plataforma=?,genero=?,data_lancamento=?,classificacao_indicativa=?,descricao_jogo = ?,imagem =? where id_jogo = ?";
 		PreparedStatement stat=null;
 		try {
 			stat = conn.prepareStatement(SQL);
@@ -71,7 +76,8 @@ public class JogoDao implements Dao<Jogo>{
 			stat.setDate(6, Date.valueOf(obj.getDataLancamento()));
 			stat.setInt(7, obj.getClassificacaoIndicativa().getId());
 			stat.setString(8, obj.getDescricaoJogo());
-			stat.setInt(9, obj.getId());
+			stat.setString(9, obj.getImagem());
+			stat.setInt(10, obj.getId());
 			stat.execute();
 			result = true;
 		}catch(SQLException e){
@@ -132,7 +138,7 @@ public class JogoDao implements Dao<Jogo>{
 			return null;
 		}
 		List<Jogo> listaJogos = new ArrayList<Jogo>();
-		String SQL = "SELECT * FROM jogo ORDER BY id_jogo";
+		String SQL = "SELECT * from jogo ORDER BY id_jogo";
 		ResultSet rs=null;
 		PreparedStatement stat=null;
 		try {

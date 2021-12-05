@@ -15,12 +15,11 @@
 .card-game{
 	background-color: #263241;
 	border-radius: 15px;
-	padding: 3px;
+	padding: 5px;
 	display: flex;
 	width:230px;
 	align-items:center;
 	justify-content:space-evenly;
-	height:240px;
 	font-family:Nunito;
 	flex-direction: column;
 	box-shadow: 3px 3px 8px #000;
@@ -94,7 +93,7 @@
 }
 .images{
 	 width: 60%;
-  	height: 50%;
+  	height: 60%;
   	border-radius: 50%;
 }
 .genero{
