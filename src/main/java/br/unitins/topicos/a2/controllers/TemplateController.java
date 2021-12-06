@@ -20,9 +20,8 @@ public class TemplateController implements Serializable {
 		return usuarioLogado;
 	}
 	
-	public Integer getAtualizarValorCarrinho() {
-		// caso nao exista o carrinho, retorna 0
-		
+	public Integer getCarrinhoQtd() {
+		// caso nao exista o carrinho ou esteja vazio, retorna 0
 			@SuppressWarnings("unchecked")
 			List<JogosVenda> carrinhoL =(List<JogosVenda>) Session.getInstance().get("carrinho");
 			if (carrinhoL == null || carrinhoL.isEmpty() ) {

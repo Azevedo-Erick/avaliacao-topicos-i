@@ -32,8 +32,8 @@
 							</div>
 						<div class="drop-down fake">
 							<h:commandLink value="Cadastrar Jogo" actionListener='#{templateController.redirecionar("login.xhtml")}'/>
-							<h:commandLink value="Cadastrar Usuario"  actionListener='#{templateController.redirecionar("consultaUsuario.xhtml")}' />
-							<h:commandLink value="Cadastrar Empresa"  actionListener='#{templateController.redirecionar("consultaEmpresa.xhtml")}'/>
+							<h:commandLink value="Cadastrar Usuario" actionListener='#{templateController.redirecionar("consultaUsuario.xhtml")}' />
+							<h:commandLink value="Cadastrar Empresa" actionListener='#{templateController.redirecionar("consultaEmpresa.xhtml")}'/>
 						 </div>
 				 	</div>
 				 	
@@ -47,7 +47,7 @@
 					</div>
 					<div>
 					<i class="fa fa-shopping-cart"></i>				 	
-					<h:commandLink id="attCarrinho" value="Carrinho (#{templateController.atualizarValorCarrinho})"/>
+					<h:commandLink class="attCarrinho" id="attCarrinho" value="Carrinho (#{templateController.carrinhoQtd})"/>
 				 	</div>
 					<div>
 					<i class="fa fa-user-circle"></i>
