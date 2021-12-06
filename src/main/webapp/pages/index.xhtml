@@ -31,7 +31,7 @@
 								<p>R$ #{jogoController.formatPrice(obj.preco)}</p>
 							</div>
 							<h:commandButton class="cart-container" value="🛒" actionListener="#{jogoController.comprar(obj)}">
-							<f:ajax render="@this attCarrinho"></f:ajax>
+							<f:ajax render="attCarrinho"></f:ajax>
 							</h:commandButton>
 						</div>
 					</div>
