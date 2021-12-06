@@ -1,0 +1,31 @@
+.table-wrapper{
+	background-color: #131920;
+	padding:15px;
+	border-radius: 15px;
+	height: 65vh;
+	overflow-y: scroll;
+	margin-bottom: 3.4vh;
+	color: #fafafa;
+	box-shadow: 1px 1px 3px #000;
+	border: 1px solid #000;
+}
+.tabela{
+	text-align: center;
+}
+
+.tabela td, .tabela th{
+	border: 1px solid #111;
+	padding:4px 10px;	
+	font-size: 16px;
+	font-family: Nunito;
+}
+
+th{
+	background-color: #060912;
+}
+.w{
+	background-color: #060912;
+}
+.b{
+	background-color: #0e2b3c;
+}

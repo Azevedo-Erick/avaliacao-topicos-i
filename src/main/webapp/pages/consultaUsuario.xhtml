@@ -12,33 +12,34 @@
 <h:body>
 	<ui:composition template="template.xhtml">
 		<ui:define name="conteudo">
+		<div class="table-wrapper">
 			<h:form>
-				<h:dataTable var="obj" value="#{consultaUsuarioController.listaUsuarios}">
-					<h:column>
+				<h:dataTable var="obj" value="#{consultaUsuarioController.listaUsuarios}" class="tabela">
+					<h:column class="w">
 							<f:facet name="header">Nome</f:facet>
 							<h:outputLabel value="#{obj.nome}" />
 						</h:column>
 						
-						<h:column>
+						<h:column class="b">
 							<f:facet name="header">CPF</f:facet>
 							<h:outputLabel value="#{obj.cpf}" />
 						</h:column>
 						
-						<h:column>
+						<h:column class="w">
 							<f:facet name="header">Email</f:facet>
 							<h:outputLabel value="#{obj.email}" />
 						</h:column>
 						
-						<h:column>
+						<h:column class="b">
 							<f:facet name="header">Data de Nascimento</f:facet>
 							<h:outputLabel value="#{obj.dataNascimento}" />
 						</h:column>
 						
-						<h:column>
+						<h:column class="w">
 							<f:facet name="header">Perfil</f:facet>
 							<h:outputLabel value="#{obj.perfil.label}" />
 						</h:column>
-						<h:column>
+						<h:column class="b">
 								<f:facet name="header">
 									<h:commandButton value="+"
 							actionListener="#{consultaUsuarioController.irParaCadastro()}"
@@ -50,6 +51,7 @@
 						</h:column>
 				</h:dataTable>
 				</h:form>
+				</div>
 		</ui:define>
 	</ui:composition>
 </h:body>

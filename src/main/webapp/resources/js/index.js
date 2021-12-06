@@ -20,6 +20,18 @@ nav.addEventListener("mouseleave",()=>{
 	})
 })
 
+const trs = document.getElementsByTagName("tr");
+
+function trsAddEvent(){
+	for(let i = 0; i<trs.length;i++){
+		trs[i].addEventListener("mouseover", ()=>{
+			trs[i].style.opacity = "0.7";
+		})
+		trs[i].addEventListener("mouseleave", ()=>{
+			trs[i].style.opacity = "1";
+		})
+	}
+}
 
 function randomGenderColor(){
 	let genders = document.getElementsByClassName("genero");
@@ -35,4 +47,9 @@ function randomGenderColor(){
 		genders[i].style.color = colors[Math.floor(Math.random()*(colors.length-0)+0)]
 	}
 }
-document.onload = randomGenderColor();
+
+function onPageLoad(){
+	randomGenderColor();
+	trsAddEvent()
+}
+document.onload = onPageLoad();
