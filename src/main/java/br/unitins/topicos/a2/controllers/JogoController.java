@@ -65,7 +65,7 @@ public class JogoController implements Serializable{
 		Session.getInstance().set("carrinho", carrinho);
 		
 		Utils.addInfoMessage("Produto adicionado no carrinho.");
-		//Utils.redirect("carrinho.xhtml");
+		Utils.redirect("carrinho.xhtml");
 		}
 
 }

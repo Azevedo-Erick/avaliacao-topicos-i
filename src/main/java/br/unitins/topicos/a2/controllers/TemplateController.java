@@ -31,6 +31,7 @@ public class TemplateController implements Serializable {
 			} else {
 			// se existe carrinho, retorna a qtd
 			carrinhoQtd = carrinhoL.size();
+			
 			return carrinhoQtd;
 			}
 	}
