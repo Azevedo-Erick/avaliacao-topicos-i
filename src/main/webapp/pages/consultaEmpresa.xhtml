@@ -12,33 +12,34 @@
 <h:body>
 	<ui:composition template="template.xhtml">
 		<ui:define name="conteudo">
+		<div class="table-wrapper">
 			<h:form>
-				<h:dataTable var="obj" value="#{consultaEmpresaController.empresas}">
-					<h:column>
+				<h:dataTable var="obj" value="#{consultaEmpresaController.empresas}" class="tabela">
+					<h:column class="w">
 							<f:facet name="header">Nome</f:facet>
 							<h:outputLabel value="#{obj.nome}" />
 						</h:column>
 						
-						<h:column>
+						<h:column class="b">
 							<f:facet name="header">Nome</f:facet>
 							<h:outputLabel value="#{obj.nome}" />
 						</h:column>
 						
-						<h:column>
+						<h:column class="w">
 							<f:facet name="header">Sede</f:facet>
 							<h:outputLabel value="#{obj.sedeEmpresa}" />
 						</h:column>
 						
-						<h:column>
+						<h:column class="b">
 							<f:facet name="header">CEO</f:facet>
 							<h:outputLabel value="#{obj.ceo}" />
 						</h:column>
 						
-						<h:column>
+						<h:column class="w">
 							<f:facet name="header">Fundada em:</f:facet>
 							<h:outputLabel value="#{obj.dataFundacao}" />
 						</h:column>
-						<h:column>
+						<h:column class="b">
 						<f:facet name="header">
 							<h:commandButton value="+"
 						actionListener="#{consultaEmpresaController.selectEmpresa(obj)}"
@@ -53,6 +54,7 @@
 						</h:column>
 				</h:dataTable>
 				</h:form>
+				</div>
 		</ui:define>
 	</ui:composition>
 </h:body>

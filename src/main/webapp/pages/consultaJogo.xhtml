@@ -13,45 +13,49 @@
 <h:body>
 	<ui:composition template="template.xhtml">
 		<ui:define name="conteudo">
+			<div class="table-wrapper">
+			
 			<h:form>
-			<h:commandButton value="Voltar"
-						actionListener="#{consultaJogoController.selectJogo(obj)}"
-						></h:commandButton>
-			</h:form>
-			<h:form>
-				<h:dataTable var="obj" value="#{consultaJogoController.jogos}">
-					<h:column>
+				<h:dataTable var="obj" value="#{consultaJogoController.jogos}" class="tabela">
+					<h:column class="w">
 							<f:facet name="header">Nome</f:facet>
 							<h:outputLabel value="#{obj.nome}" />
 						</h:column>
 						
-						<h:column>
+						<h:column class="b">
 							<f:facet name="header">Genero</f:facet>
 							<h:outputLabel value="#{obj.categoriaGenero}" />
 						</h:column>
 						
-						<h:column>
+						<h:column class="w">
 							<f:facet name="header">Preco</f:facet>
 							<h:outputLabel value="#{obj.preco}" />
 						</h:column>
 						
-						<h:column>
+						<h:column class="b">
 							<f:facet name="header">Empresa</f:facet>
 							<h:outputLabel value="#{obj.empresa.nome}" />
 						</h:column>
 						
-						<h:column>
+						<h:column class="w"> 
 							<f:facet name="header">Classificação Indicativa</f:facet>
 							<h:outputLabel value="#{obj.classificacaoIndicativa.label}" />
 						</h:column>
-						<h:column>
-							
+						<h:column class="b">
+						<f:facet name="header">
+						
+							<h:commandButton value="Voltar"
+						actionListener="#{consultaJogoController.selectJogo(obj)}"
+						></h:commandButton>
+			</f:facet>
+			
 							<h:commandButton value="Editar"
 						actionListener="#{consultaJogoController.selectJogo(obj)}"
 						></h:commandButton>
 						</h:column>
 				</h:dataTable>
 				</h:form>
+				</div>
 		</ui:define>
 	</ui:composition>
 </h:body>
