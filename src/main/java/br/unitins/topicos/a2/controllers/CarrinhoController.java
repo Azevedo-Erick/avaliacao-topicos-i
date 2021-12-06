@@ -16,15 +16,13 @@ import br.unitins.topicos.a2.util.Utils;
 public class CarrinhoController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private List<JogosVenda> listaJogoVenda = null;
-
+	private List<JogosVenda> listaJogoVenda ;
 	@SuppressWarnings("unchecked")
-	public List<JogosVenda> getlistaJogoVenda() {
+	
+	public List<JogosVenda> getListaJogoVenda() {
 		listaJogoVenda = (List<JogosVenda>) Session.getInstance().get("carrinho");
-
 		return listaJogoVenda;
 	}
-
 	public void setListaJogoVenda(List<JogosVenda> listaJogoVenda) {
 		this.listaJogoVenda = listaJogoVenda;
 	}
@@ -54,7 +52,8 @@ public class CarrinhoController implements Serializable {
 //		dao.incluir(venda);
 
 		Utils.addInfoMessage("Venda realizada com sucesso.");
-
+		
 	}
+	
 
 }

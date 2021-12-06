@@ -15,6 +15,7 @@
 			<div class="container">
 			<div class="games-container">
 				<ui:repeat var="obj" value="#{jogoController.jogos}">
+				<h:form>
 					<div class="card-game">
 					<div class="main-info">
 						<p>#{obj.nome}</p>
@@ -32,6 +33,7 @@
 							<h:commandButton class="cart-container" value="🛒" actionListener="#{jogoController.comprar(obj)}"></h:commandButton>
 						</div>
 					</div>
+					</h:form>
 				</ui:repeat>
 				</div>
 			</div>

@@ -97,6 +97,15 @@ public class Jogo {
 	public void setCategoriaGenero(String categoriaGenero) {
 		this.categoriaGenero = categoriaGenero;
 	}
+
+	@Override
+	public String toString() {
+		return "Jogo [id=" + id + ", nome=" + nome + ", empresa=" + empresa + ", plataforma=" + plataforma
+				+ ", categoriaGenero=" + categoriaGenero + ", dataLancamento=" + dataLancamento
+				+ ", classificacaoIndicativa=" + classificacaoIndicativa + ", descricaoJogo=" + descricaoJogo
+				+ ", preco=" + preco + ", imagem=" + imagem + "]";
+	}
+	
 	
 
 }

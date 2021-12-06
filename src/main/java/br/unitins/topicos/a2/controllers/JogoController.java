@@ -53,7 +53,7 @@ public void comprar(Jogo jogo) {
 			carrinho = new ArrayList<JogosVenda>();
 		
 		JogosVenda item = new JogosVenda();
-		item.setProduto(jogo);
+		item.setJogo(jogo);
 		item.setValor(jogo.getPreco());
 		item.setQuantidade(1);
 		
@@ -72,7 +72,6 @@ public void comprar(Jogo jogo) {
 		Session.getInstance().set("carrinho", carrinho);
 		
 		Utils.addInfoMessage("Produto adicionado no carrinho.");
-		
-	}
+		Utils.redirect("carrinho.xhtml");}
 
 }

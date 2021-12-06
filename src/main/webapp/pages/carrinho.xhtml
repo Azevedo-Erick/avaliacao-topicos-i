@@ -9,10 +9,18 @@
 
 	<meta charset="utf-8"></meta>
 </h:head>
-<h:body>
+<h:body onload="#{carrinhoController.click()}">
 	<ui:composition template="template.xhtml">
 		<ui:define name="conteudo">
-			
+		<h:form>
+
+			<h:commandButton actionListener="#{carrinhoController.click()}"></h:commandButton>
+		</h:form>
+			<h:dataTable var="obj" value="carrinhoController.getlistaJogoVenda()">
+			<h:column>
+				<p>#{obj.valor}</p>
+			</h:column>
+			</h:dataTable>
 			
 		</ui:define>
 	</ui:composition>

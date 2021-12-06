@@ -32,12 +32,17 @@ public class JogosVenda {
 		this.quantidade = quantidade;
 	}
 
-	public Jogo getProduto() {
+
+
+	public Jogo getJogo() {
+		if(this.jogo==null) {
+			this.setJogo(new Jogo());
+		}
 		return jogo;
 	}
 
-	public void setProduto(Jogo produto) {
-		this.jogo = produto;
+	public void setJogo(Jogo jogo) {
+		this.jogo = jogo;
 	}
 
 	@Override
@@ -56,4 +61,11 @@ public class JogosVenda {
 		JogosVenda other = (JogosVenda) obj;
 		return Objects.equals(jogo, other.jogo);
 	}
+
+	@Override
+	public String toString() {
+		return "JogosVenda [id=" + id + ", valor=" + valor + ", quantidade=" + quantidade + ", jogo=" + jogo + "]";
+	}
+	
+	
 }
