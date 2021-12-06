@@ -12,6 +12,9 @@ import br.unitins.topicos.a2.dao.EmpresaDao;
 import br.unitins.topicos.a2.dao.JogoDao;
 import br.unitins.topicos.a2.models.Empresa;
 import br.unitins.topicos.a2.models.Jogo;
+import br.unitins.topicos.a2.models.JogosVenda;
+import br.unitins.topicos.a2.util.Session;
+import br.unitins.topicos.a2.util.Utils;
 
 @Named
 @ViewScoped
@@ -39,6 +42,37 @@ public class JogoController implements Serializable{
 	
 	public void setJogos(List<Jogo> jogos) {
 		this.jogos = jogos;
+	}
+	
+public void comprar(Jogo jogo) {
+		
+		@SuppressWarnings("unchecked")
+		List<JogosVenda> carrinho =(List<JogosVenda>) Session.getInstance().get("carrinho");
+		// caso nao exista o carrinho, criar um espaco de memoria
+		if (carrinho == null)
+			carrinho = new ArrayList<JogosVenda>();
+		
+		JogosVenda item = new JogosVenda();
+		item.setProduto(jogo);
+		item.setValor(jogo.getPreco());
+		item.setQuantidade(1);
+		
+		// se existe no carrinho, atualizar a quantidade
+		if (carrinho.contains(item)) {
+			int index = carrinho.indexOf(item);
+			int quantidade = carrinho.get(index).getQuantidade() + 1;
+			carrinho.get(index).setQuantidade(quantidade);
+			
+		} else {
+			// adicionando o novo item no carrinho
+			carrinho.add(item);
+		}
+		
+		// adicionando / atualizando o carrinho na sessao
+		Session.getInstance().set("carrinho", carrinho);
+		
+		Utils.addInfoMessage("Produto adicionado no carrinho.");
+		
 	}
 
 }

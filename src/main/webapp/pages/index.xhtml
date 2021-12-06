@@ -5,7 +5,7 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-	<title>Hello, World!</title>
+	<title>Essa certamente não é a nuuvem</title>
 	<meta charset="utf-8"></meta>
 	
 </h:head>
@@ -20,7 +20,7 @@
 						<p>#{obj.nome}</p>
 						<h:commandLink value="🔎" class="game-link"></h:commandLink>
 					</div >
-							<img class="card-text images" src="#{obj.imagem}"/>
+							<img class="images" src="#{obj.imagem}"/>
 							<p class="card-text">#{obj.classificacaoIndicativa.label}</p>
 							<p class="card-text">#{obj.plataforma}</p>
 							<p class="genero">\##{obj.categoriaGenero}</p>
@@ -29,7 +29,7 @@
 							<div class="price-container">						
 								<p>R$ #{jogoController.formatPrice(obj.preco)}</p>
 							</div>
-							<h:commandButton class="cart-container" value="🛒"></h:commandButton>
+							<h:commandButton class="cart-container" value="🛒" actionListener="#{jogoController.comprar(obj)}"></h:commandButton>
 						</div>
 					</div>
 				</ui:repeat>
