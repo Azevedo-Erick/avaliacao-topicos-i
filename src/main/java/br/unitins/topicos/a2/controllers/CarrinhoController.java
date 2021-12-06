@@ -1,6 +1,7 @@
 package br.unitins.topicos.a2.controllers;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -16,9 +17,9 @@ import br.unitins.topicos.a2.util.Utils;
 public class CarrinhoController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private List<JogosVenda> listaJogoVenda ;
-	@SuppressWarnings("unchecked")
+	private List<JogosVenda> listaJogoVenda = null;
 	
+	@SuppressWarnings("unchecked")
 	public List<JogosVenda> getListaJogoVenda() {
 		listaJogoVenda = (List<JogosVenda>) Session.getInstance().get("carrinho");
 		return listaJogoVenda;
@@ -36,6 +37,7 @@ public class CarrinhoController implements Serializable {
 		}
 
 		// verificar se existe algum produto no carrinho (sessao)
+		@SuppressWarnings("unchecked")
 		List<JogosVenda> carrinho = (List<JogosVenda>) Session.getInstance().get("carrinho");
 		if (carrinho == null || carrinho.isEmpty() ) {
 			Utils.addErrorMessage("Não existem produtos no carrinho");

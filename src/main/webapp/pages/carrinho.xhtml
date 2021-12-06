@@ -16,7 +16,7 @@
 
 			<h:commandButton actionListener="#{carrinhoController.click()}"></h:commandButton>
 		</h:form>
-			<h:dataTable var="obj" value="carrinhoController.getlistaJogoVenda()">
+			 <h:dataTable var="obj" value="carrinhoController.listaJogoVenda">
 			<h:column>
 				<p>#{obj.valor}</p>
 			</h:column>

@@ -4,13 +4,9 @@ import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-
-import br.unitins.topicos.a2.dao.EmpresaDao;
 import br.unitins.topicos.a2.dao.JogoDao;
-import br.unitins.topicos.a2.models.Empresa;
 import br.unitins.topicos.a2.models.Jogo;
 import br.unitins.topicos.a2.models.JogosVenda;
 import br.unitins.topicos.a2.util.Session;
@@ -21,10 +17,7 @@ import br.unitins.topicos.a2.util.Utils;
 public class JogoController implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private List<Jogo> jogos;
-	
-	
-	
-	
+
 	public List<Jogo> getJogos() {
 		if(this.jogos==null) {
 			JogoDao dao = new JogoDao();
@@ -34,7 +27,6 @@ public class JogoController implements Serializable{
 		return jogos;
 	}
 
-	
 	public String formatPrice(Double price) {
 		 DecimalFormat formatter = new DecimalFormat("###,###,##0.00");
 		 return formatter.format(price);
@@ -44,13 +36,14 @@ public class JogoController implements Serializable{
 		this.jogos = jogos;
 	}
 	
-public void comprar(Jogo jogo) {
+	public void comprar(Jogo jogo) {
 		
 		@SuppressWarnings("unchecked")
 		List<JogosVenda> carrinho =(List<JogosVenda>) Session.getInstance().get("carrinho");
 		// caso nao exista o carrinho, criar um espaco de memoria
-		if (carrinho == null)
+		if (carrinho == null) {
 			carrinho = new ArrayList<JogosVenda>();
+		}
 		
 		JogosVenda item = new JogosVenda();
 		item.setJogo(jogo);
@@ -72,6 +65,7 @@ public void comprar(Jogo jogo) {
 		Session.getInstance().set("carrinho", carrinho);
 		
 		Utils.addInfoMessage("Produto adicionado no carrinho.");
-		Utils.redirect("carrinho.xhtml");}
+		//Utils.redirect("carrinho.xhtml");
+		}
 
 }

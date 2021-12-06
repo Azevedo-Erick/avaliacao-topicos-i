@@ -1,12 +1,8 @@
 package br.unitins.topicos.a2.controllers;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-
-import br.unitins.topicos.a2.models.Jogo;
 import br.unitins.topicos.a2.models.JogosVenda;
 import br.unitins.topicos.a2.models.Usuario;
 import br.unitins.topicos.a2.util.*;
@@ -16,6 +12,7 @@ import br.unitins.topicos.a2.util.*;
 public class TemplateController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Usuario usuarioLogado;
+	private Integer carrinhoQtd;
 	
 	public Usuario getUsuarioLogado() {
 		if (usuarioLogado == null)
@@ -23,16 +20,19 @@ public class TemplateController implements Serializable {
 		return usuarioLogado;
 	}
 	
-public Integer atualizarValorCarrinho() {
-		
-		@SuppressWarnings("unchecked")
-		List<JogosVenda> carrinho =(List<JogosVenda>) Session.getInstance().get("carrinho");
+	public Integer getAtualizarValorCarrinho() {
 		// caso nao exista o carrinho, retorna 0
-		if (carrinho == null) {
-			return 0;
-		}
-		// se existe no carrinho, retorna a qnt
-			return carrinho.size();
+		
+			@SuppressWarnings("unchecked")
+			List<JogosVenda> carrinhoL =(List<JogosVenda>) Session.getInstance().get("carrinho");
+			if (carrinhoL == null || carrinhoL.isEmpty() ) {
+				carrinhoQtd = 0;
+				return carrinhoQtd;
+			} else {
+			// se existe carrinho, retorna a qtd
+			carrinhoQtd = carrinhoL.size();
+			return carrinhoQtd;
+			}
 	}
 
 	public void setUsuarioLogado(Usuario usuarioLogado) {
