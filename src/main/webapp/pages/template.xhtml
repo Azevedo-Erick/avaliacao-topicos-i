@@ -21,7 +21,7 @@
 <h:body>
 		<div class="nav">
 		<div class="nav-logo-container">
-		<i class="fa fa-cloud"></i>
+		<i class="fa fa-cloud cloud"></i>
 		</div>
 			<ui:insert name="menu">
 				<h:form>
@@ -33,8 +33,11 @@
 							</div>
 						<div class="drop-down fake">
 							<h:commandLink value="Cadastrar Jogo" actionListener='#{templateController.redirecionar("login.xhtml")}'/>
+							<hr/>
 							<h:commandLink value="Cadastrar Usuario" actionListener='#{templateController.redirecionar("consultaUsuario.xhtml")}' />
+							<hr/>
 							<h:commandLink value="Cadastrar Empresa" actionListener='#{templateController.redirecionar("consultaEmpresa.xhtml")}'/>
+						 	<hr/>
 						 </div>
 				 	</div>
 				 	
@@ -54,7 +57,7 @@
 					<i class="fa fa-user-circle"></i>
 					<h:form rendered="#{templateController.usuarioLogado != null}" > 
 					<h:outputLabel value="#{templateController.usuarioLogado.nome}"/>
-					<h:commandLink value=" (Sair)" actionListener="#{templateController.encerrarSessao}" style="color:white"> <f:ajax render="@this"/>  </h:commandLink>
+					<h:commandLink value=" (Sair)" actionListener="#{templateController.encerrarSessao}" class="sair"> <f:ajax render="@this"/>  </h:commandLink>
 				</h:form>
 					<h:commandLink rendered="#{templateController.usuarioLogado == null}" action="#{templateController.logar}" value="Login" />	
 					</div>

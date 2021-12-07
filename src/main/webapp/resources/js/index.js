@@ -48,8 +48,10 @@ function randomGenderColor(){
 	}
 }
 
+
+
 function onPageLoad(){
 	randomGenderColor();
-	trsAddEvent()
+	trsAddEvent();
 }
 document.onload = onPageLoad();

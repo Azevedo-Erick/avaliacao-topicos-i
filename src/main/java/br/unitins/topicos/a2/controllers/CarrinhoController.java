@@ -19,6 +19,10 @@ public class CarrinhoController implements Serializable {
 	
 	private List<JogosVenda> listaJogoVenda = null;
 	
+	public void print() {
+		System.out.println("Compra finalizada");
+		}
+	
 	@SuppressWarnings("unchecked")
 	public List<JogosVenda> getListaJogoVenda() {
 		listaJogoVenda = (List<JogosVenda>) Session.getInstance().get("carrinho");

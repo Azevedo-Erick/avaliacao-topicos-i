@@ -24,7 +24,7 @@ public class TemplateController implements Serializable {
 		// caso nao exista o carrinho ou esteja vazio, retorna 0
 			@SuppressWarnings("unchecked")
 			List<JogosVenda> carrinhoL =(List<JogosVenda>) Session.getInstance().get("carrinho");
-			if (carrinhoL == null || carrinhoL.isEmpty() ) {
+			if (carrinhoL == null || carrinhoL.isEmpty() ) {https://i.imgur.com/rYpwYDK.jpg
 				carrinhoQtd = 0;
 				return carrinhoQtd;
 			} else {

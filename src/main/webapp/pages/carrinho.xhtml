@@ -34,11 +34,13 @@
 					</ui:repeat>
 				</div>
 				<div class="finalize-container">
+				<h:form class="finalize-form">
 					<div>
 						<p>Deseja finalizar a compra com #{carrinhoController.listaJogoVenda.size()}  elementos ?</p>
-						<h:commandButton value="Finalizar Compra"></h:commandButton>
+						<h:commandButton value="Finalizar Compra" actionListener="carrinhoController.print()"></h:commandButton>
 					</div>
 					<p>Total: </p>
+				</h:form>
 				</div>
 			</div>
 

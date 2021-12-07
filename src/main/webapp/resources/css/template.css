@@ -27,6 +27,7 @@ body{
 	box-shadow:#000 2px 2px 6px;
 	position: fixed;
 	border-bottom: 1px solid #1d2631;
+	text-shadow: 1px 1px 1px #000;
 }
 .nav > form{
 	align-self:flex-end;
@@ -38,6 +39,7 @@ body{
 .nav a{
 	text-decoration: none;
 	color:#F1F1F1;
+	
 }
 .nav a:link{
 	color:#F1F1F1;
@@ -46,8 +48,10 @@ body{
 	color:#F1F1F1;
 }
 .cadastrar{
-	cursor:pointer;
 	padding: 1px 5px 3px;
+}
+.cadastrar > div >p{
+	cursor: default;
 }
 .drop-down{
 	display:flex;
@@ -60,14 +64,21 @@ body{
 	align-items:center;
 	position:absolute;
 	background-color: #2C3D55;
-	height: 50px;
 	justify-content: space-between;
 	border: 1px solid #1d2631;
 	
 }
+.drop-down > a
+{
+	cursor:pointer;
+}
+.drop-down > hr{
+	width: 100%;
+}
 .fake{
 	display:none;
 }
+
 .safezone{
 	margin-top: 11vh;
 }
@@ -90,6 +101,8 @@ body{
 	align-items: center;
 	box-shadow: -4px -2px 10px #000;
 	border-top: 1px solid #1d2631;
+	color:#F1F1F1;
+	text-shadow: 1px 1px 1px #000;
 }
 .footer a{
 	text-decoration: none;
@@ -113,4 +126,40 @@ body{
 	justify-content:space-evenly;
 	display: flex;
 	flex-direction: column;
+}
+
+.sair{
+	animation: neonSair  2500ms cubic-bezier(.22,.07,.56,.68) infinite alternate-reverse;
+}
+
+.cloud{
+	animation: neonCloud  4500ms cubic-bezier(.22,.07,.56,.68) infinite alternate-reverse;
+}
+@keyframes neonCloud{
+	0% {
+    color: #516d7e;
+    text-shadow: 1px 1px #000;
+}
+33% {
+    color: #38b6ff;
+    text-shadow: -1px -1px 0 #38b6ff, 1px -1px 0 #38b6ff, -1px 1px 0 #38b6ff, 1px 1px 0 #38b6ff, 0 -2px 4px, 0 0 2px, 0 0 3px #38b6ff, 0 0 7px #38b6ff, 0 0 1px #38b6ff, 0 1px 2px #000;
+}
+50% {
+    color: #516d7e;
+    text-shadow: 1px 1px #000;
+}
+100% {
+    color: #38b6ff;
+    text-shadow: -1px -1px 0 #38b6ff, 1px -1px 0 #38b6ff, -1px 1px 0 #38b6ff, 1px 1px 0 #38b6ff, 0 -2px 4px, 0 0 2px, 0 0 3px #38b6ff, 0 0 7px #38b6ff, 0 0 1px #38b6ff, 0 1px 2px #000;
+}
+}
+
+@keyframes neonSair{
+	0%{
+	color: #fafafa;}
+    50% {
+    color: #38b6ff;
+}
+    100%{
+	color: #fafafa;}
 }
