@@ -41,6 +41,10 @@ public class TemplateController implements Serializable {
 	public void logar() {
 		Utils.redirect("login.xhtml");
 	}
+	
+	public void irParaCarrinho() {
+		Utils.redirect("carrinho.xhtml");
+	}
 	public void encerrarSessao() {
 		Session.getInstance().invalidateSession();
 		Utils.redirect("index.xhtml");

@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="../resources/css/login.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="../resources/css/index.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="../resources/css/consulta.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../resources/css/carrinho.css" media="all" />
 </h:head>
 
 <h:body>
@@ -47,7 +48,7 @@
 					</div>
 					<div>
 					<i class="fa fa-shopping-cart"></i>				 	
-					<h:commandLink class="attCarrinho" id="attCarrinho" value="Carrinho (#{templateController.carrinhoQtd})"/>
+					<h:commandLink class="attCarrinho" id="attCarrinho" actionListener="#{templateController.irParaCarrinho()}" value="Carrinho (#{templateController.carrinhoQtd})"/>
 				 	</div>
 					<div>
 					<i class="fa fa-user-circle"></i>
