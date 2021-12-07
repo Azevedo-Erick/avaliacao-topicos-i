@@ -83,7 +83,7 @@
 .buy-container{
 	display: flex;
 	text-align:center;
-	width:100%;
+	width:90%;
 	flex-direction: row;
 }
 .card-text{
