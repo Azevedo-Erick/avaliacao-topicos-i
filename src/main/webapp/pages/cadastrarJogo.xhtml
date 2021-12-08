@@ -13,46 +13,50 @@
 <h:body>
 	<ui:composition template="template.xhtml">
 		<ui:define name="conteudo">
-			<div>
+		<div class="cadastro-container">
+			<div class="voltar-titulo-container">
+			 <h:commandButton value="Voltar"></h:commandButton>
 				<h1>Cadastrar Jogo</h1>
+			</div>
 			<h:form id="fa">
+				<div class="form-intern-container">
 				<h:messages class="message" />
 		
-			<div>
+			<div class="cadastro-container-row">
 				<h:outputText value="Nome"></h:outputText>
 				<h:inputText value="#{cadastrarJogoController.jogoForm.nome}"
 				required="true" requiredMessage="O nome deve ser informado"
 				></h:inputText>
 			</div>
-			<div>
+			<div class="cadastro-container-row">
 				<h:outputText value="Plataforma"></h:outputText>
 				<h:inputText value="#{cadastrarJogoController.jogoForm.plataforma}"
 				required="true" requiredMessage="O nome deve ser informado"
 				></h:inputText>
 			</div>
 			
-			<div>
+			<div class="cadastro-container-row">
 				<h:outputText value="Genero"></h:outputText>
 				<h:inputText value="#{cadastrarJogoController.jogoForm.categoriaGenero}"
 				required="true" requiredMessage="O nome deve ser informado"
 				></h:inputText>
 			</div>
 			
-			<div>
+			<div class="cadastro-container-row">
 				<h:outputText value="Data de Lançamento"></h:outputText>
 				<h:inputText a:type="date" value="#{cadastrarJogoController.jogoForm.dataLancamento}"
 				required="true" requiredMessage="A data de fundação deve ser informada"
 				><f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/></h:inputText>
 			</div>
 			
-			<div>
+			<div class="cadastro-container-row">
 				<h:outputText value="Descricao"></h:outputText>
 				<h:inputTextarea value="#{cadastrarJogoController.jogoForm.descricaoJogo}"
 				required="true" requiredMessage="A data de fundação deve ser informada"
 				></h:inputTextarea>
 			</div>
 			
-			<div>
+			<div class="cadastro-container-row">
 				<h:outputText value="Preco"></h:outputText>
 				<h:inputText value="#{cadastrarJogoController.jogoForm.preco}"
 				required="true" requiredMessage="O nome deve ser informado"
@@ -74,15 +78,19 @@
 				</h:selectOneMenu>
 				
 				 <h:commandButton value="Cadastrar"
-					actionListener="#{cadastrarJogoController.cadastrar()}"></h:commandButton>
+					actionListener="#{cadastrarJogoController.cadastrar()}"
+					rendered="#{cadastrarJogoController.jogoForm.id!=0}"></h:commandButton>
 				<h:commandButton value="Atualizar"
 						actionListener="#{cadastrarJogoController.atualizar()}"
-						></h:commandButton>
 						
+						></h:commandButton>
+						</div>
+			</h:form>
+						<h:form>
 						<h:commandButton value="Excluir"
 						actionListener="#{cadastrarJogoController.remover()}"
 						></h:commandButton>
-			</h:form>
+						</h:form>
 			</div>
 					</ui:define>
 	</ui:composition>

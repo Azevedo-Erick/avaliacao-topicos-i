@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1993/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Hello, World!</title>
+	<meta charset="utf-8"></meta>
+	
+</h:head>
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="conteudo">
+			<h:form>
+			
+			<div class="cadastro-container-row">
+				<h:outputText value="Nome"></h:outputText>
+				<h:inputText value="#{editarInformacoesController.usuario.nome}"
+				required="true" requiredMessage="O nome deve ser informado"
+				></h:inputText>
+			</div>
+			
+			<div class="cadastro-container-row">
+				<h:outputText value="CPF"></h:outputText>
+				<h:inputText value="#{editarInformacoesController.usuario.cpf}"
+				required="true" requiredMessage="O CPF deve ser informado"
+				></h:inputText>
+			</div>
+			
+				
+			<div class="cadastro-container-row">
+				<h:outputText value="Data de Nascimento"></h:outputText>
+				<h:inputText a:type="date" value="#{editarInformacoesController.usuario.dataNascimento}"
+				required="true" requiredMessage="A data de nascimento deve ser informada"
+				><f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/></h:inputText>
+			</div>	
+				
+			<div class="cadastro-container-row">
+				<h:outputText value="Email"></h:outputText>
+				<h:inputText value="#{editarInformacoesController.usuario.email}"
+				required="true" requiredMessage="O email deve ser informado"
+				></h:inputText>
+			</div>	
+				
+			<div class="cadastro-container-row">
+				<h:outputText value="Senha"></h:outputText>
+				<h:inputSecret value="#{editarInformacoesController.usuario.senha}"
+				required="true" requiredMessage="A senha deve ser informada"
+				></h:inputSecret>
+			</div>
+			<h:commandButton value="Atualizar"
+						actionListener="#{editarInformacoesController.atualizarInformacoes()}"
+						
+						></h:commandButton>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

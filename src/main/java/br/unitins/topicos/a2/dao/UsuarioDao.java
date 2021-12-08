@@ -228,6 +228,46 @@ public class UsuarioDao implements Dao<Usuario>{
 		return result;
 	}
 
+	
+	public boolean editarInformacoes(Usuario obj) {
+		Connection conn = Dao.getConnection();
+		boolean result = false;
+		if(conn==null) {
+			return result;
+		}
+		String SQL = "UPDATE usuario SET nome=?,cpf=?,data_nascimento=?,email=?, senha=? WHERE id_usuario = ?;";
+		PreparedStatement stat=null;
+		try {
+			stat = conn.prepareStatement(SQL);
+			stat.setString(1, obj.getNome());
+			stat.setString(2, obj.getCpf());
+			stat.setDate(3, Date.valueOf(obj.getDataNascimento()));
+			stat.setString(4, obj.getEmail());
+			stat.setString(5, Utils.hash(obj));
+			stat.setInt(6, obj.getId());
+			
+			stat.execute();
+			result = true;
+		}catch(SQLException e){
+			System.out.println("Erro ao atualizar os dados");
+			e.printStackTrace();
+			return result;
+		}finally {
+			try {
+				conn.close();
+			}catch (SQLException e) {
+				
+			}
+			try {
+				stat.close();
+			}catch (SQLException e) {
+				
+			}
+		}
+		return result;
+	}
+	
+	
 	@Override
 	public boolean excluir(Usuario obj) {
 		Connection conn = Dao.getConnection();

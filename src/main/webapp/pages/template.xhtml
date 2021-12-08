@@ -33,7 +33,7 @@
 								<p><i class="fa fa-database"></i>Cadastrar<i id="angle" class="fa fa-angle-up"></i></p>
 							</div>
 						<div class="drop-down fake">
-							<h:commandLink value="Cadastrar Jogo" actionListener='#{templateController.redirecionar("login.xhtml")}'/>
+							<h:commandLink value="Cadastrar Jogo" actionListener='#{templateController.redirecionar("consultaJogo.xhtml")}'/>
 							<hr/>
 							<h:commandLink value="Cadastrar Usuario" actionListener='#{templateController.redirecionar("consultaUsuario.xhtml")}' />
 							<hr/>
@@ -48,11 +48,11 @@
 				 	</div>
 					<div>
 					<i class="fa fa-clipboard"></i>					
-					<h:commandLink value="Histórico de Venda"/>
+					<h:commandLink action='#{templateController.redirecionar("historicoDeVenda.xhtml")}' value="Histórico de Venda"/>
 					</div>
 					<div>
 					<i class="fa fa-shopping-cart"></i>				 	
-					<h:commandLink class="attCarrinho" id="attCarrinho" actionListener="#{templateController.irParaCarrinho()}" value="Carrinho (#{templateController.carrinhoQtd})"/>
+					<h:commandLink class="attCarrinho" id="attCarrinho" action='#{templateController.redirecionar("carrinho.xhtml")}' value="Carrinho (#{templateController.carrinhoQtd})"/>
 				 	</div>
 					<div>
 					<i class="fa fa-user-circle"></i>
@@ -60,7 +60,7 @@
 					<h:outputLabel value="#{templateController.usuarioLogado.nome}"/>
 					<h:commandLink value=" (Sair)" actionListener="#{templateController.encerrarSessao}" class="sair"> <f:ajax render="@this"/>  </h:commandLink>
 				</h:form>
-					<h:commandLink rendered="#{templateController.usuarioLogado == null}" action="#{templateController.logar}" value="Login" />	
+					<h:commandLink rendered="#{templateController.usuarioLogado == null}" action='#{templateController.redirecionar("login.xhtml")}' value="Login" />	
 					</div>
 				</h:form>
 			</ui:insert>
@@ -69,7 +69,6 @@
 		<div class="content">
 			<div class="template-content">
 				<ui:insert name="conteudo">
-					<h2>TÓPICOS EM PROGRAMAÇÃO I</h2>
 				</ui:insert>
 			</div>
 		<div class="footer" >

@@ -48,9 +48,9 @@ public class CadastrarEmpresaController implements Serializable{
 		this.setEmpresaForm(null);
 	}
 	
-	public void excluir(Empresa obj) {
+	public void excluir() {
 		EmpresaDao dao = new EmpresaDao();
-		dao.excluir(obj);
+		dao.excluir(empresaForm);
 		this.setEmpresaForm(null);
 	}
 

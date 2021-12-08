@@ -12,36 +12,38 @@
 <h:body>
 	<ui:composition template="template.xhtml">
 		<ui:define name="conteudo">
+			<div class="cadastro-container">
+			<div class="voltar-titulo-container">
 			<h:form>
-				<h:commandButton value="⬅" actionListener='#{cadastrarUsuarioController.irParaConsulta()}'></h:commandButton>
+				<h:commandButton value="Voltar" actionListener='#{cadastrarUsuarioController.irParaConsulta()}'></h:commandButton>
 			</h:form>
-			<div>
-				<h1>Cadastrar bebida</h1>
+				<h1>Cadastrar Usuario</h1>
+				</div>
 			<h:form id="fa">
 				<h:messages class="message" />
-		
-			<div>
+		<div class="form-intern-container">
+			<div class="cadastro-container-row">
 				<h:outputText value="Nome"></h:outputText>
 				<h:inputText value="#{cadastrarUsuarioController.usuarioForm.nome}"
 				required="true" requiredMessage="O nome deve ser informado"
 				></h:inputText>
 			</div>
 			
-			<div>
+			<div class="cadastro-container-row">
 				<h:outputText value="CPF"></h:outputText>
 				<h:inputText value="#{cadastrarUsuarioController.usuarioForm.cpf}"
 				required="true" requiredMessage="O CPF deve ser informado"
 				></h:inputText>
 			</div>
 			
-			<div>
+			<div class="cadastro-container-row">
 				<h:outputText value="Data de Nascimento"></h:outputText>
 				<h:inputText a:type="date" value="#{cadastrarUsuarioController.usuarioForm.dataNascimento}"
 				required="true" requiredMessage="A data de nascimento deve ser informada"
 				><f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/></h:inputText>
 			</div>
 			
-			<div>
+			<div class="cadastro-container-row">
 				<h:outputText value="Email"></h:outputText>
 				<h:inputText value="#{cadastrarUsuarioController.usuarioForm.email}"
 				required="true" requiredMessage="O email deve ser informado"
@@ -49,7 +51,7 @@
 			</div>
 			
 			
-			<div>
+			<div class="cadastro-container-row">
 				<h:outputText value="Senha"></h:outputText>
 				<h:inputSecret value="#{cadastrarUsuarioController.usuarioForm.senha}"
 				required="true" requiredMessage="A senha deve ser informada"
@@ -63,15 +65,17 @@
 				</h:selectOneMenu>
 				
 				 <h:commandButton value="Cadastrar"
-					actionListener="#{cadastrarUsuarioController.cadastrar()}"></h:commandButton>
+					actionListener="#{cadastrarUsuarioController.cadastrar()}"
+						rendered="#{cadastrarUsuarioController.usuarioForm.id!=0}"></h:commandButton>
 				<h:commandButton value="Atualizar"
 						actionListener="#{cadastrarUsuarioController.atualizar()}"
-						></h:commandButton>
-						
+							></h:commandButton>
+						</div>
 			</h:form>
 			<h:form>
 				<h:commandButton value="Excluir"
 						actionListener="#{cadastrarUsuarioController.remover()}"
+						
 						></h:commandButton>
 			</h:form>
 			</div>

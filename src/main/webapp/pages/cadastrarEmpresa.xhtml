@@ -12,18 +12,18 @@
 <h:body>
 	<ui:composition template="template.xhtml">
 		<ui:define name="conteudo">
-			<div class="cadastro-empresa-container">
+			<div class="cadastro-container">
 				<h1>Cadastrar Empresa</h1>
-				<h:form id="fa">
+				<h:form class="cadastro-form" id="fa">
 					<h:messages class="message" />
-
+				<div class="form-intern-container">
 					<div class="cadastro-container-row">
 						<h:outputText value="Nome"></h:outputText>
 						<h:inputText
 							value="#{cadastrarEmpresaController.empresaForm.nome}"
 							required="true" requiredMessage="O nome deve ser informado"></h:inputText>
 					</div>
-
+					
 					<div class="cadastro-container-row">
 						<h:outputText value="Sede"></h:outputText>
 						<h:inputText
@@ -33,7 +33,7 @@
 
 
 					<div class="cadastro-container-row">
-						<h:outputText value="ceo"></h:outputText>
+						<h:outputText value="Ceo"></h:outputText>
 						<h:inputText value="#{cadastrarEmpresaController.empresaForm.ceo}"
 							required="true" requiredMessage="O email deve ser informado"></h:inputText>
 					</div>
@@ -48,14 +48,17 @@
 						</h:inputText>
 					</div>
 
-
+					</div>
 
 					<h:commandButton value="Cadastrar"
-						actionListener="#{cadastrarEmpresaController.incluir()}"></h:commandButton>
+						actionListener="#{cadastrarEmpresaController.incluir()}" r></h:commandButton>
 					<h:commandButton value="Atualizar"
-						actionListener="#{cadastrarEmpresaController.atualizar()}"></h:commandButton>
-					
+						actionListener="#{cadastrarEmpresaController.atualizar()}" ></h:commandButton>
 				</h:form>
+				<h:form>
+					<h:commandButton value="Excluir"
+						actionListener="#{cadastrarEmpresaController.excluir()}" ></h:commandButton>
+						</h:form>
 			</div>
 		</ui:define>
 	</ui:composition>
