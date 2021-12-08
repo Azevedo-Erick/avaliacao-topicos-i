@@ -6,6 +6,7 @@ import java.util.List;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
+import br.unitins.topicos.a2.dao.CarrinhoDao;
 import br.unitins.topicos.a2.models.Carrinho;
 import br.unitins.topicos.a2.models.JogosVenda;
 import br.unitins.topicos.a2.models.Usuario;
@@ -18,6 +19,19 @@ public class CarrinhoController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private List<JogosVenda> listaJogoVenda = null;
+	
+	public String formatPrice(Double price) {
+		 return Utils.formatPrice(price);
+	}
+	
+	public String valorTotal() {
+		double valor = 0;
+		if(listaJogoVenda!=null)
+		for(JogosVenda jogo : listaJogoVenda) {
+			valor += jogo.getValor();
+		}
+		return formatPrice(valor);
+	}
 	
 	public void print() {
 		System.out.println("Compra finalizada");
@@ -48,14 +62,14 @@ public class CarrinhoController implements Serializable {
 			return;
 		}
 
-		Carrinho compra = new Carrinho();
-		compra.setData(LocalDateTime.now());
-		compra.setUsuario(usuarioLogado);
-		compra.setListaJogoVenda(carrinho);
+		Carrinho venda = new Carrinho();
+		venda.setData(LocalDateTime.now());
+		venda.setUsuario(usuarioLogado);
+		venda.setListaJogoVenda(carrinho);
 
 		// salvando no banco de dados
-//		VendaDAO dao = new VendaDAO();
-//		dao.incluir(venda);
+		CarrinhoDao dao = new CarrinhoDao();
+		dao.incluir(venda);
 
 		Utils.addInfoMessage("Venda realizada com sucesso.");
 		

@@ -1,0 +1,16 @@
+.cadastro-empresa-container{
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	background-color: #fbc24a;
+	align-items: center;
+	width: 50vw;
+	height: 70vh;
+	border-radius: 15px;
+	box-shadow: 1px 1px 2px #000;
+}
+
+.cadastro-container-row{
+	display: flex;
+	flex-direction: row;
+}

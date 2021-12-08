@@ -1,6 +1,8 @@
 package br.unitins.topicos.a2.util;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
@@ -38,5 +40,10 @@ public class Utils {
 	
 	public static void addInfoMessage(String msg) {
 		addMessage(msg,FacesMessage.SEVERITY_INFO);
+	}
+	
+	public static String formatPrice(Double price) {
+		 DecimalFormat formatter = new DecimalFormat("###,###,##0.00");
+		 return formatter.format(price);
 	}
 }

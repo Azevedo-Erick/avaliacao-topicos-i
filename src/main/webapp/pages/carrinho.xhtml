@@ -13,37 +13,35 @@
 	<ui:composition template="template.xhtml">
 		<ui:define name="conteudo">
 			<h:form>
-
 				<h:commandButton value="Voltar"></h:commandButton>
-			</h:form>
+			
 			<div class="carrinho-container">
+			
 				<div class="elements-container">
 					<ui:repeat var="obj" value="#{carrinhoController.listaJogoVenda}">
 					<div class="carrinho-element-wrapper">
 						<div class="carrinho-column">
 								<p class="carrinho-game-title">#{obj.jogo.nome}</p>
-								<div class="carrinho-row">
-									<h:commandButton actionListener="#{carrinhoController.click()}" value="-"></h:commandButton>
-									<h:inputText value="#{obj.quantidade}"></h:inputText>
-									<h:commandButton actionListener="#{carrinhoController.click()}" value="+"></h:commandButton>
-								</div>
-	
+									<div class="carrinho-row">
+										<h:commandButton actionListener="#{obj.red()}" value="-"></h:commandButton>
+										<h:inputText value="#{obj.quantidade}" a:type="number"></h:inputText>
+										<h:commandButton actionListener="#{obj.add()}" value="+"></h:commandButton>
+									</div>
 							</div>
-								<p>#{obj.valor}</p>
+								<p>R$ #{carrinhoController.formatPrice(obj.valor)}</p>
 						</div>
 					</ui:repeat>
 				</div>
 				<div class="finalize-container">
-				<h:form class="finalize-form">
 					<div>
 						<p>Deseja finalizar a compra com #{carrinhoController.listaJogoVenda.size()}  elementos ?</p>
-						<h:commandButton value="Finalizar Compra" actionListener="carrinhoController.print()"></h:commandButton>
+						<h:commandButton value="Finalizar Compra" actionListener="#{carrinhoController.finalizar()}"></h:commandButton>
 					</div>
-					<p>Total: </p>
-				</h:form>
+					<p>Total: R$ #{carrinhoController.valorTotal()}</p>
+				<h:messages></h:messages>
 				</div>
 			</div>
-
+			</h:form>
 		</ui:define>
 	</ui:composition>
 

@@ -11,15 +11,30 @@ public class JogosVenda {
 	public Integer getId() {
 		return id;
 	}
-
+	
+	public void red() {
+		System.out.println(this.getQuantidade());
+		if(this.getQuantidade()>1) {
+			this.setQuantidade(this.quantidade -=1);
+		}
+	}
+	
+	public void add() {
+		System.out.println(this.getQuantidade());
+		this.setQuantidade(this.quantidade +=1);
+	}
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
 	public Double getValor() {
+		//Não sabia onde colocar
+		this.setValor(quantidade*jogo.getPreco());
 		return valor;
 	}
 
+	
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
@@ -59,7 +74,7 @@ public class JogosVenda {
 		if (getClass() != obj.getClass())
 			return false;
 		JogosVenda other = (JogosVenda) obj;
-		return Objects.equals(jogo, other.jogo);
+		return Objects.equals(jogo.getId(), other.jogo.getId());
 	}
 
 	@Override

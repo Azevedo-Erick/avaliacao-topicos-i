@@ -28,8 +28,7 @@ public class JogoController implements Serializable{
 	}
 
 	public String formatPrice(Double price) {
-		 DecimalFormat formatter = new DecimalFormat("###,###,##0.00");
-		 return formatter.format(price);
+		 return Utils.formatPrice(price);
 	}
 	
 	public void setJogos(List<Jogo> jogos) {

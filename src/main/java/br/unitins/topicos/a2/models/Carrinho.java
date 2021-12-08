@@ -1,6 +1,7 @@
 package br.unitins.topicos.a2.models;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Carrinho {
@@ -9,6 +10,15 @@ public class Carrinho {
 	private Double totalVenda;
 	private Usuario usuario;
 	private List<JogosVenda> listaJogoVenda;
+
+	
+	public Carrinho() {}
+	public Carrinho(Integer id, LocalDateTime data, Double totalVenda) {
+		super();
+		this.id = id;
+		this.data = data;
+		this.totalVenda = totalVenda;
+	}
 
 	public Integer getId() {
 		return id;
@@ -34,6 +44,15 @@ public class Carrinho {
 		this.totalVenda = totalVenda;
 	}
 
+	private Double calculaTotal() {
+		Double total = 0.0;
+			for(JogosVenda jogo : listaJogoVenda) {
+			total+=jogo.getValor();
+		}
+		return total;
+	}
+	
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -43,6 +62,8 @@ public class Carrinho {
 	}
 
 	public List<JogosVenda> getListaJogoVenda() {
+		//Não sabia onde colocar
+		this.setTotalVenda(calculaTotal());
 		return listaJogoVenda;
 	}
 

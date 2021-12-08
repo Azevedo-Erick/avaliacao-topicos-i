@@ -11,7 +11,7 @@ public interface Dao <T>{
 	 	NOT NULL, sede_empresa varchar NOT NULL, ceo varchar NOT NULL, data_fundacao date
 	 	NOT NULL);
 	 * 
-	 * create table public.venda(id_venda serial not null unique, data date not null);
+	 * create table public.venda(id_venda serial not null unique, data timestamp not null, valor decimal not null , usuario int not null, foreign key (usuario) references usuario(id_usuario) );
 	 * 
 	 *  create table public.jogo( id_jogo serial unique not null, nome varchar
 	  NOT NULL,preco decimal NOT NULL, empresa int NOT NULL, plataforma varchar NOT NULL, genero varchar not
@@ -20,8 +20,8 @@ public interface Dao <T>{
 	  (empresa) references empresa(id_empresa) );
 	 * 
 	 * create table public.item_venda(id_item_venda serial not null, valor decimal not null, 
-	quantidade int not null, venda int not null, jogo int not null, foreign key
-	(venda) references venda(id_venda), foreign key (jogo) references  jogo(id_jogo));
+		quantidade int not null, venda int not null, jogo int not null, foreign key
+		(venda) references venda(id_venda), foreign key (jogo) references  jogo(id_jogo));
 	 * 
 	 * create table public.usuario( id_usuario serial unique , nome varchar
 	  , cpf varchar , email varchar NOT NULL, data_nascimento date, senha varchar NOT NULL,
