@@ -30,6 +30,7 @@ public class LoginController implements Serializable{
 		Utils.redirect("cadastrarUsuario.xhtml");
 	}
 	
+	
 	public String login() {
 		UsuarioDao dao = new UsuarioDao();
 		Usuario usu = dao.verificarUsuario(usuario.getEmail(), Utils.hash(usuario));

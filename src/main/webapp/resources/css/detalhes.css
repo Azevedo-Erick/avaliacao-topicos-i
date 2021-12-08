@@ -1,0 +1,52 @@
+.detalhes-jogo-container{
+	display: flex;
+	flex-direction: row;
+	padding: 10px 30px;
+	border-radius: 15px;
+	background-color:  #111b2a;
+	width: 60vw;
+	justify-content:space-evenly;
+	height: 70vh;
+	align-items: center;
+	font-family: Montserrat;
+	box-shadow:1px 1px 7px 1px #000;
+	font-size:22px;
+	color:#fff;
+	border: 1px solid #000;
+}
+
+.imagem{
+	width: 30%;
+}
+.imagem>img{
+	width: 100%;
+}
+.details-container{
+	height: 80%;
+	width:60%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	background-color:  #182332;
+	border-radius: 15px;
+	padding: 10px;
+	border:1px #000 solid;
+	text-shadow:1px 1px 1px #000;
+	box-shadow: 2px 2px 4px #000;
+}
+.botao-carrinho-detalhes{
+	padding: 4px 5px;
+	width:50%;
+	border: 0px;
+	border-radius: 15px;
+	box-shadow: 2px 2px 4px #000;
+	transition:300ms;
+}
+
+.botao-carrinho-detalhes:hover{
+	background-color: green;
+	color:#fafafa;
+}
+.details-container p b{
+	font-weight: bold;
+}

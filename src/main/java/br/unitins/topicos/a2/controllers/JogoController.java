@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import br.unitins.topicos.a2.dao.JogoDao;
@@ -27,6 +30,15 @@ public class JogoController implements Serializable{
 		return jogos;
 	}
 
+	
+	public void detalhes(Jogo jogo) {
+		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+		flash.put("detalhesJogoFlash", jogo);
+		Utils.redirect("detalhesJogo.xhtml");
+		
+	}
+	
+	
 	public String formatPrice(Double price) {
 		 return Utils.formatPrice(price);
 	}

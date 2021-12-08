@@ -17,6 +17,8 @@
 	<link rel="stylesheet" type="text/css" href="../resources/css/consulta.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="../resources/css/carrinho.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="../resources/css/cadastro.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../resources/css/editar.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../resources/css/detalhes.css" media="all" />
 </h:head>
 
 <h:body>
@@ -59,6 +61,7 @@
 					<h:form rendered="#{templateController.usuarioLogado != null}" > 
 					<h:outputLabel value="#{templateController.usuarioLogado.nome}"/>
 					<h:commandLink value=" (Sair)" actionListener="#{templateController.encerrarSessao}" class="sair"> <f:ajax render="@this"/>  </h:commandLink>
+					<h:commandLink value=" Editar Informações" actionListener="#{templateController.redirecionar('editarInformacoes.xhtml')}" class="sair"> <f:ajax render="@this"/>  </h:commandLink>
 				</h:form>
 					<h:commandLink rendered="#{templateController.usuarioLogado == null}" action='#{templateController.redirecionar("login.xhtml")}' value="Login" />	
 					</div>

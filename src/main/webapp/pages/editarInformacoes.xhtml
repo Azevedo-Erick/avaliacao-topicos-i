@@ -12,48 +12,51 @@
 <h:body>
 	<ui:composition template="template.xhtml">
 		<ui:define name="conteudo">
-			<h:form>
-			
-			<div class="cadastro-container-row">
-				<h:outputText value="Nome"></h:outputText>
-				<h:inputText value="#{editarInformacoesController.usuario.nome}"
-				required="true" requiredMessage="O nome deve ser informado"
-				></h:inputText>
-			</div>
-			
-			<div class="cadastro-container-row">
-				<h:outputText value="CPF"></h:outputText>
-				<h:inputText value="#{editarInformacoesController.usuario.cpf}"
-				required="true" requiredMessage="O CPF deve ser informado"
-				></h:inputText>
-			</div>
-			
+			<div class="editar-container">
+			<h1>Editar minhas informações</h1>
+				<h:form>
 				
-			<div class="cadastro-container-row">
-				<h:outputText value="Data de Nascimento"></h:outputText>
-				<h:inputText a:type="date" value="#{editarInformacoesController.usuario.dataNascimento}"
-				required="true" requiredMessage="A data de nascimento deve ser informada"
-				><f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/></h:inputText>
-			</div>	
+				<div class="editar-container-row">
+					<h:outputText value="Nome"></h:outputText>
+					<h:inputText value="#{editarInformacoesController.usuario.nome}"
+					required="true" requiredMessage="O nome deve ser informado"
+					></h:inputText>
+				</div>
 				
-			<div class="cadastro-container-row">
-				<h:outputText value="Email"></h:outputText>
-				<h:inputText value="#{editarInformacoesController.usuario.email}"
-				required="true" requiredMessage="O email deve ser informado"
-				></h:inputText>
-			</div>	
+				<div class="editar-container-row">
+					<h:outputText value="CPF"></h:outputText>
+					<h:inputText value="#{editarInformacoesController.usuario.cpf}"
+					required="true" requiredMessage="O CPF deve ser informado"
+					></h:inputText>
+				</div>
 				
-			<div class="cadastro-container-row">
-				<h:outputText value="Senha"></h:outputText>
-				<h:inputSecret value="#{editarInformacoesController.usuario.senha}"
-				required="true" requiredMessage="A senha deve ser informada"
-				></h:inputSecret>
-			</div>
-			<h:commandButton value="Atualizar"
-						actionListener="#{editarInformacoesController.atualizarInformacoes()}"
-						
-						></h:commandButton>
-			</h:form>
+					
+				<div class="editar-container-row">
+					<h:outputText value="Data de Nascimento"></h:outputText>
+					<h:inputText a:type="date" value="#{editarInformacoesController.usuario.dataNascimento}"
+					required="true" requiredMessage="A data de nascimento deve ser informada"
+					><f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/></h:inputText>
+				</div>	
+					
+				<div class="editar-container-row">
+					<h:outputText value="Email"></h:outputText>
+					<h:inputText value="#{editarInformacoesController.usuario.email}"
+					required="true" requiredMessage="O email deve ser informado"
+					></h:inputText>
+				</div>	
+					
+				<div class="editar-container-row">
+					<h:outputText value="Senha"></h:outputText>
+					<h:inputSecret value="#{editarInformacoesController.usuario.senha}"
+					required="true" requiredMessage="A senha deve ser informada"
+					></h:inputSecret>
+				</div>
+				<h:commandButton value="Atualizar"
+							actionListener="#{editarInformacoesController.atualizarInformacoes()}"
+							
+							></h:commandButton>
+				</h:form>
+				</div>
 		</ui:define>
 	</ui:composition>
 </h:body>
