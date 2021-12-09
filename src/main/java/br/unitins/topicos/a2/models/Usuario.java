@@ -3,6 +3,8 @@ package br.unitins.topicos.a2.models;
 import java.time.LocalDate;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
+
 import org.hibernate.validator.constraints.br.CPF;
 
 public class Usuario {
@@ -10,6 +12,7 @@ public class Usuario {
 	private String nome;
 	@CPF(message = "CPF inválido")
 	private String cpf;
+	@Past(message = "Data anterior ao dia de hoje")
 	private LocalDate dataNascimento;
 	@Email(message = "Email com formato inválido.")
 	@NotBlank(message = "O email deve ser informado.")

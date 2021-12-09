@@ -32,6 +32,15 @@ public class LoginController implements Serializable{
 	
 	
 	public String login() {
+		
+		UsuarioDao daoCPF = new UsuarioDao();
+		Usuario usuarioBanco = daoCPF.getUsuario(usuario.getEmail());
+		if (usuarioBanco == null) {
+			Utils.addErrorMessage("Usuario nao existe.");
+			
+		}
+		usuario.setCpf(usuarioBanco.getCpf());
+
 		UsuarioDao dao = new UsuarioDao();
 		Usuario usu = dao.verificarUsuario(usuario.getEmail(), Utils.hash(usuario));
 		

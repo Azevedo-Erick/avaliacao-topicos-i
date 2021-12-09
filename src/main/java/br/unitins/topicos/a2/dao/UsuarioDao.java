@@ -187,6 +187,56 @@ public class UsuarioDao implements Dao<Usuario>{
 			}		
 			return usuario;		
 		}
+		
+		public Usuario getUsuario(String email) {
+			Connection conn = Dao.getConnection();
+			String sql = "SELECT id_usuario, nome, cpf, email, data_nascimento, senha, perfil FROM usuario WHERE email = ? ORDER BY nome";
+			if (conn == null) 
+				return null;
+				
+			PreparedStatement stat = null;
+			ResultSet rs = null;
+			Usuario usuario = null;
+			
+			try {	
+				stat = conn.prepareStatement(sql);
+				stat.setString(1, email);
+			
+				rs = stat.executeQuery();
+				
+				if(rs.next()) {
+					usuario = new Usuario();
+					usuario.setId(rs.getInt("id_usuario"));
+					usuario.setNome(rs.getString("nome"));
+					usuario.setCpf(rs.getString("cpf"));
+					usuario.setEmail(rs.getString("email"));
+					
+					Date data = rs.getDate("data_nascimento");
+					if (data == null) {
+						usuario.setDataNascimento(null);
+					} else {
+						usuario.setDataNascimento(data.toLocalDate());
+						}
+					usuario.setSenha(rs.getString("senha"));
+					usuario.setPerfil(Perfil.valueOf(rs.getInt("perfil")));
+				}
+				
+			} catch (SQLException e) {
+				usuario = null;
+				e.printStackTrace();
+			} finally {
+				try {
+					stat.close();
+				} catch (SQLException e) {}
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}		
+			return usuario;		
+		}
 	
 	@Override
 	public boolean alterar(Usuario obj) {
