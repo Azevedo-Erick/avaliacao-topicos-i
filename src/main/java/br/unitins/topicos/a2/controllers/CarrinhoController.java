@@ -49,7 +49,6 @@ public class CarrinhoController implements Serializable {
 		if(cupom.getCodigo() !=null) {
 			valorTotalComCupom();
 		}
-		System.out.println(valor);
 		return formatPrice(valor);
 	}
 	
