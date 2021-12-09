@@ -11,7 +11,7 @@
 	
 </h:head>
 <h:body>
-	<ui:composition template="template.xhtml">
+	<ui:composition template="/pages/template.xhtml">
 		<ui:define name="conteudo">
 		<div class="cadastro-container">
 			<div class="voltar-titulo-container">
@@ -79,15 +79,13 @@
 				
 				 <h:commandButton value="Cadastrar"
 					actionListener="#{cadastrarJogoController.cadastrar()}"
-					rendered="#{cadastrarJogoController.jogoForm.id!=0}"></h:commandButton>
-				<h:commandButton value="Atualizar"
-						actionListener="#{cadastrarJogoController.atualizar()}"
-						
-						></h:commandButton>
+					rendered="#{cadastrarJogoController.jogoForm.empresa == null}"></h:commandButton>
+				<h:commandButton value="Atualizar" rendered="#{cadastrarJogoController.jogoForm.empresa != null}"
+						actionListener="#{cadastrarJogoController.atualizar()}"></h:commandButton>
 						</div>
 			</h:form>
 						<h:form>
-						<h:commandButton value="Excluir"
+						<h:commandButton value="Excluir" rendered="#{cadastrarJogoController.jogoForm.empresa != null}"
 						actionListener="#{cadastrarJogoController.remover()}"
 						></h:commandButton>
 						</h:form>
