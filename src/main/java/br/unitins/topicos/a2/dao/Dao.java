@@ -26,6 +26,14 @@ public interface Dao <T>{
 	 * create table public.usuario( id_usuario serial unique , nome varchar
 	  , cpf varchar , email varchar NOT NULL, data_nascimento date, senha varchar NOT NULL,
 	  perfil integer not null);
+	  
+	  CREATE TABLE IF NOT EXISTS public.cupom(
+    	id_cupom integer NOT NULL DEFAULT nextval('cupom_id_seq'::regclass),
+    	codigo character varying COLLATE pg_catalog."default" NOT NULL,
+    	porcentagem integer NOT NULL,
+    	ativado boolean NOT NULL,
+    	CONSTRAINT cupom_pkey PRIMARY KEY (id_cupom)
+		)
 	 */
 	public boolean incluir(T obj);
 	public boolean alterar(T obj);

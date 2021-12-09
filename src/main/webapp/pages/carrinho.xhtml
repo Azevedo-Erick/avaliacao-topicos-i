@@ -14,6 +14,9 @@
 		<ui:define name="conteudo">
 			<h:form>
 				<h:commandButton value="Voltar"></h:commandButton>
+				<h:messages class="messages" id="messages" errorStyle="color:red;margin:8px;"
+						warnStyle="color:yellow;margin:8px;"
+						infoStyle="color:green;margin:8px;" />
 			
 			<div class="carrinho-container">
 			
@@ -35,10 +38,13 @@
 				<div class="finalize-container">
 					<div>
 						<p>Deseja finalizar a compra com #{carrinhoController.listaJogoVenda.size()}  elementos ?</p>
-						<h:commandButton value="Finalizar Compra" actionListener="#{carrinhoController.finalizar()}"></h:commandButton>
+						<h:inputText id="cupaum" a:placeholder="Digite aki o cupom" value="#{carrinhoController.cupom.codigo}"></h:inputText>
+						<h:commandButton value="Aplicar Cupom" actionListener="#{carrinhoController.aplicarCupom()}">
+						<f:ajax execute="cupaum" render="@form"></f:ajax>
+						</h:commandButton>
+						<BR /><h:commandButton value="Finalizar Compra" actionListener="#{carrinhoController.finalizar()}"></h:commandButton>
 					</div>
-					<p>Total: R$ #{carrinhoController.valorTotal()}</p>
-				<h:messages></h:messages>
+						<p id="total">Total: R$ #{carrinhoController.valorTotal()}</p>
 				</div>
 			</div>
 			</h:form>

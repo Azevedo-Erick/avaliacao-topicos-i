@@ -35,20 +35,6 @@ public class Usuario {
 	}
 	public Usuario() {
 	}
-	/*
-	 * CREATE TABLE public.empresa ( idempresa serial unique NOT null, nome varchar
-	 * NOT NULL, sedeempresa varchar NOT NULL, ceo varchar NOT NULL, datafundacao date
-	 * NOT NULL);
-	 * 
-	 * create table public.jogo( idjogo serial unique not null, nome varchar
-	 * NOT NULL, empresa int NOT NULL, plataforma varchar NOT NULL, genero varchar not
-	 * null, datalancamento date not null, classificaoindicativa int not null, foreign key
-	 * (empresa) references empresa(idempresa) );
-	 * 
-	 * create table public.usuario( idusuario serial unique , nome varchar
-	 * , cpf varchar , email varchar NOT NULL, datanascimento date, senha varchar NOT NULL,
-	 * perfil integer not null;
-	 */
 	
 	public Integer getId() {
 		return id;
