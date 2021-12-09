@@ -1,10 +1,12 @@
 package br.unitins.topicos.a2.models;
 
 import java.time.LocalDate;
+import javax.validation.constraints.NotNull;
 
 public class Jogo {
 	private Integer id;
 	private String nome;
+	@NotNull
 	private Empresa empresa;
 	private String plataforma;
 	private String categoriaGenero;

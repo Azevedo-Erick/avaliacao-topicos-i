@@ -3,11 +3,14 @@ package br.unitins.topicos.a2.models;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import javax.validation.constraints.Past;
+
 public class Empresa {
 	private Integer id;
 	private String nome;
 	private String sedeEmpresa;
 	private String ceo;
+	@Past(message = "Data de fundação tem que ser anterior ao dia de hoje")
 	private LocalDate dataFundacao;
 	
 	
