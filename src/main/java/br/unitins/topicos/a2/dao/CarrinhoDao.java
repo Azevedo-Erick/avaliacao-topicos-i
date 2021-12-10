@@ -144,4 +144,5 @@ public class CarrinhoDao implements Dao<Carrinho> {
 		}
 		return listaDeCompras;
 	}
+	
 }

@@ -121,7 +121,7 @@ public class CupomDao implements Dao<Cupom> {
 		if (conn == null) {
 			return null;
 		}
-		String SQL = "SELECT * FROM cupom ORDER BY id_cupom CRES";
+		String SQL = "SELECT * FROM cupom ORDER BY id_cupom ASC";
 		List<Cupom> lista = new ArrayList<Cupom>();
 		PreparedStatement stat=null;
 		ResultSet rs=null;

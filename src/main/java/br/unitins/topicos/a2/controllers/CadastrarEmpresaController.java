@@ -11,6 +11,7 @@ import javax.inject.Named;
 
 import br.unitins.topicos.a2.dao.EmpresaDao;
 import br.unitins.topicos.a2.models.Empresa;
+import br.unitins.topicos.a2.util.Utils;
 
 @Named
 @ViewScoped
@@ -38,19 +39,31 @@ public class CadastrarEmpresaController implements Serializable{
 	
 	public void incluir() {
 		EmpresaDao dao = new EmpresaDao();
-		dao.incluir(empresaForm);
+		if(dao.incluir(empresaForm)) {
+			Utils.addInfoMessage("Inclusão realizada com sucesso");
+		}else {
+			Utils.addWarnMessage("Não consegui incluir");
+		}
 		this.setEmpresaForm(null);
 	}
 	
 	public void atualizar() {
 		EmpresaDao dao = new EmpresaDao();
-		dao.alterar(empresaForm);
+		if(dao.alterar(empresaForm)) {
+			Utils.addInfoMessage("Alteração realizada com sucesso");
+		}else {
+			Utils.addWarnMessage("Não consegui alterar");
+		}
 		this.setEmpresaForm(null);
 	}
 	
 	public void excluir() {
 		EmpresaDao dao = new EmpresaDao();
-		dao.excluir(empresaForm);
+		if(dao.excluir(empresaForm)) {
+			Utils.addInfoMessage("Exclusão realizada com sucesso");
+		}else {
+			Utils.addWarnMessage("Não consegui excluir");
+		}
 		this.setEmpresaForm(null);
 	}
 

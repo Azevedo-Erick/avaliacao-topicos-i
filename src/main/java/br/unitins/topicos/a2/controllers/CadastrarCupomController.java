@@ -9,6 +9,7 @@ import javax.inject.Named;
 
 import br.unitins.topicos.a2.dao.CupomDao;
 import br.unitins.topicos.a2.models.Cupom;
+import br.unitins.topicos.a2.util.Utils;
 
 @Named
 @ViewScoped
@@ -34,18 +35,30 @@ public class CadastrarCupomController implements Serializable{
 	
 	public void incluir() {
 		CupomDao dao = new CupomDao();
-		dao.incluir(cupomForm);
+		if(dao.incluir(cupomForm)) {
+			Utils.addInfoMessage("Cupom cadastrado com sucesso");
+		}else{
+			Utils.addWarnMessage("Houveram problemas para cadastrar o cupom");
+		}
 		this.setCupomForm(null);
 	}
 	
 	public void alterar() {
 		CupomDao dao = new CupomDao();
-		dao.alterar(cupomForm);
+		if(dao.alterar(cupomForm)) {
+			Utils.addInfoMessage("Cupom alterado com sucesso");
+		}else {
+			Utils.addWarnMessage("Houveram problemas para alterar o cupom");
+		}
 		this.setCupomForm(null);
 	}
 	public void excluir() {
 		CupomDao dao = new CupomDao();
-		dao.excluir(cupomForm);
+		if(dao.excluir(cupomForm)) {
+			Utils.addInfoMessage("Cupom excluid com sucesso");
+		}else{
+			Utils.addWarnMessage("Houveram problemas para excluir o cupom");
+		};
 		this.setCupomForm(null);
 	}
 	

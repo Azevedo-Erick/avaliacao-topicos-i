@@ -84,16 +84,28 @@ public class CadastrarJogoController implements Serializable{
 	
 	public void cadastrar() {
 		JogoDao dao = new JogoDao();
-		dao.incluir(jogoForm);
+		if(dao.incluir(jogoForm)) {
+			Utils.addInfoMessage("Jogo cadastrado com sucesso");
+		}else {
+			Utils.addWarnMessage("Houveram problemas para cadastrar o jogo");
+		}
 		this.setJogoForm(null);
 	}
 	public void remover() {
 		JogoDao dao = new JogoDao();
-		dao.excluir(jogoForm);
+		if(dao.excluir(jogoForm)) {
+			Utils.addInfoMessage("Remoção realizada com sucesso");
+		}else {
+			Utils.addWarnMessage("Houveram problemas para excluir");
+		}
 	}
 	public void atualizar() {
 		JogoDao dao = new JogoDao();
-		dao.alterar(jogoForm);
+		if(dao.alterar(jogoForm)) {
+			Utils.addInfoMessage("Alteração realizada com sucesso");
+		}else {
+			Utils.addWarnMessage("Houveram problemas para alterar");
+		}
 		this.setJogoForm(null);
 	}
 

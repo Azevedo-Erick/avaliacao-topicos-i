@@ -27,7 +27,11 @@ public class CadastroController implements Serializable{
 	}
 	public void cadastrar() {
 		UsuarioDao dao = new UsuarioDao();
-		dao.incluir(usuarioForm);
+		if(dao.incluir(usuarioForm)) {
+			Utils.addInfoMessage("Cadastro realizado com sucesso");
+		}else {
+			Utils.addWarnMessage("Houveram problemas para realizar o cadastro");
+		}
 		this.setUsuarioForm(null);
 	}
 	public void redirecionar(String pagina) {

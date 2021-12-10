@@ -9,103 +9,151 @@
 	<meta charset="utf-8" name="viewport"
 		content="width=device-width, initial-scale=1"
 		http-equiv="X-UA-Conpatible" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="../resources/css/reset.css"/>
-	<link rel="stylesheet" href="../resources/css/template.css"/>
-	<link rel="stylesheet" type="text/css" href="../resources/css/login.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="../resources/css/index.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="../resources/css/carrinho.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="../resources/css/detalhes.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="../resources/css/cadastro.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="../resources/css/editar.css" media="all" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="../resources/css/reset.css" />
+	<link rel="stylesheet" href="../resources/css/template.css" />
+	<link rel="stylesheet" type="text/css"
+		href="../resources/css/login.css" media="all" />
+	<link rel="stylesheet" type="text/css"
+		href="../resources/css/index.css" media="all" />
+	<link rel="stylesheet" type="text/css"
+		href="../resources/css/carrinho.css" media="all" />
+	<link rel="stylesheet" type="text/css"
+		href="../resources/css/detalhes.css" media="all" />
+	<link rel="stylesheet" type="text/css"
+		href="../resources/css/cadastro.css" media="all" />
+	<link rel="stylesheet" type="text/css"
+		href="../resources/css/editar.css" media="all" />
 	<!-- Seção de CSS para as páginas de admin -->
-	<link rel="stylesheet" href="../../resources/css/reset.css"/>
-	<link rel="stylesheet" href="../../resources/css/template.css"/>
-	<link rel="stylesheet" type="text/css" href="../../resources/css/index.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="../../resources/css/consulta.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="../../resources/css/editar.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="../../resources/css/cadastro.css" media="all" />
+	<link rel="stylesheet" href="../../resources/css/reset.css" />
+	<link rel="stylesheet" href="../../resources/css/template.css" />
+	<link rel="stylesheet" type="text/css"
+		href="../../resources/css/index.css" media="all" />
+	<link rel="stylesheet" type="text/css"
+		href="../../resources/css/consulta.css" media="all" />
+	<link rel="stylesheet" type="text/css"
+		href="../../resources/css/editar.css" media="all" />
+	<link rel="stylesheet" type="text/css"
+		href="../../resources/css/cadastro.css" media="all" />
 </h:head>
 
 <h:body>
-		<div class="nav">
-		<div class="nav-logo-container">
-		<i class="fa fa-cloud cloud"></i>
+	<div class="nav">
+	
+		<ui:insert name="menu">
+			<h:form>
+	<div class="nav-logo-container">
+			<i class="fa fa-cloud cloud"></i>
 		</div>
-			<ui:insert name="menu">
-				<h:form>
-					
-					<div class="cadastrar" id="cadastro-container" style="visibility: #{templateController.usuarioLogado.perfil.id == 1 ? 'visible': 'hidden'}">
-						<div id="cadastrar">
-							
-								<p><i class="fa fa-database"></i>Cadastrar<i id="angle" class="fa fa-angle-up"></i></p>
+				<div class="cadastrar" id="cadastro-container"
+					style="visibility: #{templateController.usuarioLogado.perfil.id == 1 ? 'visible': 'hidden'}">
+					<div id="cadastrar">
+
+						<p>
+							<i class="fa fa-database"></i>Cadastrar<i id="angle-cad"
+								class="fa fa-angle-up"></i>
+						</p>
+					</div>
+					<div class="drop-down fake">
+						<h:commandLink value="Cadastrar Jogo"
+							actionListener='#{templateController.redirecionar("/pages/admin/consultaJogo.xhtml")}' />
+						<hr />
+						<h:commandLink value="Cadastrar Usuario"
+							actionListener='#{templateController.redirecionar("/pages/admin/consultaUsuario.xhtml")}' />
+						<hr />
+						<h:commandLink value="Cadastrar Empresa"
+							actionListener='#{templateController.redirecionar("/pages/admin/consultaEmpresa.xhtml")}' />
+						<hr />
+						<h:commandLink value="Cadastrar Cupom"
+							actionListener='#{templateController.redirecionar("/pages/admin/consultaCupom.xhtml")}' />
+						<hr />
+					</div>
+				</div>
+
+				<div>
+					<i class="fa fa-tags"></i>
+					<h:commandLink value="Produtos"
+						actionListener='#{templateController.redirecionar("/pages/index.xhtml")}' />
+				</div>
+
+				<div>
+					<i class="fa fa-shopping-cart"></i>
+					<h:commandLink class="attCarrinho" id="attCarrinho"
+						action='#{templateController.redirecionar("/pages/carrinho.xhtml")}'
+						value="Carrinho (#{templateController.carrinhoQtd})" />
+				</div>
+				<div id="login-wrapper">
+
+					<h:form rendered="#{templateController.usuarioLogado != null}">
+
+						<div id="login-nav-container" class="login-nav-container">
+							<div>
+								
+								<p><i class="fa fa-user-circle"></i> #{templateController.usuarioLogado.nome} <i id="angle-log" class="fa fa-angle-up"></i> </p>
 							</div>
-						<div class="drop-down fake">
-							<h:commandLink value="Cadastrar Jogo" actionListener='#{templateController.redirecionar("/pages/admin/consultaJogo.xhtml")}'/>
-							<hr/>
-							<h:commandLink value="Cadastrar Usuario" actionListener='#{templateController.redirecionar("/pages/admin/consultaUsuario.xhtml")}' />
-							<hr/>
-							<h:commandLink value="Cadastrar Empresa" actionListener='#{templateController.redirecionar("/pages/admin/consultaEmpresa.xhtml")}'/>
-						 	<hr/>
-						 	<h:commandLink value="Cadastrar Cupom" actionListener='#{templateController.redirecionar("/pages/admin/consultaCupom.xhtml")}'/>
-						 	<hr/>
-						 </div>
-				 	</div>
-				 	
-				 	<div>
-				 		<i class="fa fa-tags"></i>
-						<h:commandLink value="Produtos" actionListener='#{templateController.redirecionar("/pages/index.xhtml")}'/>
-				 	</div>
-					<div>
-					<i class="fa fa-clipboard"></i>					
-					<h:commandLink action='#{templateController.redirecionar("/pages/historicoDeVenda.xhtml")}' value="Histórico de Venda"/>
-					</div>
-					<div>
-					<i class="fa fa-shopping-cart"></i>				 	
-					<h:commandLink class="attCarrinho" id="attCarrinho" action='#{templateController.redirecionar("/pages/carrinho.xhtml")}' value="Carrinho (#{templateController.carrinhoQtd})"/>
-				 	</div>
-					<div>
-					<i class="fa fa-user-circle"></i>
-					<h:form rendered="#{templateController.usuarioLogado != null}" > 
-					<h:outputLabel value="#{templateController.usuarioLogado.nome}"/>
-					<h:commandLink value=" (Sair)" actionListener="#{templateController.encerrarSessao}" class="sair"> <f:ajax render="@this"/>  </h:commandLink>
-					<h:commandLink value=" Editar Informações" actionListener="#{templateController.redirecionar('/pages/editarInformacoes.xhtml')}" class="sair"> <f:ajax render="@this"/>  </h:commandLink>
-				</h:form>
-					<h:commandLink rendered="#{templateController.usuarioLogado == null}" action='#{templateController.redirecionar("/pages/login.xhtml")}' value="Login" />	
-					</div>
-				</h:form>
+							<div class="drop-down-login fake">
+								<h:commandLink value="Sair"
+									actionListener="#{templateController.encerrarSessao}"
+									>
+									<f:ajax render="@this" />
+								</h:commandLink>
+								<hr/>
+								<h:commandLink value="Editar Informações"
+									actionListener="#{templateController.redirecionar('/pages/editarInformacoes.xhtml')}"
+									>
+									<f:ajax render="@this" />
+								</h:commandLink>
+								<hr/>
+								
+									<h:commandLink
+										action='#{templateController.redirecionar("/pages/historicoDeVenda.xhtml")}'
+										value="Histórico de Compras">
+										<f:ajax render="@this" />
+										</h:commandLink>
+								
+								<hr/>
+							</div>
+						</div>
+					</h:form>
+					<h:commandLink
+						rendered="#{templateController.usuarioLogado == null}"
+						action='#{templateController.redirecionar("/pages/login.xhtml")}'
+						value="Login" />
+				</div>
+			</h:form>
+		</ui:insert>
+	</div>
+	<div class="safezone"></div>
+	<div class="content">
+		<div class="template-content">
+			<ui:insert name="conteudo">
 			</ui:insert>
 		</div>
-		<div class="safezone"></div>
-		<div class="content">
-			<div class="template-content">
-				<ui:insert name="conteudo">
-				</ui:insert>
-			</div>
-		<div class="footer" >
+		<div class="footer">
 			<div class="footer-column">
-				<h:commandLink value="Suporte"/>
-				<h:commandLink value="Carreiras"/>
-				<h:commandLink value="Blog"/>
-				
+				<h:commandLink value="Suporte" />
+				<h:commandLink value="Carreiras" />
+				<h:commandLink value="Blog" />
+
 			</div>
 			<div class="footer-separator"></div>
 			<div class="footer-column">
-				<h:commandLink value="Envie seu jogo"/>
-				<h:commandLink value="Termos de uso"/>
-				<h:commandLink value="Política de privacidade"/>
+				<h:commandLink value="Envie seu jogo" />
+				<h:commandLink value="Termos de uso" />
+				<h:commandLink value="Política de privacidade" />
 			</div>
-			
+
 			<div class="footer-separator"></div>
 			<div class="footer-column">
 				<p>Acompanhe-nos</p>
-				<h:commandLink value="Twitter"/>
-				<h:commandLink value="Instagram"/>
-				<h:commandLink value="Facebook"/>
-				<h:commandLink value="Discord"/>
+				<h:commandLink value="Twitter" />
+				<h:commandLink value="Instagram" />
+				<h:commandLink value="Facebook" />
+				<h:commandLink value="Discord" />
 			</div>
 		</div>
-		</div>
+	</div>
 	<script src="../resources/js/index.js" type="text/javascript"></script>
 	<script src="../resources/js/login.js" type="text/javascript"></script>
 	<!--  Seção JS dos admin -->

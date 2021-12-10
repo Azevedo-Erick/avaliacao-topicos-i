@@ -57,7 +57,31 @@ public class CadastrarUsuarioController implements Serializable {
 	
 	public void cadastrar() {
 		UsuarioDao dao = new UsuarioDao();
-		dao.cadastar(usuarioForm);
+		if(dao.cadastar(usuarioForm)) {
+			Utils.addInfoMessage("Cadastro realizado com sucesso!");
+		}else {
+			Utils.addWarnMessage("Houveram problemas para realizar o cadastro");
+		}
+		this.setUsuarioForm(null);
+	}
+
+
+	public void remover() {
+		UsuarioDao dao = new UsuarioDao();
+		if(dao.excluir(usuarioForm)) {
+			Utils.addInfoMessage("Remoção realizada com sucesso!");
+		}else{
+			Utils.addWarnMessage("Houveram problemas para fazer a remoção");
+		}
+	}
+
+	public void atualizar() {
+		UsuarioDao dao = new UsuarioDao();
+		if(dao.alterar(usuarioForm)) {
+			Utils.addInfoMessage("Alteracao realizada com sucesso");
+		}else{
+			Utils.addWarnMessage("Houveram problemas para realizar a alteração");
+		};
 		this.setUsuarioForm(null);
 	}
 
@@ -67,21 +91,8 @@ public class CadastrarUsuarioController implements Serializable {
 		}
 		return usuarioForm;
 	}
-
+	
 	public void setUsuarioForm(Usuario usuarioForm) {
 		this.usuarioForm = usuarioForm;
 	}
-
-	public void remover() {
-		UsuarioDao dao = new UsuarioDao();
-		dao.excluir(usuarioForm);
-		this.setUsuarioForm(null);
-	}
-
-	public void atualizar() {
-		UsuarioDao dao = new UsuarioDao();
-		dao.alterar(usuarioForm);
-		this.setUsuarioForm(null);
-	}
-
 }

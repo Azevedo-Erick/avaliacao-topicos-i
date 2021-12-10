@@ -31,10 +31,10 @@ body{
 }
 .nav > form{
 	align-self:flex-end;
-	width:70%;
+	width:87%;
 	display:flex;
 	flex-direction: row;
-	justify-content: space-evenly
+	justify-content: space-between;
 }
 .nav a{
 	text-decoration: none;
@@ -68,6 +68,31 @@ body{
 	border: 1px solid #1d2631;
 	
 }
+.drop-down-login{
+	display:flex;
+	flex-direction: column;
+	width: 200px;
+	padding:10px;
+	margin-right:20px;
+	box-shadow:#000 2px 2px 6px;
+	margin-top:3px;
+	border-radius:4px;
+	align-items:center;
+	position:absolute;
+	background-color: #2C3D55;
+	justify-content: space-between;
+	border: 1px solid #1d2631;
+	
+}
+.drop-down-login a{
+	cursor: pointer;
+	margin: 5px 0;
+	
+}
+.drop-down-login > hr{
+	width: 100%;
+}
+
 .drop-down > a
 {
 	cursor:pointer;
@@ -103,6 +128,10 @@ body{
 	border-top: 1px solid #1d2631;
 	color:#F1F1F1;
 	text-shadow: 1px 1px 1px #000;
+}
+
+.login-nav-container>div>p{
+	cursor: default;
 }
 .footer a{
 	text-decoration: none;

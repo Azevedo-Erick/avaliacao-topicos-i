@@ -52,9 +52,6 @@ public class CarrinhoController implements Serializable {
 		return formatPrice(valor);
 	}
 	
-	public void print() {
-		System.out.println("Compra finalizada");
-		}
 	
 	@SuppressWarnings("unchecked")
 	public List<JogosVenda> getListaJogoVenda() {
