@@ -39,35 +39,35 @@
 								<p><i class="fa fa-database"></i>Cadastrar<i id="angle" class="fa fa-angle-up"></i></p>
 							</div>
 						<div class="drop-down fake">
-							<h:commandLink value="Cadastrar Jogo" actionListener='#{templateController.redirecionar("admin/consultaJogo.xhtml")}'/>
+							<h:commandLink value="Cadastrar Jogo" actionListener='#{templateController.redirecionar("/pages/admin/consultaJogo.xhtml")}'/>
 							<hr/>
-							<h:commandLink value="Cadastrar Usuario" actionListener='#{templateController.redirecionar("admin/consultaUsuario.xhtml")}' />
+							<h:commandLink value="Cadastrar Usuario" actionListener='#{templateController.redirecionar("/pages/admin/consultaUsuario.xhtml")}' />
 							<hr/>
-							<h:commandLink value="Cadastrar Empresa" actionListener='#{templateController.redirecionar("admin/consultaEmpresa.xhtml")}'/>
+							<h:commandLink value="Cadastrar Empresa" actionListener='#{templateController.redirecionar("/pages/admin/consultaEmpresa.xhtml")}'/>
 						 	<hr/>
 						 </div>
 				 	</div>
 				 	
 				 	<div>
 				 		<i class="fa fa-tags"></i>
-						<h:commandLink value="Produtos" actionListener='#{templateController.redirecionar("pages/index.xhtml")}'/>
+						<h:commandLink value="Produtos" actionListener='#{templateController.redirecionar("/pages/index.xhtml")}'/>
 				 	</div>
 					<div>
 					<i class="fa fa-clipboard"></i>					
-					<h:commandLink action='#{templateController.redirecionar("historicoDeVenda.xhtml")}' value="Histórico de Venda"/>
+					<h:commandLink action='#{templateController.redirecionar("/pages/historicoDeVenda.xhtml")}' value="Histórico de Venda"/>
 					</div>
 					<div>
 					<i class="fa fa-shopping-cart"></i>				 	
-					<h:commandLink class="attCarrinho" id="attCarrinho" action='#{templateController.redirecionar("carrinho.xhtml")}' value="Carrinho (#{templateController.carrinhoQtd})"/>
+					<h:commandLink class="attCarrinho" id="attCarrinho" action='#{templateController.redirecionar("/pages/carrinho.xhtml")}' value="Carrinho (#{templateController.carrinhoQtd})"/>
 				 	</div>
 					<div>
 					<i class="fa fa-user-circle"></i>
 					<h:form rendered="#{templateController.usuarioLogado != null}" > 
 					<h:outputLabel value="#{templateController.usuarioLogado.nome}"/>
 					<h:commandLink value=" (Sair)" actionListener="#{templateController.encerrarSessao}" class="sair"> <f:ajax render="@this"/>  </h:commandLink>
-					<h:commandLink value=" Editar Informações" actionListener="#{templateController.redirecionar('editarInformacoes.xhtml')}" class="sair"> <f:ajax render="@this"/>  </h:commandLink>
+					<h:commandLink value=" Editar Informações" actionListener="#{templateController.redirecionar('/pages/editarInformacoes.xhtml')}" class="sair"> <f:ajax render="@this"/>  </h:commandLink>
 				</h:form>
-					<h:commandLink rendered="#{templateController.usuarioLogado == null}" action='#{templateController.redirecionar("login.xhtml")}' value="Login" />	
+					<h:commandLink rendered="#{templateController.usuarioLogado == null}" action='#{templateController.redirecionar("/pages/login.xhtml")}' value="Login" />	
 					</div>
 				</h:form>
 			</ui:insert>

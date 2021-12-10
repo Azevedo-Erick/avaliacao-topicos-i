@@ -34,7 +34,7 @@ public class JogoController implements Serializable{
 	public void detalhes(Jogo jogo) {
 		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
 		flash.put("detalhesJogoFlash", jogo);
-		Utils.redirect("detalhesJogo.xhtml");
+		Utils.redirect("/pages/detalhesJogo.xhtml");
 		
 	}
 	
@@ -76,7 +76,7 @@ public class JogoController implements Serializable{
 		Session.getInstance().set("carrinho", carrinho);
 		
 		Utils.addInfoMessage("Produto adicionado no carrinho.");
-		Utils.redirect("carrinho.xhtml");
+		Utils.redirect("/pages/carrinho.xhtml");
 		}
 
 }

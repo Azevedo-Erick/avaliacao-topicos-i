@@ -57,12 +57,6 @@
 				required="true" requiredMessage="A senha deve ser informada"
 				></h:inputSecret>
 			</div>
-				<h:selectOneMenu value="#{cadastrarUsuarioController.usuarioForm.perfil}" 	required="true" requiredMessage="A unidade de medida deve ser infomada">
-					<f:selectItem itemLabel="Selecione um Perfil ...." />
-					<f:selectItems var="obj"
-						value="#{cadastrarUsuarioController.perfis}"
-						itemLabel="#{obj.label}"  />
-				</h:selectOneMenu>
 				
 				 <h:commandButton value="Cadastrar"
 					actionListener="#{cadastrarUsuarioController.cadastrar()}"

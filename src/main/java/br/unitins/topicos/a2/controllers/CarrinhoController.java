@@ -117,7 +117,7 @@ public class CarrinhoController implements Serializable {
 		Utils.addInfoMessage("Venda realizada com sucesso.");
 		
 		Session.getInstance().set("carrinho", null);
-		Utils.redirect("index.xhtml");
+		Utils.redirect("/pages/index.xhtml");
 	}
 	
 

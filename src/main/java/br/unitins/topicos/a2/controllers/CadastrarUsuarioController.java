@@ -44,7 +44,7 @@ public class CadastrarUsuarioController implements Serializable {
 	}
 
 	public void irParaConsulta() {
-		Utils.redirect("consultaUsuario.xhtml");
+		Utils.redirect("/pages/admin/consultaUsuario.xhtml");
 	}
 	
 	public void cadastrar() {

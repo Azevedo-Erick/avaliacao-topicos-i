@@ -24,7 +24,7 @@ public class TemplateController implements Serializable {
 		// caso nao exista o carrinho ou esteja vazio, retorna 0
 			@SuppressWarnings("unchecked")
 			List<JogosVenda> carrinhoL =(List<JogosVenda>) Session.getInstance().get("carrinho");
-			if (carrinhoL == null || carrinhoL.isEmpty() ) {https://i.imgur.com/rYpwYDK.jpg
+			if (carrinhoL == null || carrinhoL.isEmpty() ) {
 				carrinhoQtd = 0;
 				return carrinhoQtd;
 			} else {
@@ -39,12 +39,12 @@ public class TemplateController implements Serializable {
 		this.usuarioLogado = usuarioLogado;
 	}
 	public void logar() {
-		Utils.redirect("login.xhtml");
+		Utils.redirect("/pages/login.xhtml");
 	}
 	
 	public void encerrarSessao() {
 		Session.getInstance().invalidateSession();
-		Utils.redirect("index.xhtml");
+		Utils.redirect("/pages/index.xhtml");
 	}
 	
 	public void redirecionar(String pagina) {

@@ -35,7 +35,7 @@ public class ConsultaEmpresaController implements Serializable{
 	public void selectEmpresa(Empresa empresa) {
 		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
 		flash.put("empresaFlash", empresa);
-		Utils.redirect("cadastrarEmpresa.xhtml");
+		Utils.redirect("/pages/admin/cadastrarEmpresa.xhtml");
 	}
 	
 	private static final long serialVersionUID = 1L;

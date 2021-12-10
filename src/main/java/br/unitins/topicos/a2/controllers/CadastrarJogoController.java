@@ -43,7 +43,7 @@ public class CadastrarJogoController implements Serializable{
 	}
 	
 	public void irParaConsulta() {
-		Utils.redirect("consultaJogoxhtml");
+		Utils.redirect("/pages/admin/consultaJogo.xhtml");
 	}
 	
 	

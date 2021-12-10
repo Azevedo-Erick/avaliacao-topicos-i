@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import org.apache.commons.codec.digest.DigestUtils;
 import br.unitins.topicos.a2.models.Usuario;
@@ -12,7 +13,8 @@ import br.unitins.topicos.a2.models.Usuario;
 public class Utils {
 	public static void redirect(String page) {
 		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect(page);
+			ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+			ec.redirect(ec.getRequestContextPath() + page);
 		} catch (IOException e) {
 			System.out.println("Não foi possível realizar o redirecionamento.");
 			e.printStackTrace();

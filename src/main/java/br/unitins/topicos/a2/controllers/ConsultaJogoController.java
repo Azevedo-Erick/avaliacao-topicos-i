@@ -33,11 +33,11 @@ public class ConsultaJogoController implements Serializable{
 	public void selectJogo(Jogo jogo) {
 		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
 		flash.put("jogoFlash", jogo);
-		Utils.redirect("cadastrarJogo.xhtml");
+		Utils.redirect("/pages/admin/cadastrarJogo.xhtml");
 	}
 	
 	public void irParaCadastro() {
-		Utils.redirect("cadastrarJogoxhtml");
+		Utils.redirect("/pages/admin/cadastrarJogo.xhtml");
 	}
 	
 }
