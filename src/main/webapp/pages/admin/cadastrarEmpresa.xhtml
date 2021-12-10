@@ -17,12 +17,18 @@
 			 	<h:commandButton value="Voltar" onclick="history.go(-1); return false;"></h:commandButton>
 					<h1>Cadastrar Empresa</h1>
 				</div>
-				<h:form class="cadastro-form" id="fa">
-					<h:messages 
+				<div class="warns-container"> 
+				<p>Logs:</p>
+				<h:form id="fb">
+				<h:messages 
 					errorStyle="color:red" 
 					warnStyle="color:orange" 
 					infoStyle="color:green"
 					globalOnly="false"/>
+				</h:form>
+				</div>
+				<h:form class="cadastro-form" id="fa">
+				
 				<div class="form-intern-container">
 					<div class="cadastro-container-row">
 						<h:outputText value="Nome"></h:outputText>
@@ -65,7 +71,7 @@
 				<h:form>
 					<h:commandButton value="Excluir"
 						actionListener="#{cadastrarEmpresaController.excluir()}" >
-							<f:ajax execute="@this" render="fa"></f:ajax></h:commandButton>
+							<f:ajax execute="@this" render="fa fb"></f:ajax></h:commandButton>
 						</h:form>
 			</div>
 		</ui:define>

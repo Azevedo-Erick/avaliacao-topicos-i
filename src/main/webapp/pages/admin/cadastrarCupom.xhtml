@@ -19,10 +19,19 @@
 						onclick="history.go(-1); return false;"></h:commandButton>
 					<h1>Cadastrar Cupom</h1>
 				</div>
+					<div class="warns-container"> 
+				<p>Logs:</p>
+				<h:form id="fb">
+				<h:messages 
+					errorStyle="color:red" 
+					warnStyle="color:orange" 
+					infoStyle="color:green"
+					globalOnly="false"/>
+				</h:form>
+				</div>
 				<h:form id="fa">
 					<div class="form-intern-container">
-						<h:messages errorStyle="color:red" warnStyle="color:orange"
-							infoStyle="color:green" globalOnly="false" />
+						
 
 						<div class="cadastro-container-row">
 							<h:outputText value="Código"></h:outputText>
@@ -38,18 +47,18 @@
 						</div>
 
 						<h:commandButton value="Cadastrar"
-							actionListener="#{cadastrarJogoController.cadastrar()}"
-							rendered="#{cadastrarJogoController.jogoForm.empresa == null}"></h:commandButton>
+							actionListener="#{cadastrarCupomController.incluir()}"
+							></h:commandButton>
 						<h:commandButton value="Atualizar"
-							rendered="#{cadastrarJogoController.jogoForm.empresa != null}"
-							actionListener="#{cadastrarJogoController.atualizar()}"></h:commandButton>
+						
+							actionListener="#{cadastrarCupomController.alterar()}"></h:commandButton>
 					</div>
 				</h:form>
 				<h:form>
 					<h:commandButton value="Excluir"
-						rendered="#{cadastrarJogoController.jogoForm.empresa != null}"
-						actionListener="#{cadastrarJogoController.remover()}">
-						<f:ajax execute="@this" render="fa"></f:ajax>
+						
+						actionListener="#{cadastrarCupomController.excluir()}">
+						<f:ajax execute="@this" render="fa fb"></f:ajax>
 					</h:commandButton>
 				</h:form>
 			</div>
