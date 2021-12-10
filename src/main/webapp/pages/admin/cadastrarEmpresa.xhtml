@@ -10,7 +10,7 @@
 	
 </h:head>
 <h:body>
-	<ui:composition template="/pages/template.xhtml">
+	<ui:composition template="../template.xhtml">
 		<ui:define name="conteudo">
 			<div class="cadastro-container">
 				<h1>Cadastrar Empresa</h1>
@@ -51,7 +51,7 @@
 					</div>
 
 					<h:commandButton value="Cadastrar"
-						actionListener="#{cadastrarEmpresaController.incluir()}" r></h:commandButton>
+						actionListener="#{cadastrarEmpresaController.incluir()}"></h:commandButton>
 					<h:commandButton value="Atualizar"
 						actionListener="#{cadastrarEmpresaController.atualizar()}" ></h:commandButton>
 				</h:form>
