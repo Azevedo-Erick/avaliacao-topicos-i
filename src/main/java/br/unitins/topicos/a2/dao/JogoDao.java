@@ -107,6 +107,7 @@ public class JogoDao implements Dao<Jogo>{
 			del = conn.prepareStatement(SQL);
 			del.setInt(1, obj.getId());
 			del.execute();
+			resultado = true;
 		}catch(SQLException e) {
 			e.printStackTrace();
 			return resultado;
@@ -122,7 +123,7 @@ public class JogoDao implements Dao<Jogo>{
 				
 			}
 		}
-		return !resultado;
+		return resultado;
 	}
 
 	@Override

@@ -19,14 +19,14 @@ public class UsuarioDao implements Dao<Usuario>{
 
 	@Override
 	public boolean incluir(Usuario obj) {
-		boolean result = true;
+		boolean result = false;
 		String SQL = "insert into public.usuario(email,cpf,senha,perfil) values (?,?,?,0);";
 		PreparedStatement stat = null;
 		Connection conn=null;
 		try {
 			conn = Dao.getConnection();
 			if(conn==null) {
-				result= false;
+				return result;
 			}
 			stat= conn.prepareStatement(SQL);
 			stat.setString(1, obj.getEmail());
@@ -34,10 +34,11 @@ public class UsuarioDao implements Dao<Usuario>{
 			stat.setString(3, Utils.hash(obj));
 			
 			stat.execute();
+			result = true;
 		}catch(SQLException e) {
 			System.out.println("Erro ao inserir cliente");
 			e.printStackTrace();
-			result =false;
+		return result;
 		}finally{
 			try {
 				conn.close();
@@ -103,14 +104,14 @@ public class UsuarioDao implements Dao<Usuario>{
 	
 	//Método de cadastro de usuário do administrador
 	public boolean cadastar(Usuario obj) {
-		boolean result = true;
+		boolean result = false;
 		String SQL = "insert into public.usuario(nome, cpf, email,senha,data_nascimento,perfil) values (?,?,?,?,?,?);";
 		PreparedStatement stat = null;
 		Connection conn=null;
 		try {
 			conn = Dao.getConnection();
 			if(conn==null) {
-				result= false;
+			return result;
 			}
 			stat= conn.prepareStatement(SQL);
 			stat.setString(1, obj.getNome());
@@ -121,10 +122,11 @@ public class UsuarioDao implements Dao<Usuario>{
 			stat.setInt(6, obj.getPerfil().getId());
 			
 			stat.execute();
+			result = true;
 		}catch(SQLException e) {
 			System.out.println("Erro ao inserir cliente");
 			e.printStackTrace();
-			result =false;
+			return result;
 		}finally{
 			try {
 				conn.close();

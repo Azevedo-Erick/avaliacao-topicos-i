@@ -13,14 +13,14 @@ public class EmpresaDao implements Dao<Empresa>{
 
 	@Override
 	public boolean incluir(Empresa obj) {
-		boolean result = true;
+		boolean result = false;
 		String SQL = "insert into public.empresa( nome,sede_empresa,ceo,data_fundacao) values (?,?,?,?);";
 		PreparedStatement stat = null;
 		Connection conn=null;
 		try {
 			conn = Dao.getConnection();
 			if(conn==null) {
-				result= false;
+				return result;
 			}
 			stat= conn.prepareStatement(SQL);
 			stat.setString(1, obj.getNome());
@@ -29,10 +29,11 @@ public class EmpresaDao implements Dao<Empresa>{
 			stat.setDate(4, Date.valueOf(obj.getDataFundacao()));
 			
 			stat.execute();
+			result = true;
 		}catch(SQLException e) {
 			System.out.println("Erro ao inserir empresa");
 			e.printStackTrace();
-			result =false;
+			return result;
 		}finally{
 			try {
 				conn.close();
@@ -95,6 +96,7 @@ public class EmpresaDao implements Dao<Empresa>{
 			del = conn.prepareStatement(SQL);
 			del.setInt(1, obj.getId());
 			del.execute();
+			resultado = true;
 		}catch(SQLException e) {
 			e.printStackTrace();
 			return resultado;
@@ -110,7 +112,7 @@ public class EmpresaDao implements Dao<Empresa>{
 				
 			}
 		}
-		return !resultado;
+		return resultado;
 	}
 	
 	public Empresa buscaPorId(int id) {
