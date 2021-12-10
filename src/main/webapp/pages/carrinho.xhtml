@@ -38,7 +38,7 @@
 				<div class="finalize-container">
 					<div>
 						<p>Deseja finalizar a compra com #{carrinhoController.listaJogoVenda.size()}  elementos ?</p>
-						<h:inputText id="cupaum" a:placeholder="Digite aki o cupom" value="#{carrinhoController.cupom.codigo}"></h:inputText>
+						<h:inputText id="cupaum" a:placeholder="Digite aqui o cupom" value="#{carrinhoController.cupom.codigo}"></h:inputText>
 						<h:commandButton value="Aplicar Cupom" actionListener="#{carrinhoController.aplicarCupom()}">
 						<f:ajax execute="cupaum" render="@form"></f:ajax>
 						</h:commandButton>

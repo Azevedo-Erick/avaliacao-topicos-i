@@ -48,6 +48,7 @@ public class Empresa {
 		this.ceo = ceo;
 	}
 	public LocalDate getDataFundacao() {
+
 		return dataFundacao;
 	}
 	public void setDataFundacao(LocalDate dataFundacao) {
@@ -67,6 +68,11 @@ public class Empresa {
 			return false;
 		Empresa other = (Empresa) obj;
 		return Objects.equals(id, other.id);
+	}
+	@Override
+	public String toString() {
+		return "Empresa [id=" + id + ", nome=" + nome + ", sedeEmpresa=" + sedeEmpresa + ", ceo=" + ceo
+				+ ", dataFundacao=" + dataFundacao + "]";
 	}
 	
 	

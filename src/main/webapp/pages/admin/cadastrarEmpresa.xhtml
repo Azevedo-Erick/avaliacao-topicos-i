@@ -13,7 +13,10 @@
 	<ui:composition template="../template.xhtml">
 		<ui:define name="conteudo">
 			<div class="cadastro-container">
-				<h1>Cadastrar Empresa</h1>
+				<div class="voltar-titulo-container">
+			 	<h:commandButton value="Voltar" onclick="history.go(-1); return false;"></h:commandButton>
+					<h1>Cadastrar Empresa</h1>
+				</div>
 				<h:form class="cadastro-form" id="fa">
 					<h:messages class="message" />
 				<div class="form-intern-container">

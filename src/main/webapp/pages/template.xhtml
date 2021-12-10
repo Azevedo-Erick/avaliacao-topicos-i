@@ -17,12 +17,14 @@
 	<link rel="stylesheet" type="text/css" href="../resources/css/carrinho.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="../resources/css/detalhes.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="../resources/css/cadastro.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../resources/css/editar.css" media="all" />
 	<!-- Seção de CSS para as páginas de admin -->
 	<link rel="stylesheet" href="../../resources/css/reset.css"/>
 	<link rel="stylesheet" href="../../resources/css/template.css"/>
 	<link rel="stylesheet" type="text/css" href="../../resources/css/index.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="../../resources/css/consulta.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="../../resources/css/editar.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../../resources/css/cadastro.css" media="all" />
 </h:head>
 
 <h:body>
@@ -44,6 +46,8 @@
 							<h:commandLink value="Cadastrar Usuario" actionListener='#{templateController.redirecionar("/pages/admin/consultaUsuario.xhtml")}' />
 							<hr/>
 							<h:commandLink value="Cadastrar Empresa" actionListener='#{templateController.redirecionar("/pages/admin/consultaEmpresa.xhtml")}'/>
+						 	<hr/>
+						 	<h:commandLink value="Cadastrar Cupom" actionListener='#{templateController.redirecionar("/pages/admin/consultaCupom.xhtml")}'/>
 						 	<hr/>
 						 </div>
 				 	</div>

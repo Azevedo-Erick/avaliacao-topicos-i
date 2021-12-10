@@ -26,10 +26,10 @@ public class LoginController implements Serializable{
 		this.usuario = usuario;
 	}
 	
-	public void cadastroUser() {
-		Utils.redirect("/pages/cadastrarUsuario.xhtml");
+
+	public void redirecionar(String pagina) {
+		Utils.redirect(pagina);
 	}
-	
 	
 	public String login() {
 		

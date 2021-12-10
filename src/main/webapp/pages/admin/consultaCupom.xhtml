@@ -14,20 +14,20 @@
 		<ui:define name="conteudo">
 		<div class="table-wrapper">
 			<h:form>
-				<h:dataTable var="obj" value="#{consultaEmpresaController.empresas}" class="tabela">
+				<h:dataTable var="obj" value="#{consultaCupomController.listaCupom}" class="tabela">
 					<h:column class="w">
-							<f:facet name="header">Nome</f:facet>
-							<h:outputLabel value="#{obj.nome}" />
+							<f:facet name="header">Código</f:facet>
+							<h:outputLabel value="#{obj.codigo}" />
 						</h:column>
 						
 						<h:column class="b">
-							<f:facet name="header">Nome</f:facet>
-							<h:outputLabel value="#{obj.nome}" />
+							<f:facet name="header">Porcentagem</f:facet>
+							<h:outputLabel value="#{obj.porcentagem}" />
 						</h:column>
 						
 						<h:column class="w">
-							<f:facet name="header">Sede</f:facet>
-							<h:outputLabel value="#{obj.sedeEmpresa}" />
+							<f:facet name="header">Ativo</f:facet>
+							<h:outputLabel value="#{obj.ativo}" />
 						</h:column>
 						
 						<h:column class="b">
@@ -35,18 +35,9 @@
 							<h:outputLabel value="#{obj.ceo}" />
 						</h:column>
 						
-						<h:column class="w">
-							<f:facet name="header">Fundada em:</f:facet>
-							<h:outputLabel value="#{obj.dataFundacao}" />
-						</h:column>
-						<h:column class="b">
-						<f:facet name="header">
-							<h:commandButton value="+"
-						actionListener="#{consultaEmpresaController.selectEmpresa(obj)}"
-						></h:commandButton>
 						</f:facet>
 							<h:commandButton value="Editar"
-						actionListener="#{consultaEmpresaController.selectEmpresa(obj)}"
+						actionListener="#{consultaCupomController.selectCupom(obj)}"
 						></h:commandButton>
 						</h:column>
 				</h:dataTable>

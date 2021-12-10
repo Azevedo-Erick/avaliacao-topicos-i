@@ -27,13 +27,13 @@ public interface Dao <T>{
 	  , cpf varchar , email varchar NOT NULL, data_nascimento date, senha varchar NOT NULL,
 	  perfil integer not null);
 	  
-	  CREATE TABLE IF NOT EXISTS public.cupom(
-    	id_cupom integer NOT NULL DEFAULT nextval('cupom_id_seq'::regclass),
+	   CREATE TABLE IF NOT EXISTS public.cupom(
+    	id_cupom serial NOT NULL,
     	codigo character varying COLLATE pg_catalog."default" NOT NULL,
     	porcentagem integer NOT NULL,
     	ativado boolean NOT NULL,
     	CONSTRAINT cupom_pkey PRIMARY KEY (id_cupom)
-		)
+		);
 	 */
 	public boolean incluir(T obj);
 	public boolean alterar(T obj);

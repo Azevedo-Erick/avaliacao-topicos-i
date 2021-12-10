@@ -20,7 +20,7 @@ public class UsuarioDao implements Dao<Usuario>{
 	@Override
 	public boolean incluir(Usuario obj) {
 		boolean result = true;
-		String SQL = "insert into public.usuario(email,cpf,senha,perfil) values (?,?,?,1);";
+		String SQL = "insert into public.usuario(email,cpf,senha,perfil) values (?,?,?,0);";
 		PreparedStatement stat = null;
 		Connection conn=null;
 		try {
