@@ -40,12 +40,12 @@
 
 <h:body>
 	<div class="nav">
-	
-		<ui:insert name="menu">
-			<h:form>
 	<div class="nav-logo-container">
 			<i class="fa fa-cloud cloud"></i>
 		</div>
+	
+		<ui:insert name="menu">
+			<h:form>
 				<div class="cadastrar" id="cadastro-container"
 					style="visibility: #{templateController.usuarioLogado.perfil.id == 1 ? 'visible': 'hidden'}">
 					<div id="cadastrar">

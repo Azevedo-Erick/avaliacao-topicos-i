@@ -19,8 +19,18 @@
 			</h:form>
 				<h1>Cadastrar Usuario</h1>
 				</div>
+				<div class="warns-container"> 
+				<p>Registros:</p>
+				<h:form id="fb">
+				<h:messages 
+					errorStyle="color:red" 
+					warnStyle="color:orange" 
+					infoStyle="color:green"
+					globalOnly="false"/>
+				</h:form>
+				</div>
 			<h:form id="fa">
-				<h:messages class="message" />
+				
 		<div class="form-intern-container">
 			<div class="cadastro-container-row">
 				<h:outputText value="Nome"></h:outputText>
@@ -57,7 +67,7 @@
 				required="true" requiredMessage="A senha deve ser informada"
 				></h:inputSecret>
 			</div>
-			<h:selectOneMenu rendered="#{cadastrarUsuarioController.usuarioLogado.perfil.id == 1 ? 'true': 'false'}" value="#{cadastrarUsuarioController.usuarioForm.perfil}" required="true" requiredMessage="A unidade de medida deve ser infomada">
+			<h:selectOneMenu  rendered="#{cadastrarUsuarioController.usuarioLogado.perfil.id == 1 ? 'true': 'false'}" value="#{cadastrarUsuarioController.usuarioForm.perfil}" required="true" requiredMessage="A unidade de medida deve ser infomada">
 					<f:selectItem itemLabel="Selecione um Perfil ...." />
 					<f:selectItems var="obj"
 						value="#{cadastrarUsuarioController.perfis}"
@@ -75,7 +85,7 @@
 			<h:form>
 				<h:commandButton value="Excluir" rendered="#{cadastrarUsuarioController.usuarioForm.perfil != null}"
 						actionListener="#{cadastrarUsuarioController.remover()}">
-						<f:ajax execute="@this"></f:ajax>
+						<f:ajax execute="@this" render="fa fb"></f:ajax>
 						</h:commandButton>
 			</h:form>
 			</div>

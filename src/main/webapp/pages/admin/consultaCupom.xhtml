@@ -7,42 +7,39 @@
 <h:head>
 	<title>Hello, World!</title>
 	<meta charset="utf-8"></meta>
-	
+
 </h:head>
 <h:body>
 	<ui:composition template="../template.xhtml">
 		<ui:define name="conteudo">
-		<div class="table-wrapper">
-			<h:form>
-				<h:dataTable var="obj" value="#{consultaCupomController.listaCupom}" class="tabela">
-					<h:column class="w">
+			<div class="table-wrapper">
+				<h:form>
+					<h:dataTable var="obj"
+						value="#{consultaCupomController.listaCupom}" class="tabela">
+						<h:column class="w">
 							<f:facet name="header">Código</f:facet>
 							<h:outputLabel value="#{obj.codigo}" />
 						</h:column>
-						
+
 						<h:column class="b">
 							<f:facet name="header">Porcentagem</f:facet>
 							<h:outputLabel value="#{obj.porcentagem}" />
 						</h:column>
-						
+
 						<h:column class="w">
 							<f:facet name="header">Ativo</f:facet>
 							<h:outputLabel value="#{obj.ativo}" />
 						</h:column>
-						
-						<h:column class="b">
-							<f:facet name="header">CEO</f:facet>
-							<h:outputLabel value="#{obj.ceo}" />
+
+						<h:column>
+						<f:facet name="header"><h:commandButton value="+"></h:commandButton></f:facet>
+						<h:commandButton value="Editar"
+							actionListener="#{consultaCupomController.selectCupom(obj)}"></h:commandButton>
 						</h:column>
-						
-						</f:facet>
-							<h:commandButton value="Editar"
-						actionListener="#{consultaCupomController.selectCupom(obj)}"
-						></h:commandButton>
-						</h:column>
-				</h:dataTable>
+					</h:dataTable>
+					
 				</h:form>
-				</div>
+			</div>
 		</ui:define>
 	</ui:composition>
 </h:body>

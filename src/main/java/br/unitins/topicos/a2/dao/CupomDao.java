@@ -27,7 +27,7 @@ public class CupomDao implements Dao<Cupom> {
 			stat = conn.prepareStatement(SQL);
 			stat.setString(1, obj.getCodigo());
 			stat.setInt(2, obj.getPorcentagem());
-			stat.setBoolean(3, obj.isAtivo());
+			stat.setBoolean(3, true);
 
 			stat.execute();
 		} catch (SQLException e) {

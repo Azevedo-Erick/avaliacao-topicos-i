@@ -8,89 +8,103 @@
 <h:head>
 	<title>Hello, World!</title>
 	<meta charset="utf-8"></meta>
-	
+
 </h:head>
 <h:body>
 	<ui:composition template="../template.xhtml">
 		<ui:define name="conteudo">
-		<div class="cadastro-container">
-			<div class="voltar-titulo-container">
-			 <h:commandButton value="Voltar" onclick="history.go(-1); return false;"></h:commandButton>
-				<h1>Cadastrar Jogo</h1>
-			</div>
-			<h:form id="fa">
-				<div class="form-intern-container">
-				<h:messages class="message" />
-		
-			<div class="cadastro-container-row">
-				<h:outputText value="Nome"></h:outputText>
-				<h:inputText value="#{cadastrarJogoController.jogoForm.nome}"
-				required="true" requiredMessage="O nome deve ser informado"
-				></h:inputText>
-			</div>
-			<div class="cadastro-container-row">
-				<h:outputText value="Plataforma"></h:outputText>
-				<h:inputText value="#{cadastrarJogoController.jogoForm.plataforma}"
-				required="true" requiredMessage="O nome deve ser informado"
-				></h:inputText>
-			</div>
-			
-			<div class="cadastro-container-row">
-				<h:outputText value="Genero"></h:outputText>
-				<h:inputText value="#{cadastrarJogoController.jogoForm.categoriaGenero}"
-				required="true" requiredMessage="O nome deve ser informado"
-				></h:inputText>
-			</div>
-			
-			<div class="cadastro-container-row">
-				<h:outputText value="Data de Lançamento"></h:outputText>
-				<h:inputText a:type="date" value="#{cadastrarJogoController.jogoForm.dataLancamento}"
-				required="true" requiredMessage="A data de fundação deve ser informada"
-				><f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/></h:inputText>
-			</div>
-			
-			<div class="cadastro-container-row">
-				<h:outputText value="Descricao"></h:outputText>
-				<h:inputTextarea value="#{cadastrarJogoController.jogoForm.descricaoJogo}"
-				required="true" requiredMessage="A data de fundação deve ser informada"
-				></h:inputTextarea>
-			</div>
-			
-			<div class="cadastro-container-row">
-				<h:outputText value="Preco"></h:outputText>
-				<h:inputText value="#{cadastrarJogoController.jogoForm.preco}"
-				required="true" requiredMessage="O nome deve ser informado"
-				></h:inputText>
-			</div>
-			
-			<h:selectOneMenu value="#{cadastrarJogoController.jogoForm.classificacaoIndicativa}" 	required="true" requiredMessage="A unidade de medida deve ser infomada">
-					<f:selectItem itemLabel="Selecione a classificação indicativa ...." />
-					<f:selectItems var="obj"
-						value="#{cadastrarJogoController.classificacaoIndicativa}"
-						itemLabel="#{obj.label}"  />
-				</h:selectOneMenu>
-			
-				<h:selectOneMenu value="#{cadastrarJogoController.jogoForm.empresa}" 	required="true" requiredMessage="A unidade de medida deve ser infomada">
-					<f:selectItem itemLabel="Selecione uma empresa ...." />
-					<f:selectItems var="obj"
-						value="#{cadastrarJogoController.empresas}"
-						itemLabel="#{obj.nome}"  />
-				</h:selectOneMenu>
-				
-				 <h:commandButton value="Cadastrar"
-					actionListener="#{cadastrarJogoController.cadastrar()}"
-					rendered="#{cadastrarJogoController.jogoForm.empresa == null}"></h:commandButton>
-				<h:commandButton value="Atualizar" rendered="#{cadastrarJogoController.jogoForm.empresa != null}"
-						actionListener="#{cadastrarJogoController.atualizar()}"></h:commandButton>
+			<div class="cadastro-container">
+				<div class="voltar-titulo-container">
+					<h:commandButton value="Voltar"
+						onclick="history.go(-1); return false;"></h:commandButton>
+					<h1>Cadastrar Jogo</h1>
+				</div>
+				<h:form id="fa">
+					<div class="form-intern-container">
+						<h:messages errorStyle="color:red" warnStyle="color:orange"
+							infoStyle="color:green" globalOnly="false" />
+
+						<div class="cadastro-container-row">
+							<h:outputText value="Nome"></h:outputText>
+							<h:inputText value="#{cadastrarJogoController.jogoForm.nome}"
+								required="true" requiredMessage="O nome deve ser informado"></h:inputText>
 						</div>
-			</h:form>
-						<h:form>
-						<h:commandButton value="Excluir" rendered="#{cadastrarJogoController.jogoForm.empresa != null}"
-						actionListener="#{cadastrarJogoController.remover()}"
-						></h:commandButton>
-						</h:form>
+						<div class="cadastro-container-row">
+							<h:outputText value="Plataforma"></h:outputText>
+							<h:inputText
+								value="#{cadastrarJogoController.jogoForm.plataforma}"
+								required="true" requiredMessage="Informe as plataformas"></h:inputText>
+						</div>
+
+						<div class="cadastro-container-row">
+							<h:outputText value="Genero"></h:outputText>
+							<h:inputText
+								value="#{cadastrarJogoController.jogoForm.categoriaGenero}"
+								required="true" requiredMessage="Informe os gêneros"></h:inputText>
+						</div>
+
+						<div class="cadastro-container-row">
+							<h:outputText value="Data de Lançamento"></h:outputText>
+							<h:inputText a:type="date"
+								value="#{cadastrarJogoController.jogoForm.dataLancamento}"
+								required="true"
+								requiredMessage="A data de lançamento deve ser informada">
+								<f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+							</h:inputText>
+						</div>
+
+						<div class="cadastro-container-row">
+							<h:outputText value="Descricao"></h:outputText>
+							<h:inputTextarea
+								value="#{cadastrarJogoController.jogoForm.descricaoJogo}"
+								required="true"
+								requiredMessage="Descreva um pouco do jogo"></h:inputTextarea>
+						</div>
+
+						<div class="cadastro-container-row">
+							<h:outputText value="Preco"></h:outputText>
+							<h:inputText value="#{cadastrarJogoController.jogoForm.preco}"
+								required="true" requiredMessage="O preço deve ser informado"></h:inputText>
+						</div>
+
+						<h:selectOneMenu
+							value="#{cadastrarJogoController.jogoForm.classificacaoIndicativa}"
+							required="true"
+							requiredMessage="A unidade de medida deve ser infomada">
+							<f:selectItem
+								itemLabel="Selecione a classificação indicativa ...." />
+							<f:selectItems var="obj"
+								value="#{cadastrarJogoController.classificacaoIndicativa}"
+								itemLabel="#{obj.label}" />
+						</h:selectOneMenu>
+
+						<h:selectOneMenu
+							value="#{cadastrarJogoController.jogoForm.empresa}"
+							required="true"
+							requiredMessage="A unidade de medida deve ser infomada">
+							<f:selectItem itemLabel="Selecione uma empresa ...." />
+							<f:selectItems var="obj"
+								value="#{cadastrarJogoController.empresas}"
+								itemLabel="#{obj.nome}" />
+						</h:selectOneMenu>
+
+						<h:commandButton value="Cadastrar"
+							actionListener="#{cadastrarJogoController.cadastrar()}"
+							rendered="#{cadastrarJogoController.jogoForm.empresa == null}"></h:commandButton>
+						<h:commandButton value="Atualizar"
+							rendered="#{cadastrarJogoController.jogoForm.empresa != null}"
+							actionListener="#{cadastrarJogoController.atualizar()}"></h:commandButton>
+					</div>
+				</h:form>
+				<h:form>
+					<h:commandButton value="Excluir"
+						rendered="#{cadastrarJogoController.jogoForm.empresa != null}"
+						actionListener="#{cadastrarJogoController.remover()}">
+						<f:ajax execute="@this" render="fa"></f:ajax>
+					</h:commandButton>
+				</h:form>
 			</div>
-					</ui:define>
+		</ui:define>
 	</ui:composition>
 </h:body>
 

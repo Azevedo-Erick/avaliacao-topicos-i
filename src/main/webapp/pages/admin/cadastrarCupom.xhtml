@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1993/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Hello, World!</title>
+	<meta charset="utf-8"></meta>
+
+</h:head>
+<h:body>
+	<ui:composition template="../template.xhtml">
+		<ui:define name="conteudo">
+			<div class="cadastro-container">
+				<div class="voltar-titulo-container">
+					<h:commandButton value="Voltar"
+						onclick="history.go(-1); return false;"></h:commandButton>
+					<h1>Cadastrar Cupom</h1>
+				</div>
+				<h:form id="fa">
+					<div class="form-intern-container">
+						<h:messages errorStyle="color:red" warnStyle="color:orange"
+							infoStyle="color:green" globalOnly="false" />
+
+						<div class="cadastro-container-row">
+							<h:outputText value="Código"></h:outputText>
+							<h:inputText value="#{cadastrarCupomController.cupomForm.codigo}"
+								required="true" requiredMessage="O código deve ser informado"></h:inputText>
+						</div>
+						<div class="cadastro-container-row">
+							<h:outputText value="Plataforma"></h:outputText>
+							<h:inputText
+								value="#{cadastrarCupomController.cupomForm.porcentagem}"
+								a:type="number"
+								required="true" requiredMessage="Insira a quantidade de desconto do cupom"></h:inputText>
+						</div>
+
+						<h:commandButton value="Cadastrar"
+							actionListener="#{cadastrarJogoController.cadastrar()}"
+							rendered="#{cadastrarJogoController.jogoForm.empresa == null}"></h:commandButton>
+						<h:commandButton value="Atualizar"
+							rendered="#{cadastrarJogoController.jogoForm.empresa != null}"
+							actionListener="#{cadastrarJogoController.atualizar()}"></h:commandButton>
+					</div>
+				</h:form>
+				<h:form>
+					<h:commandButton value="Excluir"
+						rendered="#{cadastrarJogoController.jogoForm.empresa != null}"
+						actionListener="#{cadastrarJogoController.remover()}">
+						<f:ajax execute="@this" render="fa"></f:ajax>
+					</h:commandButton>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

@@ -18,7 +18,11 @@
 					<h1>Cadastrar Empresa</h1>
 				</div>
 				<h:form class="cadastro-form" id="fa">
-					<h:messages class="message" />
+					<h:messages 
+					errorStyle="color:red" 
+					warnStyle="color:orange" 
+					infoStyle="color:green"
+					globalOnly="false"/>
 				<div class="form-intern-container">
 					<div class="cadastro-container-row">
 						<h:outputText value="Nome"></h:outputText>
@@ -31,14 +35,14 @@
 						<h:outputText value="Sede"></h:outputText>
 						<h:inputText
 							value="#{cadastrarEmpresaController.empresaForm.sedeEmpresa}"
-							required="true" requiredMessage="O CPF deve ser informado"></h:inputText>
+							required="true" requiredMessage="A sede da empresa deve ser informada"></h:inputText>
 					</div>
 
 
 					<div class="cadastro-container-row">
 						<h:outputText value="Ceo"></h:outputText>
 						<h:inputText value="#{cadastrarEmpresaController.empresaForm.ceo}"
-							required="true" requiredMessage="O email deve ser informado"></h:inputText>
+							required="true" requiredMessage="Quem é o CEO da empresa?"></h:inputText>
 					</div>
 
 					<div class="cadastro-container-row">
@@ -60,7 +64,8 @@
 				</h:form>
 				<h:form>
 					<h:commandButton value="Excluir"
-						actionListener="#{cadastrarEmpresaController.excluir()}" ></h:commandButton>
+						actionListener="#{cadastrarEmpresaController.excluir()}" >
+							<f:ajax execute="@this" render="fa"></f:ajax></h:commandButton>
 						</h:form>
 			</div>
 		</ui:define>

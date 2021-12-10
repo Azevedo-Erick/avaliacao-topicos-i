@@ -1,18 +1,23 @@
 package br.unitins.topicos.a2.models;
 
 import java.time.LocalDate;
+
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.PositiveOrZero;
 
 public class Jogo {
 	private Integer id;
 	private String nome;
-	@NotNull
 	private Empresa empresa;
 	private String plataforma;
 	private String categoriaGenero;
 	private LocalDate dataLancamento;
 	private ClassificacaoIndicativa classificacaoIndicativa;
 	private String descricaoJogo;
+	@PositiveOrZero (message ="O preço deve ser maior ou igual a zero")
 	private Double preco;
 	private String imagem;
 	

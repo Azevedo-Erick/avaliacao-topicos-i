@@ -34,7 +34,7 @@ body{
 	width:87%;
 	display:flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-evenly;
 }
 .nav a{
 	text-decoration: none;
