@@ -15,7 +15,7 @@
 			<div class="cadastro-container">
 			<div class="voltar-titulo-container">
 			<h:form>
-				<h:commandButton value="Voltar" actionListener='#{cadastrarUsuarioController.irParaConsulta()}'></h:commandButton>
+				<h:commandButton value="Voltar" onclick="history.go(-1); return false;"></h:commandButton>
 			</h:form>
 				<h1>Cadastrar Usuario</h1>
 				</div>
@@ -57,20 +57,26 @@
 				required="true" requiredMessage="A senha deve ser informada"
 				></h:inputSecret>
 			</div>
+			<h:selectOneMenu rendered="#{cadastrarUsuarioController.usuarioLogado.perfil.id == 1 ? 'true': 'false'}" value="#{cadastrarUsuarioController.usuarioForm.perfil}" required="true" requiredMessage="A unidade de medida deve ser infomada">
+					<f:selectItem itemLabel="Selecione um Perfil ...." />
+					<f:selectItems var="obj"
+						value="#{cadastrarUsuarioController.perfis}"
+						itemLabel="#{obj.label}"  />
+				</h:selectOneMenu>
 				
 				 <h:commandButton value="Cadastrar"
 					actionListener="#{cadastrarUsuarioController.cadastrar()}"
-						rendered="#{cadastrarUsuarioController.usuarioForm.id!=0}"></h:commandButton>
-				<h:commandButton value="Atualizar"
+						rendered="#{cadastrarUsuarioController.usuarioForm.perfil == null}"></h:commandButton>
+				<h:commandButton value="Atualizar" rendered="#{cadastrarUsuarioController.usuarioForm.perfil != null}"
 						actionListener="#{cadastrarUsuarioController.atualizar()}"
 							></h:commandButton>
 						</div>
 			</h:form>
 			<h:form>
-				<h:commandButton value="Excluir"
-						actionListener="#{cadastrarUsuarioController.remover()}"
-						
-						></h:commandButton>
+				<h:commandButton value="Excluir" rendered="#{cadastrarUsuarioController.usuarioForm.perfil != null}"
+						actionListener="#{cadastrarUsuarioController.remover()}">
+						<f:ajax execute="@this"></f:ajax>
+						</h:commandButton>
 			</h:form>
 			</div>
 		</ui:define>

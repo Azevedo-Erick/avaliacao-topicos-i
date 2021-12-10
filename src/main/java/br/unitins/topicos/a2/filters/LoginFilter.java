@@ -32,7 +32,7 @@ public class LoginFilter implements Filter{
 				if (usuarioLogado != null) {
 					((HttpServletResponse)response).sendRedirect("/pages/index.xhtml");
 				} else {
-						// permitindo a execucao comleta do protocolo
+						// permitindo a execucao completa do protocolo
 						chain.doFilter(request, response);
 					} 
 				}

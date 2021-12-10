@@ -12,6 +12,7 @@ import javax.inject.Named;
 import br.unitins.topicos.a2.dao.UsuarioDao;
 import br.unitins.topicos.a2.models.Perfil;
 import br.unitins.topicos.a2.models.Usuario;
+import br.unitins.topicos.a2.util.Session;
 import br.unitins.topicos.a2.util.Utils;
 
 @Named
@@ -22,7 +23,14 @@ public class CadastrarUsuarioController implements Serializable {
 	private List<Perfil> perfis;
 
 	private Usuario usuarioForm;
+	private Usuario usuarioLogado;
 
+	public Usuario getUsuarioLogado() {
+		if (usuarioLogado == null)
+			usuarioLogado = (Usuario) Session.getInstance().get("usuarioLogado");
+		return usuarioLogado;
+	}
+	
 	CadastrarUsuarioController(){
 		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
 		flash.keep("usuarioFlash");
