@@ -10,9 +10,11 @@
 	<meta charset="utf-8"></meta>
 </h:head>
 <h:body onload="#{carrinhoController.click()}">
+
 	<ui:composition template="./template.xhtml">
 		<ui:define name="conteudo">
 		<div class="lista-compras">
+		
 			<ui:repeat var="obj" value="#{historicoVendaController.listaVenda}">
 			<div class="list-tile">
 			<div>
@@ -21,6 +23,9 @@
 					<p>Compra realizada em #{obj.formatDate()} às #{obj.formatTime()}</p>
 					<p class="value">R$#{obj.formatPrice()}</p>
 				</div>
+			<h:form>
+				<h:commandButton actionListener="#{historicoVendaController.selectVenda(obj)}" value="🔎"></h:commandButton>
+				</h:form>
 				</div>
 			</ui:repeat>
 				</div>
