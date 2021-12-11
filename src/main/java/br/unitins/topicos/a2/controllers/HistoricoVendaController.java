@@ -36,7 +36,7 @@ public class HistoricoVendaController implements Serializable{
 	public void selectVenda(Carrinho obj) {
 		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
 		flash.put("compraFlash", obj);
-		Utils.redirect("/pages/admin/detalhesVenda.xhtml");
+		Utils.redirect("/pages/detalhesVenda.xhtml");
 	}
 	
 	
