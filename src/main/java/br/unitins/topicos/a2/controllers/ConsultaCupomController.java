@@ -39,7 +39,9 @@ public class ConsultaCupomController implements Serializable{
 		this.listaCupom = listaCupom;
 	}
 
-
+	public void redirecionar(String pagina) {
+		Utils.redirect(pagina);
+	}
 
 	private static final long serialVersionUID = 1L;
 	

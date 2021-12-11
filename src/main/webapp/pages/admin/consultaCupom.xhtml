@@ -32,7 +32,8 @@
 						</h:column>
 
 						<h:column>
-						<f:facet name="header"><h:commandButton value="+"></h:commandButton></f:facet>
+						<f:facet name="header"><h:commandButton actionListener='#{consultaCupomController.redirecionar("/pages/admin/cadastrarCupom.xhtml")}'
+						value="+"></h:commandButton></f:facet>
 						<h:commandButton value="Editar"
 							actionListener="#{consultaCupomController.selectCupom(obj)}"></h:commandButton>
 						</h:column>

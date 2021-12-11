@@ -64,12 +64,15 @@
 					</div>
 
 					<h:commandButton value="Cadastrar"
-						actionListener="#{cadastrarEmpresaController.incluir()}"></h:commandButton>
+						actionListener="#{cadastrarEmpresaController.incluir()}"
+						rendered="#{cadastrarEmpresaController.empresaForm.nome == null}"></h:commandButton>
 					<h:commandButton value="Atualizar"
+						rendered="#{cadastrarEmpresaController.empresaForm.nome != null}"
 						actionListener="#{cadastrarEmpresaController.atualizar()}" ></h:commandButton>
 				</h:form>
 				<h:form>
 					<h:commandButton value="Excluir"
+						rendered="#{cadastrarEmpresaController.empresaForm.nome != null}"
 						actionListener="#{cadastrarEmpresaController.excluir()}" >
 							<f:ajax execute="@this" render="fa fb"></f:ajax></h:commandButton>
 						</h:form>

@@ -46,14 +46,17 @@
 						</div>
 
 						<h:commandButton value="Cadastrar"
+							rendered="#{cadastrarCupomController.cupomForm.codigo == null}"
 							actionListener="#{cadastrarCupomController.incluir()}"
 							></h:commandButton>
 						<h:commandButton value="Atualizar"
+							rendered="#{cadastrarCupomController.cupomForm.codigo != null}"
 							actionListener="#{cadastrarCupomController.alterar()}"></h:commandButton>
 					</div>
 				</h:form>
 				<h:form>
 					<h:commandButton value="Excluir"
+						rendered="#{cadastrarCupomController.cupomForm.codigo != null}"
 						actionListener="#{cadastrarCupomController.excluir()}">
 						<f:ajax execute="@this" render="fa fb"></f:ajax>
 					</h:commandButton>
