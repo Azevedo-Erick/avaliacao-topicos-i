@@ -7,87 +7,87 @@
 <h:head>
 	<title>Hello, World!</title>
 	<meta charset="utf-8"></meta>
-	
+
 </h:head>
 <h:body>
 	<ui:composition template="../template.xhtml">
 		<ui:define name="conteudo">
 			<div class="cadastro-container">
-			<div class="voltar-titulo-container">
-			<h:form>
-				<h:commandButton value="Voltar" onclick="history.go(-1); return false;"></h:commandButton>
-			</h:form>
-				<h1>Cadastrar Usuario</h1>
+				<div class="voltar-titulo-container">
+					<h:form>
+						<h:commandButton value="Voltar"
+							onclick="history.go(-1); return false;"></h:commandButton>
+					</h:form>
+					<h1>Cadastrar Usuario</h1>
 				</div>
-				<div class="warns-container"> 
-				<p>Logs:</p>
-				<h:form id="fb">
-				<h:messages 
-					errorStyle="color:red" 
-					warnStyle="color:orange" 
-					infoStyle="color:green"
-					globalOnly="false"/>
-				</h:form>
-				</div>
-			<h:form id="fa">
-				
-		<div class="form-intern-container">
-			<div class="cadastro-container-row">
-				<h:outputText value="Nome"></h:outputText>
-				<h:inputText value="#{cadastrarUsuarioController.usuarioForm.nome}"
-				required="true" requiredMessage="O nome deve ser informado"
-				></h:inputText>
-			</div>
-			
-			<div class="cadastro-container-row">
-				<h:outputText value="CPF"></h:outputText>
-				<h:inputText value="#{cadastrarUsuarioController.usuarioForm.cpf}"
-				required="true" requiredMessage="O CPF deve ser informado"
-				></h:inputText>
-			</div>
-			
-			<div class="cadastro-container-row">
-				<h:outputText value="Data de Nascimento"></h:outputText>
-				<h:inputText a:type="date" value="#{cadastrarUsuarioController.usuarioForm.dataNascimento}"
-				required="true" requiredMessage="A data de nascimento deve ser informada"
-				><f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/></h:inputText>
-			</div>
-			
-			<div class="cadastro-container-row">
-				<h:outputText value="Email"></h:outputText>
-				<h:inputText value="#{cadastrarUsuarioController.usuarioForm.email}"
-				required="true" requiredMessage="O email deve ser informado"
-				></h:inputText>
-			</div>
-			
-			
-			<div class="cadastro-container-row">
-				<h:outputText value="Senha"></h:outputText>
-				<h:inputSecret value="#{cadastrarUsuarioController.usuarioForm.senha}"
-				required="true" requiredMessage="A senha deve ser informada"
-				></h:inputSecret>
-			</div>
-			<h:selectOneMenu  rendered="#{cadastrarUsuarioController.usuarioLogado.perfil.id == 1 ? 'true': 'false'}" value="#{cadastrarUsuarioController.usuarioForm.perfil}" required="true" requiredMessage="A unidade de medida deve ser infomada">
-					<f:selectItem itemLabel="Selecione um Perfil ...." />
-					<f:selectItems var="obj"
-						value="#{cadastrarUsuarioController.perfis}"
-						itemLabel="#{obj.label}"  />
-				</h:selectOneMenu>
-				
-				 <h:commandButton value="Cadastrar"
-					actionListener="#{cadastrarUsuarioController.cadastrar()}"
-						rendered="#{cadastrarUsuarioController.usuarioForm.perfil == null}"></h:commandButton>
-				<h:commandButton value="Atualizar" rendered="#{cadastrarUsuarioController.usuarioForm.perfil != null}"
-						actionListener="#{cadastrarUsuarioController.atualizar()}"
-							></h:commandButton>
+				<h:form id="fa">
+
+					<div class="form-intern-container">
+						<div class="cadastro-container-row">
+							<h:inputText
+								value="#{cadastrarUsuarioController.usuarioForm.nome}"
+								a:placeholder="Nome" required="true"
+								requiredMessage="O nome deve ser informado"></h:inputText>
+							<h:inputText a:placeholder="CPF"
+								value="#{cadastrarUsuarioController.usuarioForm.cpf}"
+								required="true" requiredMessage="O CPF deve ser informado"></h:inputText>
 						</div>
-			</h:form>
-			<h:form>
-				<h:commandButton value="Excluir" rendered="#{cadastrarUsuarioController.usuarioForm.perfil != null}"
+
+
+
+						<div class="cadastro-container-row">
+							<h:inputText a:type="date"
+								value="#{cadastrarUsuarioController.usuarioForm.dataNascimento}"
+								required="true"
+								requiredMessage="A data de nascimento deve ser informada">
+								<f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+							</h:inputText>
+								<div class="warns-container">
+					<p>Logs:</p>
+					<h:form id="fb">
+						<h:messages errorStyle="color:red" warnStyle="color:orange"
+							infoStyle="color:green" globalOnly="false" />
+					</h:form>
+				</div>
+						</div>
+
+						<div class="cadastro-container-row">
+							<h:inputText a:placeholder="Email"
+								value="#{cadastrarUsuarioController.usuarioForm.email}"
+								required="true" requiredMessage="O email deve ser informado"></h:inputText>
+
+							<h:inputSecret a:placeholder="Senha"
+								value="#{cadastrarUsuarioController.usuarioForm.senha}"
+								required="true" requiredMessage="A senha deve ser informada"></h:inputSecret>
+						</div>
+
+
+						<h:selectOneMenu
+							rendered="#{cadastrarUsuarioController.usuarioLogado.perfil.id == 1 ? 'true': 'false'}"
+							value="#{cadastrarUsuarioController.usuarioForm.perfil}"
+							required="true"
+							requiredMessage="A unidade de medida deve ser infomada">
+							<f:selectItem itemLabel="Selecione um Perfil ...." />
+							<f:selectItems var="obj"
+								value="#{cadastrarUsuarioController.perfis}"
+								itemLabel="#{obj.label}" />
+						</h:selectOneMenu>
+
+						<h:commandButton value="Cadastrar"
+							actionListener="#{cadastrarUsuarioController.cadastrar()}"
+							rendered="#{cadastrarUsuarioController.usuarioForm.perfil == null}"></h:commandButton>
+						<h:commandButton value="Atualizar"
+							rendered="#{cadastrarUsuarioController.usuarioForm.perfil != null}"
+							actionListener="#{cadastrarUsuarioController.atualizar()}"></h:commandButton>
+					</div>
+				</h:form>
+				<h:form>
+					<h:commandButton value="Excluir"
+						rendered="#{cadastrarUsuarioController.usuarioForm.perfil != null}"
 						actionListener="#{cadastrarUsuarioController.remover()}">
 						<f:ajax execute="@this" render="fa fb"></f:ajax>
-						</h:commandButton>
-			</h:form>
+					</h:commandButton>
+				</h:form>
 			</div>
 		</ui:define>
 	</ui:composition>
