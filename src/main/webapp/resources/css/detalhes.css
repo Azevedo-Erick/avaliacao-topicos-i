@@ -52,14 +52,61 @@
 }
 
 
-.detalhes-jogo-container{
+.detalhes-venda-container{
+	display: flex;
+	flex-direction: column;
+	padding: 10px 30px;
+	border-radius: 15px;
+	background-color:  #111b2a;
+	width: 60vw;
+	justify-content:space-between;
+	height: 70vh;
+	align-items: center;
+	font-family: Montserrat;
+	box-shadow:1px 1px 7px 1px #000;
+	font-size:22px;
+	color:#fff;
+	border: 1px solid #000;
+}
+.detalhes-venda-list{
+	display: flex;
+	flex-direction: column;
+	overflow-y: scroll;
+	height: 60%;
+	width: 70%;
+	background-color:  #0f1926;
+	padding: 15px;
+	align-items: center;
+	box-shadow: 2px 2px 3px #000;
+	border-radius: 15px;
+	border:1px #000 solid;
+	
 	
 }
-
-.details-container{
-	
+.details-venda-info{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	height: 100px;
+	align-items:center;
+    width: 100%;
+    background-color:  #182332;
+    box-shadow: 1px 1px 3px #000;
+	border: 1px #000 solid;
 }
 
 .venda-list-tile{
-	
+	width:70%;
+	background-color:  #0a1524;
+	border-radius:5px;
+	padding:15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	box-shadow: 1px 1px 3px #000;
+	border: 1px #000 solid;
+}
+venda-list-tile-column{
+	display: flex;
+	flex-direction: column;
 }
