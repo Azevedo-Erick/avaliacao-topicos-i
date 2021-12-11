@@ -11,11 +11,11 @@
 	- [x] Conversores
 	- [x] Validadores 
 - [x] Implementar o que está faltando no sistema (Como por exemplo o total da venda)
-- [x] Todas as telas do e-commerce (Venda, Carrinho, Histórico e Detelhes)
+- [x] Todas as telas do e-commerce (Venda, Carrinho, Histórico e Detalhes)
 	- [x] Venda
 	- [x] Carrinho
 	- [x] Histórico
-	- [x] Detalhes Histórico
+	- [] Detalhes Histórico
 - [x] MVC está correto
 - [x] Ajax
 - [x] Inteface
