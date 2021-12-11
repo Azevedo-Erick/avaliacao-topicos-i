@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.unitins.topicos.a2.models.Usuario;
+import br.unitins.topicos.a2.util.Session;
 
 @WebFilter(filterName = "AdminFilter", urlPatterns = {"/pages/admin/*"} )
 public class AdminFilter implements Filter{
@@ -25,16 +26,21 @@ public class AdminFilter implements Filter{
 		// retorna uma sessao corrente (false - nao cria uma nova estrutura de sessao)
 				HttpSession session =  servletRequest.getSession(false);
 				Usuario usuarioLogado = null;
-				if (session != null)
+				if (session != null) {
 					usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+				}
 				
-				// se estiver logado, redirecionar para o index
+				// se nao for admin ou nao estiver logado, redirecionar para o index
+				if(usuarioLogado != null) {
 				if (usuarioLogado.getPerfil().getId() == 2) {
-					((HttpServletResponse)response).sendRedirect("/pages/index.xhtml");
-				} else {
+					((HttpServletResponse)response).sendRedirect("/A2/pages/index.xhtml");
+				}
+				} else if(usuarioLogado == null) {
+					((HttpServletResponse)response).sendRedirect("/A2/pages/index.xhtml");
+				}
 						// permitindo a execucao completa do protocolo
 						chain.doFilter(request, response);
-					} 
+					 
 				}
 	
 	@Override
