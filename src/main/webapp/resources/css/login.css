@@ -66,3 +66,13 @@
 	
 	text-shadow: 1px 1px 1px #000;
 }
+
+.form-s-conta>a{
+	text-decoration: none;
+}
+.form-s-conta>a:visited{
+	text-decoration: none;
+}
+.form-s-conta>a:link {
+	text-decoration: none;
+}

@@ -12,10 +12,16 @@
 <h:body onload="#{carrinhoController.click()}">
 	<ui:composition template="./template.xhtml">
 		<ui:define name="conteudo">
-		<div>
+		<div class="lista-compras">
 			<ui:repeat var="obj" value="#{historicoVendaController.listaVenda}">
-				<p>Compra realizada em #{obj.data}</p>
-				<p>Valor #{obj.totalVenda}</p>
+			<div class="list-tile">
+			<div>
+			</div>
+				<div class="tile-content">
+					<p>Compra realizada em #{obj.formatDate()} às #{obj.formatTime()}</p>
+					<p class="value">R$#{obj.formatPrice()}</p>
+				</div>
+				</div>
 			</ui:repeat>
 				</div>
 		</ui:define>

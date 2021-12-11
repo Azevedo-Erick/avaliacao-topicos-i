@@ -1,8 +1,12 @@
 package br.unitins.topicos.a2.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
+import br.unitins.topicos.a2.util.Utils;
 
 public class Carrinho {
 	private Integer id;
@@ -69,5 +73,21 @@ public class Carrinho {
 
 	public void setListaJogoVenda(List<JogosVenda> listaJogoVenda) {
 		this.listaJogoVenda = listaJogoVenda;
+	}
+	
+	public String formatDate() {
+		DateTimeFormatter fomatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		return this.data.format(fomatter);
+	}
+	
+	public String formatTime() {
+		DateTimeFormatter fomatter = DateTimeFormatter.ofPattern("hh:mm");
+		
+		return this.data.format(fomatter);
+	}
+	
+	public String formatPrice() {
+		return Utils.formatPrice(this.totalVenda);
 	}
 }

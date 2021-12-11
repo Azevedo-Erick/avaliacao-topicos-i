@@ -32,14 +32,14 @@
 					</div>
 					<div class="buttons-container">
 						<h:commandButton value="Login"
+						class="buttom"
 							actionListener="#{loginController.login()}"></h:commandButton>
-					</div>
-				</h:form>
-				<h:form>
-					<h:commandLink value="Não tenho conta"
+					<h:commandButton value="Não tenho conta"
+						class="buttom"
 						actionListener='#{loginController.redirecionar("/pages/cadastro.xhtml")}'>
 						<f:ajax render="@this" execute="@form" />
-					</h:commandLink>
+					</h:commandButton>
+					</div>
 				</h:form>
 			</div>
 		</ui:define>
