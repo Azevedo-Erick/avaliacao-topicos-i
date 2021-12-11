@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import br.unitins.topicos.a2.models.Cupom;
 import br.unitins.topicos.a2.models.Jogo;
 
 public class JogoDao implements Dao<Jogo>{
@@ -91,6 +93,54 @@ public class JogoDao implements Dao<Jogo>{
 			}
 		}
 		return result;
+	}
+	
+	public Jogo verificarJogo(String nome) {
+		Connection conn = Dao.getConnection();
+		String sql = "SELECT id_jogo, nome, preco, empresa, plataforma, genero, data_lancamento, descricao_jogo, classificacao_indicativa, imagem FROM jogo WHERE nome = ?";
+		if (conn == null)
+			return null;
+
+		PreparedStatement stat = null;
+		ResultSet rs = null;
+		Jogo jogo = null;
+
+		try {
+			stat = conn.prepareStatement(sql);
+			stat.setString(1, nome);
+			rs = stat.executeQuery();
+			EmpresaDao empresaDao = new EmpresaDao();
+
+			if (rs.next()) {
+				jogo = new Jogo();
+				jogo.setId(rs.getInt("id_jogo"));
+				jogo.setNome(rs.getString("nome"));
+				jogo.setPreco(rs.getDouble("preco"));
+				jogo.setEmpresa(empresaDao.buscaPorId(rs.getInt("empresa")));
+				jogo.setPlataforma(rs.getString("plataforma"));
+				jogo.setDataLancamento(rs.getDate("data_lancamento").toLocalDate());
+				jogo.setDescricaoJogo(rs.getString("descricao_jogo"));
+
+			}
+
+		} catch (SQLException e) {
+			jogo = null;
+			e.printStackTrace();
+		} finally {
+			try {
+				stat.close();
+			} catch (SQLException e) {
+			}
+			try {
+				rs.close();
+			} catch (SQLException e) {
+			}
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		return jogo;
 	}
 
 	@Override

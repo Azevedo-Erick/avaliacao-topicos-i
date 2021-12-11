@@ -39,11 +39,13 @@ public class CadastrarEmpresaController implements Serializable{
 	
 	public void incluir() {
 		EmpresaDao dao = new EmpresaDao();
+		if(dao.verificarEmpresa(empresaForm.getNome()) == null){
 		if(dao.incluir(empresaForm)) {
 			Utils.addInfoMessage("Inclusão realizada com sucesso");
 		}else {
 			Utils.addWarnMessage("Não consegui incluir");
 		}
+		}Utils.addErrorMessage("Empresa já existe");
 		this.setEmpresaForm(null);
 	}
 	

@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.unitins.topicos.a2.models.Cupom;
 import br.unitins.topicos.a2.models.Empresa;
 public class EmpresaDao implements Dao<Empresa>{
 
@@ -113,6 +114,51 @@ public class EmpresaDao implements Dao<Empresa>{
 			}
 		}
 		return resultado;
+	}
+	
+	public Empresa verificarEmpresa(String nome) {
+		Connection conn = Dao.getConnection();
+		String sql = "SELECT id_empresa, nome, sede_empresa, ceo, data_fundacao FROM empresa WHERE nome = ?";
+		if (conn == null)
+			return null;
+
+		PreparedStatement stat = null;
+		ResultSet rs = null;
+		Empresa empresa = null;
+
+		try {
+			stat = conn.prepareStatement(sql);
+			stat.setString(1, nome);
+			rs = stat.executeQuery();
+
+			if (rs.next()) {
+				empresa = new Empresa();
+				empresa.setId(rs.getInt("id_empresa"));
+				empresa.setNome((rs.getString("nome")));
+				empresa.setSedeEmpresa(rs.getString("sede_empresa"));
+				empresa.setCeo(rs.getString("ceo"));
+				empresa.setDataFundacao(rs.getDate("data_fundacao").toLocalDate());
+
+			}
+
+		} catch (SQLException e) {
+			empresa = null;
+			e.printStackTrace();
+		} finally {
+			try {
+				stat.close();
+			} catch (SQLException e) {
+			}
+			try {
+				rs.close();
+			} catch (SQLException e) {
+			}
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		return empresa;
 	}
 	
 	public Empresa buscaPorId(int id) {

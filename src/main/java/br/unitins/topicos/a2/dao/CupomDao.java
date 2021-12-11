@@ -82,7 +82,7 @@ public class CupomDao implements Dao<Cupom> {
 		}
 		return result;
 	}
-
+	
 	@Override
 	public boolean excluir(Cupom obj) {
 		Connection conn = Dao.getConnection();

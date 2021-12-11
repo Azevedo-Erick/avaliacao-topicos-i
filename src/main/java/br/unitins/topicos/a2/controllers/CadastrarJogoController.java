@@ -84,11 +84,13 @@ public class CadastrarJogoController implements Serializable{
 	
 	public void cadastrar() {
 		JogoDao dao = new JogoDao();
+		if(dao.verificarJogo(jogoForm.getNome()) == null) {
 		if(dao.incluir(jogoForm)) {
 			Utils.addInfoMessage("Jogo cadastrado com sucesso");
 		}else {
 			Utils.addWarnMessage("Houveram problemas para cadastrar o jogo");
 		}
+		}Utils.addErrorMessage("Já existe um jogo com esse nome");
 		this.setJogoForm(null);
 	}
 	public void remover() {

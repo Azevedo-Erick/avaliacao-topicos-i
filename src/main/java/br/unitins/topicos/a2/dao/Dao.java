@@ -25,7 +25,7 @@ public interface Dao <T>{
 	 * 
 	 * create table public.usuario( id_usuario serial unique , nome varchar
 	  , cpf varchar , email varchar NOT NULL, data_nascimento date, senha varchar NOT NULL,
-	  perfil integer not null);
+	  perfil integer not null DEFAULT 2);
 	  
 	   CREATE TABLE IF NOT EXISTS public.cupom(
     	id_cupom serial NOT NULL,

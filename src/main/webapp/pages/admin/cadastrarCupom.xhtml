@@ -22,7 +22,7 @@
 					<div class="warns-container"> 
 				<p>Logs:</p>
 				<h:form id="fb">
-				<h:messages 
+				<h:messages id="messages"
 					errorStyle="color:red" 
 					warnStyle="color:orange" 
 					infoStyle="color:green"
@@ -31,7 +31,6 @@
 				</div>
 				<h:form id="fa">
 					<div class="form-intern-container">
-						
 
 						<div class="cadastro-container-row">
 							<h:outputText value="Código"></h:outputText>
@@ -39,7 +38,7 @@
 								required="true" requiredMessage="O código deve ser informado"></h:inputText>
 						</div>
 						<div class="cadastro-container-row">
-							<h:outputText value="Plataforma"></h:outputText>
+							<h:outputText value="Porcentagem"></h:outputText>
 							<h:inputText
 								value="#{cadastrarCupomController.cupomForm.porcentagem}"
 								a:type="number"
@@ -50,13 +49,11 @@
 							actionListener="#{cadastrarCupomController.incluir()}"
 							></h:commandButton>
 						<h:commandButton value="Atualizar"
-						
 							actionListener="#{cadastrarCupomController.alterar()}"></h:commandButton>
 					</div>
 				</h:form>
 				<h:form>
 					<h:commandButton value="Excluir"
-						
 						actionListener="#{cadastrarCupomController.excluir()}">
 						<f:ajax execute="@this" render="fa fb"></f:ajax>
 					</h:commandButton>

@@ -105,7 +105,7 @@ public class UsuarioDao implements Dao<Usuario>{
 	//Método de cadastro de usuário do administrador
 	public boolean cadastar(Usuario obj) {
 		boolean result = false;
-		String SQL = "insert into public.usuario(nome, cpf, email,senha,data_nascimento,perfil) values (?,?,?,?,?,?);";
+		String SQL = "insert into public.usuario(nome, cpf, email, senha, data_nascimento) values (?,?,?,?,?);";
 		PreparedStatement stat = null;
 		Connection conn=null;
 		try {
@@ -119,7 +119,6 @@ public class UsuarioDao implements Dao<Usuario>{
 			stat.setString(3, obj.getEmail());
 			stat.setString(4, Utils.hash(obj));
 			stat.setDate(5, Date.valueOf(obj.getDataNascimento()));
-			stat.setInt(6, obj.getPerfil().getId());
 			
 			stat.execute();
 			result = true;

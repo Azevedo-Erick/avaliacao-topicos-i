@@ -15,15 +15,12 @@ import br.unitins.topicos.a2.util.Utils;
 public class EditarInformacoesController implements Serializable{
 
 	private Usuario usuario;
-	
-	EditarInformacoesController(){
-		
-		if(usuario==null) {
-		this.setUsuario((Usuario) Session.getInstance().get("usuarioLogado"));
-		}
-	}
+
 	
 	public Usuario getUsuario() {
+		if(usuario==null) {
+			this.setUsuario((Usuario) Session.getInstance().get("usuarioLogado"));
+			}
 		return usuario;
 	}
 
