@@ -75,11 +75,11 @@ public class CarrinhoController implements Serializable {
 	}
 	
 	public String valorTotalComCupom() {
-		if(cupom.getPorcentagem() == 100) {
+		if(getCupom().getPorcentagem() == 100) {
 			valor = 0;
 		} else {
 		double aux;
-		aux = valor*(cupom.getPorcentagem()/100);
+		aux = valor*(getCupom().getPorcentagem()/100);
 		valor = valor-aux;
 		}
 		return formatPrice(valor);

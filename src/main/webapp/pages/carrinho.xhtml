@@ -42,7 +42,9 @@
 						<h:commandButton value="Aplicar Cupom" actionListener="#{carrinhoController.aplicarCupom()}">
 						<f:ajax execute="cupaum" render="@form"></f:ajax>
 						</h:commandButton>
-						<BR /><h:commandButton value="Finalizar Compra" actionListener="#{carrinhoController.finalizar()}"></h:commandButton>
+						<BR /><h:commandButton value="Finalizar Compra" actionListener="#{carrinhoController.finalizar()}">
+						<f:ajax execute="@this" render="messages @form"></f:ajax>
+						</h:commandButton>
 					</div>
 						<p id="total">Total: R$ #{carrinhoController.valorTotal()}</p>
 				</div>
