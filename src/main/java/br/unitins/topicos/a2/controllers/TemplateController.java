@@ -19,7 +19,13 @@ public class TemplateController implements Serializable {
 			usuarioLogado = (Usuario) Session.getInstance().get("usuarioLogado");
 		return usuarioLogado;
 	}
-
+	public String getNomeUsuario() {
+		if(usuarioLogado.getNome() != null) {
+			return usuarioLogado.getNome();
+		}else {
+		return "Usuário";
+		}
+	}
 	
 	public Integer getCarrinhoQtd() {
 		// caso nao exista o carrinho ou esteja vazio, retorna 0
