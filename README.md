@@ -15,7 +15,7 @@
 	- [x] Venda
 	- [x] Carrinho
 	- [x] Histórico
-	- [] Detalhes Histórico
+	- [ ] Detalhes Histórico
 - [x] MVC está correto
 - [x] Ajax
 - [x] Inteface
