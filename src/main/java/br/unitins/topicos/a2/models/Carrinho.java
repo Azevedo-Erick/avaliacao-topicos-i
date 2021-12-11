@@ -1,9 +1,6 @@
 package br.unitins.topicos.a2.models;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 import br.unitins.topicos.a2.util.Utils;

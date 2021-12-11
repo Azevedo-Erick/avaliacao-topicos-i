@@ -1,6 +1,9 @@
 package br.unitins.topicos.a2.models;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
+
+import br.unitins.topicos.a2.util.Utils;
 
 public class JogosVenda {
 	private Integer id;
@@ -32,6 +35,10 @@ public class JogosVenda {
 		//Não sabia onde colocar
 		this.setValor(quantidade*jogo.getPreco());
 		return valor;
+	}
+
+	public String formatPrice() {
+		return Utils.formatPrice(this.valor);
 	}
 
 	

@@ -1,12 +1,10 @@
 package br.unitins.topicos.a2.models;
 
 import java.time.LocalDate;
-
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import java.time.format.DateTimeFormatter;
 import javax.validation.constraints.PositiveOrZero;
+
+import br.unitins.topicos.a2.util.Utils;
 
 public class Jogo {
 	private Integer id;
@@ -103,6 +101,15 @@ public class Jogo {
 	}
 	public void setCategoriaGenero(String categoriaGenero) {
 		this.categoriaGenero = categoriaGenero;
+	}
+	public String formatDate() {
+		DateTimeFormatter fomatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		return this.dataLancamento.format(fomatter);
+	}
+	
+	public String formatPrice() {
+		return Utils.formatPrice(this.preco);
 	}
 
 	@Override
