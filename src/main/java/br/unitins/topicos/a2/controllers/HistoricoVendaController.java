@@ -23,7 +23,6 @@ public class HistoricoVendaController implements Serializable{
 			CarrinhoDao dao = new CarrinhoDao();
 			listaVenda = dao.obterTodos(usuario);
 		}
-		System.out.println(listaVenda.size());
 		return listaVenda;
 	}
 	public void setListaVenda(List<Carrinho> listaVenda) {
