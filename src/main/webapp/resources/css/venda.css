@@ -1,0 +1,42 @@
+.lista-compras {
+    height: 72vh;
+    width: 50vw;
+    background-color: rgb(23, 29, 36);
+    box-shadow: rgb(0, 0, 0) 1px 1px 2px 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-image: initial;
+    border-radius: 15px;
+    padding: 5px;
+}
+.list-tile {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(26, 30, 41);
+    align-items: center;
+    box-shadow: rgb(0, 0, 0) 1px 1px 2px;
+    margin: 5px 0px;
+    padding: 15px 25px;
+    border-radius: 4px;
+}
+.icon-venda{
+	color: #fafafa;
+}
+.tile-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Nunito;
+    text-shadow: rgb(0, 0, 0) 1px 1px 1px;
+    color: rgb(250, 250, 250);
+}
+.value {
+    color: green;
+}
