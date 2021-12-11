@@ -34,13 +34,15 @@ public class CadastrarCupomController implements Serializable{
 	
 	public void incluir() {
 		CupomDao dao = new CupomDao();
-		if(dao.verificarCupom(cupomForm.getCodigo()) == null) {
-		if(dao.incluir(cupomForm)) {
+		if(dao.verificarCupom(cupomForm.getCodigo()) != null) {
+			Utils.addErrorMessage("Já existe um cupom com esse nome no sistema");
+		}
+		else if(dao.incluir(cupomForm)) {
 			Utils.addInfoMessage("Cupom cadastrado com sucesso");
 		}else{
 			Utils.addWarnMessage("Houveram problemas para cadastrar o cupom");
 		}
-		} Utils.addErrorMessage("Já existe um cupom com esse nome no sistema");
+		
 		this.setCupomForm(null);
 	}
 	

@@ -57,16 +57,16 @@ public class CadastrarUsuarioController implements Serializable {
 	
 	public void cadastrar() {
 		UsuarioDao dao = new UsuarioDao();
-		if(dao.verificarUsuario(usuarioForm.getEmail(), Utils.hash(usuarioForm)) == null) {
-		if(dao.cadastar(usuarioForm)) {
+		if(dao.verificarUsuario(usuarioForm.getEmail(), Utils.hash(usuarioForm)) != null) {
+			Utils.addErrorMessage("Já existe um usuário cadastrado com esse email");
+		}
+		else if(dao.cadastar(usuarioForm)) {
 			Utils.addInfoMessage("Cadastro realizado com sucesso!");
 			
 		}else {
 			Utils.addWarnMessage("Houveram problemas para realizar o cadastro");
 		}
-		}else {
-			Utils.addErrorMessage("Já existe um usuário cadastrado com esse email");
-		}
+		
 		this.setUsuarioForm(null);
 	}
 

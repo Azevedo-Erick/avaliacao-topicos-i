@@ -27,15 +27,14 @@ public class CadastroController implements Serializable{
 	}
 	public void cadastrar() {
 		UsuarioDao dao = new UsuarioDao();
-		if(dao.verificarUsuario(usuarioForm.getEmail(), Utils.hash(usuarioForm)) == null) {
+		if(dao.verificarUsuario(usuarioForm.getEmail(), Utils.hash(usuarioForm)) != null) {
+			Utils.addErrorMessage("Já existe um usuário cadastrado com esse email");
+		}
 		if(dao.incluir(usuarioForm)) {
 			Utils.addInfoMessage("Cadastro realizado com sucesso");
 			Utils.redirect("/pages/index.xhtml");
 		}else {
 			Utils.addWarnMessage("Houveram problemas para realizar o cadastro");
-		}
-		}else {
-			Utils.addErrorMessage("Já existe um usuário cadastrado com esse email");
 		}
 		this.setUsuarioForm(null);
 	}
